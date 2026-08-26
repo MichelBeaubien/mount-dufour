@@ -2,14 +2,24 @@
     <div class="site-header__status">
         <div class="site-header__container">
             <div class="site-header__status-left">
-                <span class="site-header__status-indicator"></span>
+                <i class="fas fa-circle" aria-hidden="true"></i>
                 <span>Closed for the season</span>
             </div>
 
             <div class="site-header__status-links">
-                <a routerLink="/mountain/conditions">Conditions</a>
-                <a routerLink="/mountain/hours">Hours</a>
-                <span>Elliot Lake, Ontario</span>
+                <a routerLink="/mountain/conditions">
+                    <i class="fas fa-mountain" aria-hidden="true"></i>
+                    <span>Conditions</span>
+                </a>
+
+                <a routerLink="/mountain/hours">
+                    <i class="fas fa-clock" aria-hidden="true"></i>
+                    <span>Hours</span>
+                </a>
+
+                <span>
+                    <i class="fas fa-location-dot" aria-hidden="true"></i>&nbsp;Elliot Lake, Ontario
+                </span>
             </div>
         </div>
     </div>
@@ -40,17 +50,22 @@
 
             <div class="site-header__actions">
                 <a class="site-header__ticket-button" routerLink="/tickets/lift-tickets">
-                    Buy Tickets
+                    <i class="fas fa-ticket" aria-hidden="true"></i>
+                    <span>Buy Tickets</span>
                 </a>
 
                 <button class="site-header__menu-button"
                         type="button"
                         [attr.aria-expanded]="isMenuOpen()"
                         aria-controls="mobile-navigation"
-                        aria-label="Toggle navigation"
+                        [attr.aria-label]="isMenuOpen() ? 'Close navigation' : 'Open navigation'"
                         (click)="toggleMenu()"
                 >
-                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <i class="fas"
+                       [class.fa-bars]="!isMenuOpen()"
+                       [class.fa-xmark]="isMenuOpen()"
+                       aria-hidden="true"
+                    ></i>
                 </button>
             </div>
         </div>

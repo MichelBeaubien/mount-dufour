@@ -1,1 +1,352 @@
-<p>conditions works!</p>
+<main class="conditions">
+    <!-- PAGE HERO -->
+    <section class="conditions-hero">
+        <div class="conditions-hero__container">
+            <nav
+                class="conditions-hero__breadcrumb"
+                aria-label="Breadcrumb"
+            >
+                <a routerLink="/">
+                    Home
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <a routerLink="/mountain">
+                    Mountain
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <span>Conditions</span>
+            </nav>
+
+            <div class="conditions-hero__content">
+                <div>
+                    <span class="conditions-hero__kicker">
+                        Mountain Report
+                    </span>
+
+                    <h1>Mountain Conditions</h1>
+
+                    <p>
+                        Check current trail, lift and terrain park
+                        conditions before heading to the hill.
+                    </p>
+                </div>
+
+                <div
+                    class="conditions-hero__status"
+                    [class.is-open]="mountainStatus === 'open'"
+                    [class.is-closed]="mountainStatus === 'closed'"
+                    [class.is-hold]="mountainStatus === 'hold'"
+                >
+                    <span class="conditions-hero__status-indicator"></span>
+
+                    <div>
+                        <span>Mountain Status</span>
+
+                        <strong>
+                            {{ getStatusLabel(mountainStatus) }}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- REPORT META -->
+    <section class="report-meta">
+        <div class="report-meta__container">
+            <div class="report-meta__item">
+                <i
+                    class="fas fa-calendar-day"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <span>Season Status</span>
+                    <strong>Closed for the season</strong>
+                </div>
+            </div>
+
+            <div class="report-meta__item">
+                <i
+                    class="fas fa-clock"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <span>Last Updated</span>
+                    <strong>Season End</strong>
+                </div>
+            </div>
+
+            <a
+                class="report-meta__map"
+                routerLink="/mountain/trail-map"
+            >
+                <i
+                    class="fas fa-map"
+                    aria-hidden="true"
+                ></i>
+
+                View Trail Map
+
+                <i
+                    class="fas fa-arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- SUMMARY -->
+    <section class="conditions-summary">
+        <div class="conditions-summary__container">
+            @for (item of mountainSummary; track item.label) {
+                <article class="conditions-summary__card">
+                    <div class="conditions-summary__icon">
+                        <i
+                            [class]="item.icon"
+                            aria-hidden="true"
+                        ></i>
+                    </div>
+
+                    <div class="conditions-summary__content">
+                        <span>{{ item.label }}</span>
+
+                        <strong
+                            [class.is-open]="item.status === 'open'"
+                            [class.is-closed]="item.status === 'closed'"
+                            [class.is-hold]="item.status === 'hold'"
+                        >
+                            {{ item.value }}
+                        </strong>
+                    </div>
+                </article>
+            }
+        </div>
+    </section>
+
+
+    <!-- CONDITIONS CONTENT -->
+    <section class="conditions-content">
+        <div class="conditions-content__container">
+
+            <!-- TRAILS -->
+            <section class="conditions-panel">
+                <header class="conditions-panel__header">
+                    <div>
+                        <span class="section-kicker">
+                            Trail Report
+                        </span>
+
+                        <h2>Trails</h2>
+                    </div>
+
+                    <span class="conditions-panel__count">
+                        0 of {{ mountainTrails.length }} open
+                    </span>
+                </header>
+
+                <div class="conditions-table">
+
+                    <div class="conditions-table__header">
+                        <span>Trail</span>
+                        <span>Difficulty</span>
+                        <span>Groomed</span>
+                        <span>Status</span>
+                    </div>
+
+                    @for (trail of mountainTrails; track trail.name) {
+                        <div class="conditions-table__row">
+
+                            <div class="conditions-table__name">
+                                <span
+                                    class="trail-symbol"
+                                    [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
+                                    [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
+                                    [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
+                                    aria-hidden="true"
+                                ></span>
+
+                                <strong>{{ trail.name }}</strong>
+                            </div>
+
+                            <span class="conditions-table__difficulty">
+                                @switch (trail.difficulty) {
+                                    @case ('beginner') {
+                                        Beginner
+                                    }
+                                    @case ('intermediate') {
+                                        Intermediate
+                                    }
+                                    @case ('advanced') {
+                                        Advanced
+                                    }
+                                }
+                            </span>
+
+                            <span class="conditions-table__groomed">
+                                @if (trail.groomed) {
+                                    <i
+                                        class="fas fa-check"
+                                        aria-hidden="true"
+                                    ></i>
+
+                                    Yes
+                                } @else {
+                                    <span>—</span>
+                                }
+                            </span>
+
+                            <span
+                                class="status-badge"
+                                [class.status-badge--open]="trail.status === 'open'"
+                                [class.status-badge--closed]="trail.status === 'closed'"
+                                [class.status-badge--hold]="trail.status === 'hold'"
+                            >
+                                <span></span>
+
+                                {{ getStatusLabel(trail.status) }}
+                            </span>
+
+                        </div>
+                    }
+                </div>
+            </section>
+
+
+            <!-- LIFTS -->
+            <section class="conditions-panel">
+                <header class="conditions-panel__header">
+                    <div>
+                        <span class="section-kicker">
+                            Lift Report
+                        </span>
+
+                        <h2>Lifts</h2>
+                    </div>
+
+                    <span class="conditions-panel__count">
+                        0 of {{ mountainLifts.length }} open
+                    </span>
+                </header>
+
+                <div class="lift-grid">
+                    @for (lift of mountainLifts; track lift.name) {
+                        <article class="lift-card">
+                            <div class="lift-card__icon">
+                                <i
+                                    class="fas fa-cable-car"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+
+                            <div class="lift-card__content">
+                                <span>{{ lift.type }}</span>
+                                <h3>{{ lift.name }}</h3>
+                            </div>
+
+                            <span
+                                class="status-badge"
+                                [class.status-badge--open]="lift.status === 'open'"
+                                [class.status-badge--closed]="lift.status === 'closed'"
+                                [class.status-badge--hold]="lift.status === 'hold'"
+                            >
+                                <span></span>
+
+                                {{ getStatusLabel(lift.status) }}
+                            </span>
+                        </article>
+                    }
+                </div>
+            </section>
+
+
+            <!-- TERRAIN PARK -->
+            <section class="terrain-park">
+                <div class="terrain-park__icon">
+                    <i
+                        class="fas fa-person-snowboarding"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <div class="terrain-park__content">
+                    <span class="section-kicker">
+                        Terrain Park
+                    </span>
+
+                    <h2>Terrain Park</h2>
+
+                    <p>
+                        Terrain park availability depends on snow
+                        conditions and seasonal operations.
+                    </p>
+                </div>
+
+                <span class="status-badge status-badge--closed">
+                    <span></span>
+                    Closed
+                </span>
+            </section>
+
+
+            <!-- LEGEND -->
+            <section class="trail-legend">
+                <div class="trail-legend__heading">
+                    <i
+                        class="fas fa-circle-info"
+                        aria-hidden="true"
+                    ></i>
+
+                    <strong>Trail Difficulty</strong>
+                </div>
+
+                <div class="trail-legend__items">
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--beginner"
+                            aria-hidden="true"
+                        ></span>
+
+                        Beginner
+                    </div>
+
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--intermediate"
+                            aria-hidden="true"
+                        ></span>
+
+                        Intermediate
+                    </div>
+
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--advanced"
+                            aria-hidden="true"
+                        ></span>
+
+                        Advanced
+                    </div>
+                </div>
+
+                <p>
+                    Trail and lift conditions can change throughout
+                    the day due to weather and mountain operations.
+                </p>
+            </section>
+        </div>
+    </section>
+</main>

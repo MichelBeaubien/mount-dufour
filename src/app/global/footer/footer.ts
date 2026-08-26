@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FOOTER_NAV_ITEMS } from '../../config/tokens/nav-items.tokens';
 
 @Component({
     imports: [
-        RouterLink
+        RouterLink,
+        RouterLinkActive
     ],
     selector: 'app-footer',
     styleUrl: './footer.scss',

@@ -2,29 +2,21 @@
     <div class="site-footer__main">
         <div class="site-footer__container">
             <div class="site-footer__brand">
-                <a
-                    class="site-footer__logo"
-                    routerLink="/"
-                >
+                <a class="site-footer__logo" routerLink="/">
                     <span>Mount Dufour</span>
                     <small>Ski Area</small>
                 </a>
 
-                <p>
-                    Elliot Lake's community ski hill.
-                    No lines. More skiing.
-                </p>
+                <p>Elliot Lake's community ski hill. No lines. More skiing.</p>
 
                 <address>
-                    10 Ski Hill Road<br>
-                    Elliot Lake, Ontario
+                    <i class="fas fa-location-dot" aria-hidden="true"></i>
+                    <span>10 Ski Hill Road<br>Elliot Lake, Ontario</span>
                 </address>
 
-                <a
-                    class="site-footer__phone"
-                    href="tel:+17058486655"
-                >
-                    705-848-6655
+                <a class="site-footer__phone" href="tel:+17058486655">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>705-848-6655</span>
                 </a>
             </div>
 
@@ -35,8 +27,12 @@
 
                         <nav [attr.aria-label]="section.title">
                             @for (link of section.links; track link.route) {
-                                <a [routerLink]="link.route">
-                                    {{ link.name }}
+                                <a [routerLink]="link.route"
+                                   routerLinkActive="is-active"
+                                   [routerLinkActiveOptions]="{ exact: true }"
+                                >
+                                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                                    <span>{{ link.name }}</span>
                                 </a>
                             }
                         </nav>
@@ -48,19 +44,11 @@
 
     <div class="site-footer__bottom">
         <div class="site-footer__container">
-            <p>
-                © {{ year }} Mount Dufour Ski Area.
-                All rights reserved.
-            </p>
+            <p>© {{ year }} Mount Dufour Ski Area. All rights reserved.</p>
 
             <div class="site-footer__bottom-links">
-                <a routerLink="/accessibility">
-                    Accessibility
-                </a>
-
-                <a routerLink="/privacy">
-                    Privacy
-                </a>
+                <a routerLink="/accessibility">Accessibility</a>
+                <a routerLink="/privacy">Privacy</a>
             </div>
         </div>
     </div>

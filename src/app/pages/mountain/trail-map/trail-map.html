@@ -1,1 +1,253 @@
-<p>trail-map works!</p>
+<main class="trail-map">
+    <!-- HERO -->
+    <section class="trail-map-hero">
+        <div class="trail-map-hero__container">
+            <nav
+                class="trail-map-hero__breadcrumb"
+                aria-label="Breadcrumb"
+            >
+                <a routerLink="/">
+                    Home
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <a routerLink="/mountain">
+                    Mountain
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <span>Trail Map</span>
+            </nav>
+
+            <div class="trail-map-hero__content">
+                <div>
+                    <span class="trail-map-hero__kicker">
+                        Explore the Mountain
+                    </span>
+
+                    <h1>Trail Map</h1>
+
+                    <p>
+                        Seven trails, two lifts and terrain for every
+                        kind of day on the mountain.
+                    </p>
+                </div>
+
+                <a
+                    class="trail-map-hero__conditions"
+                    routerLink="/mountain/conditions"
+                >
+                    <i
+                        class="fas fa-snowflake"
+                        aria-hidden="true"
+                    ></i>
+
+                    <div>
+                        <span>Before You Ride</span>
+                        <strong>Check Conditions</strong>
+                    </div>
+
+                    <i
+                        class="fas fa-arrow-right"
+                        aria-hidden="true"
+                    ></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- MAP -->
+    <section class="mountain-map">
+        <div class="mountain-map__container">
+            <header class="mountain-map__header">
+                <div>
+                    <span class="section-kicker">
+                        Mount Dufour Ski Area
+                    </span>
+
+                    <h2>Find your run.</h2>
+                </div>
+
+                <div class="mountain-map__legend">
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--beginner"
+                            aria-hidden="true"
+                        ></span>
+
+                        Beginner
+                    </div>
+
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--intermediate"
+                            aria-hidden="true"
+                        ></span>
+
+                        Intermediate
+                    </div>
+
+                    <div>
+                        <span
+                            class="trail-symbol trail-symbol--advanced"
+                            aria-hidden="true"
+                        ></span>
+
+                        Advanced
+                    </div>
+                </div>
+            </header>
+
+            <div class="mountain-map__image">
+                <img src="/assets/images/mountain/find-your-run.jpg" alt="Mount Dufour ski area trail map">
+
+                <a
+                    class="mountain-map__expand"
+                    href="/assets/images/mountain/find-your-run.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i
+                        class="fas fa-expand"
+                        aria-hidden="true"
+                    ></i>
+
+                    View Full Size
+                </a>
+            </div>
+
+            <p class="mountain-map__notice">
+                Trail availability can change throughout the day.
+                Check current mountain conditions before heading out.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- STATS -->
+    <section class="mountain-stats">
+        <div class="mountain-stats__container">
+            @for (stat of mountainStats; track stat.label) {
+                <article class="mountain-stats__item">
+                    <i
+                        [class]="stat.icon"
+                        aria-hidden="true"
+                    ></i>
+
+                    <strong>{{ stat.value }}</strong>
+
+                    <span>{{ stat.label }}</span>
+                </article>
+            }
+        </div>
+    </section>
+
+
+    <!-- TRAILS -->
+    <section class="trail-directory">
+        <div class="trail-directory__container">
+            <header class="trail-directory__header">
+                <div>
+                    <span class="section-kicker">
+                        The Mountain
+                    </span>
+
+                    <h2>Seven trails to explore.</h2>
+                </div>
+
+                <p>
+                    From gentle beginner terrain to steeper runs,
+                    Mount Dufour offers a variety of terrain right
+                    in the heart of Elliot Lake.
+                </p>
+            </header>
+
+            <div class="trail-directory__grid">
+                @for (trail of mountainTrails; track trail.name) {
+                    <article class="trail-card">
+                        <div
+                            class="trail-card__symbol"
+                            [class.trail-card__symbol--beginner]="trail.difficulty === 'beginner'"
+                            [class.trail-card__symbol--intermediate]="trail.difficulty === 'intermediate'"
+                            [class.trail-card__symbol--advanced]="trail.difficulty === 'advanced'"
+                        >
+                            <span
+                                class="trail-symbol"
+                                [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
+                                [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
+                                [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
+                                aria-hidden="true"
+                            ></span>
+                        </div>
+
+                        <div class="trail-card__content">
+                            <span>
+                                @switch (trail.difficulty) {
+                                    @case ('beginner') {
+                                        Beginner
+                                    }
+                                    @case ('intermediate') {
+                                        Intermediate
+                                    }
+                                    @case ('advanced') {
+                                        Advanced
+                                    }
+                                }
+                            </span>
+
+                            <h3>{{ trail.name }}</h3>
+                        </div>
+
+                        <i
+                            class="fas fa-mountain"
+                            aria-hidden="true"
+                        ></i>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- CONDITIONS CTA -->
+    <section class="conditions-cta">
+        <div class="conditions-cta__container">
+            <div class="conditions-cta__icon">
+                <i
+                    class="fas fa-cloud-sun"
+                    aria-hidden="true"
+                ></i>
+            </div>
+
+            <div class="conditions-cta__content">
+                <span class="section-kicker">
+                    Heading to the Hill?
+                </span>
+
+                <h2>Know before you go.</h2>
+
+                <p>
+                    Check trail, lift and terrain park status before
+                    your next day at Mount Dufour.
+                </p>
+            </div>
+
+            <a routerLink="/mountain/conditions">
+                View Conditions
+
+                <i
+                    class="fas fa-arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+        </div>
+    </section>
+</main>
