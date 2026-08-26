@@ -1,1 +1,231 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/reset';
+@use 'mixins' as *;
+
+:root {
+    // ============================================
+    // BRAND
+    // ============================================
+
+    --color-primary: #176B87;
+    --color-primary-hover: #12566D;
+    --color-primary-soft: #DCEEF3;
+
+    --color-secondary: #234E52;
+    --color-secondary-hover: #193C3F;
+    --color-secondary-soft: #DCE9E8;
+
+    --color-accent: #E69B36;
+    --color-accent-hover: #CF8425;
+    --color-accent-soft: #F9EAD4;
+
+
+    // ============================================
+    // BACKGROUNDS / SURFACES
+    // ============================================
+
+    --color-background: #F5F8FA;
+    --color-background-alt: #EAF0F3;
+
+    --color-surface: #FFFFFF;
+    --color-surface-alt: #EEF3F5;
+    --color-surface-raised: #FFFFFF;
+
+
+    // ============================================
+    // TEXT
+    // ============================================
+
+    --color-text: #17252D;
+    --color-text-muted: #60727C;
+    --color-text-subtle: #81919A;
+
+    --color-heading: #102A36;
+
+    --color-text-inverse: #FFFFFF;
+
+
+    // ============================================
+    // BORDERS
+    // ============================================
+
+    --color-border: #D7E0E5;
+    --color-border-light: #E8EEF1;
+    --color-border-strong: #B6C4CB;
+
+
+    // ============================================
+    // STATES
+    // ============================================
+
+    --color-success: #32845A;
+    --color-success-soft: #DFF2E7;
+
+    --color-warning: #D4912E;
+    --color-warning-soft: #FAECD5;
+
+    --color-danger: #C94A4A;
+    --color-danger-soft: #F7DDDD;
+
+    --color-info: #347FA1;
+    --color-info-soft: #DCECF3;
+
+
+    // ============================================
+    // MOUNTAIN STATUS
+    // ============================================
+
+    --color-open: #32845A;
+    --color-closed: #C94A4A;
+    --color-hold: #D4912E;
+
+    --color-groomed: #347FA1;
+
+    --color-snow: #FFFFFF;
+    --color-ice: #D9EDF4;
+
+
+    // ============================================
+    // TRAIL DIFFICULTY
+    // ============================================
+
+    --color-trail-beginner: #3A9D5D;
+    --color-trail-intermediate: #347FA1;
+    --color-trail-advanced: #252B30;
+    --color-trail-expert: #252B30;
+
+
+    // ============================================
+    // LINKS
+    // ============================================
+
+    --color-link: var(--color-primary);
+    --color-link-hover: var(--color-primary-hover);
+
+
+    // ============================================
+    // HEADER
+    // ============================================
+
+    --header-background: rgba(255, 255, 255, 0.94);
+    --header-text: #17252D;
+    --header-border: rgba(16, 42, 54, 0.1);
+
+    --status-bar-background: #102A36;
+    --status-bar-text: #FFFFFF;
+
+
+    // ============================================
+    // FOOTER
+    // ============================================
+
+    --footer-background: #0B222C;
+    --footer-surface: #102E39;
+
+    --footer-text: #FFFFFF;
+    --footer-text-muted: #9EB1BA;
+
+    --footer-border: rgba(255, 255, 255, 0.1);
+
+
+    // ============================================
+    // BUTTONS
+    // ============================================
+
+    --button-primary-background: var(--color-primary);
+    --button-primary-background-hover: var(--color-primary-hover);
+    --button-primary-text: #FFFFFF;
+
+    --button-secondary-background: var(--color-secondary);
+    --button-secondary-background-hover: var(--color-secondary-hover);
+    --button-secondary-text: #FFFFFF;
+
+
+    // ============================================
+    // SHADOWS
+    // ============================================
+
+    --shadow-sm: 0 2px 8px rgba(16, 42, 54, 0.06);
+
+    --shadow-md: 0 8px 24px rgba(16, 42, 54, 0.1);
+
+    --shadow-lg: 0 20px 50px rgba(16, 42, 54, 0.14);
+
+
+    // ============================================
+    // RADIUS
+    // ============================================
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+    --radius-pill: 999px;
+
+
+    // ============================================
+    // TRANSITIONS
+    // ============================================
+
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+
+
+    // ============================================
+    // LAYOUT
+    // ============================================
+
+    --container-width: 1440px;
+    --container-padding: 32px;
+
+    --header-height: 82px;
+    --status-bar-height: 38px;
+
+
+    // ============================================
+    // FOCUS
+    // ============================================
+
+    --color-focus: #4AA3C3;
+
+    --focus-ring: 0 0 0 3px rgba(74, 163, 195, 0.3);
+}
+
+html {
+    background: var(--color-background);
+    color-scheme: light;
+}
+
+html[data-theme='dark'] {
+    color-scheme: dark;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-heading);
+}
+
+a {
+    color: var(--color-link);
+}
+
+::selection {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}

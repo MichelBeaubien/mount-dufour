@@ -1,0 +1,102 @@
+<header class="site-header">
+    <div class="site-header__status">
+        <div class="site-header__container">
+            <div class="site-header__status-left">
+                <span class="site-header__status-indicator"></span>
+                <span>Closed for the season</span>
+            </div>
+
+            <div class="site-header__status-links">
+                <a routerLink="/mountain/conditions">Conditions</a>
+                <a routerLink="/mountain/hours">Hours</a>
+                <span>Elliot Lake, Ontario</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-header__main">
+        <div class="site-header__container">
+            <a class="site-header__brand"
+               routerLink="/"
+               (click)="closeMenu()"
+               aria-label="Mount Dufour home"
+            >
+                <span class="site-header__brand-name">
+                    Mount Dufour
+                </span>
+
+                <span class="site-header__brand-subtitle">
+                    Ski Area
+                </span>
+            </a>
+
+            <nav class="site-header__desktop-nav" aria-label="Primary navigation">
+                @for (item of navItems; track item.route) {
+                    <a [routerLink]="item.route" routerLinkActive="is-active">
+                        {{ item.name }}
+                    </a>
+                }
+            </nav>
+
+            <div class="site-header__actions">
+                <a class="site-header__ticket-button" routerLink="/tickets/lift-tickets">
+                    Buy Tickets
+                </a>
+
+                <button class="site-header__menu-button"
+                        type="button"
+                        [attr.aria-expanded]="isMenuOpen()"
+                        aria-controls="mobile-navigation"
+                        aria-label="Toggle navigation"
+                        (click)="toggleMenu()"
+                >
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-navigation"
+         class="site-header__mobile-nav"
+         [class.is-open]="isMenuOpen()"
+    >
+        <nav aria-label="Mobile navigation">
+            @for (item of navItems; track item.route) {
+                <a [routerLink]="item.route"
+                   routerLinkActive="is-active"
+                   (click)="closeMenu()"
+                >
+                    {{ item.name }}
+                </a>
+            }
+
+            <a routerLink="/mountain/conditions"
+               routerLinkActive="is-active"
+               (click)="closeMenu()"
+            >
+                Conditions
+            </a>
+
+            <a routerLink="/mountain/hours"
+               routerLinkActive="is-active"
+               (click)="closeMenu()"
+            >
+                Hours
+            </a>
+
+            <a routerLink="/contact"
+               routerLinkActive="is-active"
+               (click)="closeMenu()"
+            >
+                Contact
+            </a>
+
+            <a class="site-header__mobile-ticket-button"
+               routerLink="/tickets/lift-tickets"
+               (click)="closeMenu()"
+            >
+                Buy Tickets
+            </a>
+        </nav>
+    </div>
+</header>
