@@ -2,68 +2,52 @@
     <!-- HERO -->
     <section class="trail-map-hero">
         <div class="trail-map-hero__container">
-            <nav
-                class="trail-map-hero__breadcrumb"
-                aria-label="Breadcrumb"
-            >
+            <nav class="trail-map-hero__breadcrumb" aria-label="Breadcrumb">
                 <a routerLink="/">
                     Home
                 </a>
 
-                <i
-                    class="fas fa-chevron-right"
-                    aria-hidden="true"
-                ></i>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
 
                 <a routerLink="/mountain">
                     Mountain
                 </a>
 
-                <i
-                    class="fas fa-chevron-right"
-                    aria-hidden="true"
-                ></i>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
 
                 <span>Trail Map</span>
             </nav>
 
             <div class="trail-map-hero__content">
                 <div>
-                    <span class="trail-map-hero__kicker">
+                    <span class="section-kicker section-kicker--accent">
                         Explore the Mountain
                     </span>
 
                     <h1>Trail Map</h1>
 
                     <p>
-                        Seven trails, two lifts and terrain for every
-                        kind of day on the mountain.
+                        {{ mountainService.totalTrails() | numberWord | titlecase }}
+                        trails, {{ mountainService.totalLifts() | numberWord }} lifts and terrain for every kind of day
+                        on the mountain.
                     </p>
                 </div>
 
-                <a
-                    class="trail-map-hero__conditions"
-                    routerLink="/mountain/conditions"
+                <a class="hero-panel hero-panel--on-hover has-arrow"
+                   routerLink="/mountain/conditions"
                 >
-                    <i
-                        class="fas fa-snowflake"
-                        aria-hidden="true"
-                    ></i>
+                    <app-status-message message="Mountain Conditions"
+                                        [status]="mountainService.status()"
+                                        icon="fa-mountain"
+                                        [showTitle]="true"
+                                        title="Before You Ride"
+                    ></app-status-message>
 
-                    <div>
-                        <span>Before You Ride</span>
-                        <strong>Check Conditions</strong>
-                    </div>
-
-                    <i
-                        class="fas fa-arrow-right"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </section>
-
 
     <!-- MAP -->
     <section class="mountain-map">
@@ -79,30 +63,18 @@
 
                 <div class="mountain-map__legend">
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--beginner"
-                            aria-hidden="true"
-                        ></span>
-
-                        Beginner
+                        <i class="fas fa-circle trail-symbol trail-symbol--beginner" aria-hidden="true"></i>
+                        <span>Easiest</span>
                     </div>
 
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--intermediate"
-                            aria-hidden="true"
-                        ></span>
-
-                        Intermediate
+                        <i class="fas fa-square trail-symbol trail-symbol--intermediate" aria-hidden="true"></i>
+                        <span>More Difficult</span>
                     </div>
 
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--advanced"
-                            aria-hidden="true"
-                        ></span>
-
-                        Advanced
+                        <i class="fas fa-diamond trail-symbol trail-symbol--advanced" aria-hidden="true"></i>
+                        <span>Most Difficult</span>
                     </div>
                 </div>
             </header>
@@ -110,47 +82,34 @@
             <div class="mountain-map__image">
                 <img src="/assets/images/mountain/find-your-run.jpg" alt="Mount Dufour ski area trail map">
 
-                <a
-                    class="mountain-map__expand"
-                    href="/assets/images/mountain/find-your-run.jpg"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                <a class="mountain-map__expand btn btn--light btn--sm"
+                   href="/assets/images/mountain/find-your-run.jpg"
+                   target="_blank"
+                   rel="noopener noreferrer"
                 >
-                    <i
-                        class="fas fa-expand"
-                        aria-hidden="true"
-                    ></i>
-
-                    View Full Size
+                    <i class="fas fa-expand" aria-hidden="true"></i>
+                    <span>View Full Size</span>
                 </a>
             </div>
 
             <p class="mountain-map__notice">
-                Trail availability can change throughout the day.
-                Check current mountain conditions before heading out.
+                Trail availability can change throughout the day. Check current mountain conditions before heading out.
             </p>
         </div>
     </section>
-
 
     <!-- STATS -->
     <section class="mountain-stats">
         <div class="mountain-stats__container">
             @for (stat of mountainService.stats(); track stat.label) {
                 <article class="mountain-stats__item">
-                    <i
-                        [class]="stat.icon"
-                        aria-hidden="true"
-                    ></i>
-
+                    <i [class]="stat.icon" aria-hidden="true"></i>
                     <strong>{{ stat.value }}</strong>
-
                     <span>{{ stat.label }}</span>
                 </article>
             }
         </div>
     </section>
-
 
     <!-- TRAILS -->
     <section class="trail-directory">
@@ -174,19 +133,16 @@
             <div class="trail-directory__grid">
                 @for (trail of mountainService.trails(); track trail.name) {
                     <article class="trail-card">
-                        <div
-                            class="trail-card__symbol"
-                            [class.trail-card__symbol--beginner]="trail.difficulty === 'beginner'"
-                            [class.trail-card__symbol--intermediate]="trail.difficulty === 'intermediate'"
-                            [class.trail-card__symbol--advanced]="trail.difficulty === 'advanced'"
-                        >
-                            <span
-                                class="trail-symbol"
-                                [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
-                                [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
-                                [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
-                                aria-hidden="true"
-                            ></span>
+                        <div class="trail-card__symbol">
+                            <i class="trail-symbol fas"
+                               [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
+                               [class.fa-circle]="trail.difficulty === 'beginner'"
+                               [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
+                               [class.fa-square]="trail.difficulty === 'intermediate'"
+                               [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
+                               [class.fa-diamond]="trail.difficulty === 'advanced'"
+                               aria-hidden="true"
+                            ></i>
                         </div>
 
                         <div class="trail-card__content">
@@ -207,10 +163,7 @@
                             <h3>{{ trail.name }}</h3>
                         </div>
 
-                        <i
-                            class="fas fa-mountain"
-                            aria-hidden="true"
-                        ></i>
+                        <i class="fas fa-mountain" aria-hidden="true"></i>
                     </article>
                 }
             </div>
@@ -228,25 +181,20 @@
             </div>
 
             <div class="conditions-cta__content">
-                <span class="section-kicker">
+                <span class="section-kicker section-kicker--accent">
                     Heading to the Hill?
                 </span>
 
                 <h2>Know before you go.</h2>
 
                 <p>
-                    Check trail, lift and terrain park status before
-                    your next day at Mount Dufour.
+                    Check trail, lift and terrain park status before your next day at Mount Dufour.
                 </p>
             </div>
 
-            <a routerLink="/mountain/conditions">
-                View Conditions
-
-                <i
-                    class="fas fa-arrow-right"
-                    aria-hidden="true"
-                ></i>
+            <a class="btn btn--light btn--arrow" routerLink="/mountain/conditions">
+                <span>View Conditions</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>
         </div>
     </section>

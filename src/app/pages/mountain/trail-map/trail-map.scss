@@ -4,17 +4,6 @@
     display: block;
 }
 
-.section-kicker {
-    color: var(--color-primary);
-    display: block;
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    margin-bottom: 0.625rem;
-    text-transform: uppercase;
-}
-
-
 // ============================================
 // HERO
 // ============================================
@@ -75,16 +64,6 @@
         }
     }
 
-    &__kicker {
-        color: var(--color-accent);
-        display: block;
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-    }
-
     h1 {
         color: var(--color-text-inverse);
         font-size: clamp(3rem, 6vw, 5.5rem);
@@ -100,62 +79,6 @@
         margin: 1.5rem 0 0;
         max-width: 38rem;
         opacity: 0.72;
-    }
-
-    &__conditions {
-        align-items: center;
-        backdrop-filter: blur(8px);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: var(--radius-lg);
-        color: var(--color-text-inverse);
-        display: grid;
-        flex-shrink: 0;
-        gap: 1rem;
-        grid-template-columns: auto 1fr auto;
-        min-width: 17rem;
-        padding: 1.25rem 1.5rem;
-        text-decoration: none;
-        transition: background-color var(--transition-fast),
-        transform var(--transition-fast);
-
-        > i:first-child {
-            color: var(--color-accent);
-            font-size: 1.25rem;
-        }
-
-        > i:last-child {
-            font-size: 0.75rem;
-            opacity: 0.7;
-            transition: transform var(--transition-fast);
-        }
-
-        span,
-        strong {
-            display: block;
-        }
-
-        span {
-            font-size: 0.625rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            opacity: 0.6;
-            text-transform: uppercase;
-        }
-
-        strong {
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-
-        &:hover {
-            background: rgba(255, 255, 255, 0.13);
-            transform: translateY(-2px);
-
-            > i:last-child {
-                transform: translateX(0.25rem);
-            }
-        }
     }
 
     @include bp.down(md) {
@@ -178,11 +101,6 @@
     @include bp.down(sm) {
         &__container {
             padding: 0 1.125rem;
-        }
-
-        &__conditions {
-            min-width: 0;
-            width: 100%;
         }
     }
 }
@@ -252,32 +170,9 @@
     }
 
     &__expand {
-        align-items: center;
-        background: var(--color-surface);
-        border-radius: var(--radius-pill);
         bottom: 2rem;
-        box-shadow: var(--shadow-md);
-        color: var(--color-heading);
-        display: inline-flex;
-        font-size: 0.6875rem;
-        font-weight: 800;
-        gap: 0.5rem;
-        padding: 0.75rem 1rem;
         position: absolute;
         right: 2rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: color var(--transition-fast),
-        transform var(--transition-fast);
-
-        i {
-            color: var(--color-primary);
-        }
-
-        &:hover {
-            color: var(--color-primary);
-            transform: translateY(-2px);
-        }
     }
 
     &__notice {
@@ -332,23 +227,16 @@
 // ============================================
 
 .trail-symbol {
-    display: inline-block;
-    flex-shrink: 0;
-    height: 0.875rem;
-    width: 0.875rem;
-
     &--beginner {
-        background: var(--color-trail-beginner);
-        border-radius: 50%;
+        color: var(--color-trail-beginner);
     }
 
     &--intermediate {
-        background: var(--color-trail-intermediate);
+        color: var(--color-trail-intermediate);
     }
 
     &--advanced {
-        background: var(--color-trail-advanced);
-        transform: rotate(45deg);
+        color: var(--color-trail-advanced);
     }
 }
 
@@ -561,7 +449,7 @@
 
 .conditions-cta {
     background: var(--color-surface);
-    padding: 5rem 0;
+    padding: 5rem var(--container-padding);
 
     &__container {
         align-items: center;
@@ -589,10 +477,6 @@
     }
 
     &__content {
-        .section-kicker {
-            color: var(--color-accent);
-        }
-
         h2 {
             color: var(--footer-text);
             font-size: 2rem;

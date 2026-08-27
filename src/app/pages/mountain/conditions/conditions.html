@@ -2,46 +2,36 @@
     <!-- PAGE HERO -->
     <section class="conditions-hero">
         <div class="conditions-hero__container">
-            <nav
-                class="conditions-hero__breadcrumb"
-                aria-label="Breadcrumb"
-            >
+            <nav class="conditions-hero__breadcrumb" aria-label="Breadcrumb">
                 <a routerLink="/">
                     Home
                 </a>
 
-                <i
-                    class="fas fa-chevron-right"
-                    aria-hidden="true"
-                ></i>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
 
                 <a routerLink="/mountain">
                     Mountain
                 </a>
 
-                <i
-                    class="fas fa-chevron-right"
-                    aria-hidden="true"
-                ></i>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
 
                 <span>Conditions</span>
             </nav>
 
             <div class="conditions-hero__content">
                 <div>
-                    <span class="conditions-hero__kicker">
+                    <span class="section-kicker section-kicker--accent">
                         Mountain Report
                     </span>
 
                     <h1>Mountain Conditions</h1>
 
                     <p>
-                        Check current trail, lift and terrain park
-                        conditions before heading to the hill.
+                        Check current trail, lift and terrain park conditions before heading to the hill.
                     </p>
                 </div>
 
-                <div class="conditions-hero__status">
+                <div class="hero-panel">
                     <app-status-message [message]="getStatusLabel(mountainService.status())"
                                         [status]="mountainService.status()"
                                         [showTitle]="true"
@@ -75,22 +65,13 @@
                 ></app-status-message>
             </div>
 
-            <a class="report-meta__map" routerLink="/mountain/trail-map">
-                <i
-                    class="fas fa-map"
-                    aria-hidden="true"
-                ></i>
-
-                View Trail Map
-
-                <i
-                    class="fas fa-arrow-right"
-                    aria-hidden="true"
-                ></i>
+            <a class="report-meta__map btn btn--outline btn--sm btn--arrow" routerLink="/mountain/trail-map">
+                <i class="fas fa-map" aria-hidden="true"></i>
+                <span>View Trail Map</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>
         </div>
     </section>
-
 
     <!-- SUMMARY -->
     <section class="conditions-summary">
@@ -98,19 +79,15 @@
             @for (item of mountainService.summary(); track item.label) {
                 <article class="conditions-summary__card">
                     <div class="conditions-summary__icon">
-                        <i
-                            [class]="item.icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i [class]="item.icon" aria-hidden="true"></i>
                     </div>
 
                     <div class="conditions-summary__content">
                         <span>{{ item.label }}</span>
 
-                        <strong
-                            [class.is-open]="item.status === 'open'"
-                            [class.is-closed]="item.status === 'closed'"
-                            [class.is-hold]="item.status === 'hold'"
+                        <strong [class.is-open]="item.status === 'open'"
+                                [class.is-closed]="item.status === 'closed'"
+                                [class.is-hold]="item.status === 'hold'"
                         >
                             {{ item.value }}
                         </strong>
@@ -120,11 +97,9 @@
         </div>
     </section>
 
-
     <!-- CONDITIONS CONTENT -->
     <section class="conditions-content">
         <div class="conditions-content__container">
-
             <!-- TRAILS -->
             <section class="conditions-panel">
                 <header class="conditions-panel__header">
@@ -142,7 +117,6 @@
                 </header>
 
                 <div class="conditions-table">
-
                     <div class="conditions-table__header">
                         <span>Trail</span>
                         <span>Difficulty</span>
@@ -152,14 +126,12 @@
 
                     @for (trail of mountainService.trails(); track trail.name) {
                         <div class="conditions-table__row">
-
                             <div class="conditions-table__name">
-                                <span
-                                    class="trail-symbol"
-                                    [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
-                                    [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
-                                    [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
-                                    aria-hidden="true"
+                                <span class="trail-symbol"
+                                      [class.trail-symbol--beginner]="trail.difficulty === 'beginner'"
+                                      [class.trail-symbol--intermediate]="trail.difficulty === 'intermediate'"
+                                      [class.trail-symbol--advanced]="trail.difficulty === 'advanced'"
+                                      aria-hidden="true"
                                 ></span>
 
                                 <strong>{{ trail.name }}</strong>
@@ -181,22 +153,17 @@
 
                             <span class="conditions-table__groomed">
                                 @if (trail.groomed) {
-                                    <i
-                                        class="fas fa-check"
-                                        aria-hidden="true"
-                                    ></i>
-
+                                    <i class="fas fa-check" aria-hidden="true"></i>
                                     Yes
                                 } @else {
                                     <span>—</span>
                                 }
                             </span>
 
-                            <span
-                                class="status-badge"
-                                [class.status-badge--open]="trail.status === 'open'"
-                                [class.status-badge--closed]="trail.status === 'closed'"
-                                [class.status-badge--hold]="trail.status === 'hold'"
+                            <span class="status-badge"
+                                  [class.status-badge--open]="trail.status === 'open'"
+                                  [class.status-badge--closed]="trail.status === 'closed'"
+                                  [class.status-badge--hold]="trail.status === 'hold'"
                             >
                                 <span></span>
 
@@ -207,7 +174,6 @@
                     }
                 </div>
             </section>
-
 
             <!-- LIFTS -->
             <section class="conditions-panel">
@@ -229,10 +195,7 @@
                     @for (lift of mountainService.lifts(); track lift.name) {
                         <article class="lift-card">
                             <div class="lift-card__icon">
-                                <i
-                                    class="fas fa-cable-car"
-                                    aria-hidden="true"
-                                ></i>
+                                <i class="fas fa-cable-car" aria-hidden="true"></i>
                             </div>
 
                             <div class="lift-card__content">
@@ -240,11 +203,10 @@
                                 <h3>{{ lift.name }}</h3>
                             </div>
 
-                            <span
-                                class="status-badge"
-                                [class.status-badge--open]="lift.status === 'open'"
-                                [class.status-badge--closed]="lift.status === 'closed'"
-                                [class.status-badge--hold]="lift.status === 'hold'"
+                            <span class="status-badge"
+                                  [class.status-badge--open]="lift.status === 'open'"
+                                  [class.status-badge--closed]="lift.status === 'closed'"
+                                  [class.status-badge--hold]="lift.status === 'hold'"
                             >
                                 <span></span>
 
@@ -259,22 +221,18 @@
             <!-- TERRAIN PARK -->
             <section class="terrain-park">
                 <div class="terrain-park__icon">
-                    <i
-                        class="fas fa-person-snowboarding"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-person-snowboarding" aria-hidden="true"></i>
                 </div>
 
                 <div class="terrain-park__content">
-                    <span class="section-kicker">
+                    <span class="section-kicker section-kicker--accent">
                         Terrain Park
                     </span>
 
                     <h2>Terrain Park</h2>
 
                     <p>
-                        Terrain park availability depends on snow
-                        conditions and seasonal operations.
+                        Terrain park availability depends on snow conditions and seasonal operations.
                     </p>
                 </div>
 
@@ -288,46 +246,29 @@
             <!-- LEGEND -->
             <section class="trail-legend">
                 <div class="trail-legend__heading">
-                    <i
-                        class="fas fa-circle-info"
-                        aria-hidden="true"
-                    ></i>
-
+                    <i class="fas fa-circle-info" aria-hidden="true"></i>
                     <strong>Trail Difficulty</strong>
                 </div>
 
                 <div class="trail-legend__items">
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--beginner"
-                            aria-hidden="true"
-                        ></span>
-
+                        <span class="trail-symbol trail-symbol--beginner" aria-hidden="true"></span>
                         Beginner
                     </div>
 
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--intermediate"
-                            aria-hidden="true"
-                        ></span>
-
+                        <span class="trail-symbol trail-symbol--intermediate" aria-hidden="true"></span>
                         Intermediate
                     </div>
 
                     <div>
-                        <span
-                            class="trail-symbol trail-symbol--advanced"
-                            aria-hidden="true"
-                        ></span>
-
+                        <span class="trail-symbol trail-symbol--advanced" aria-hidden="true"></span>
                         Advanced
                     </div>
                 </div>
 
                 <p>
-                    Trail and lift conditions can change throughout
-                    the day due to weather and mountain operations.
+                    Trail and lift conditions can change throughout the day due to weather and mountain operations.
                 </p>
             </section>
         </div>

@@ -1,5 +1,4 @@
 <main class="home">
-
     <!-- HERO -->
     <section class="home-hero">
         <div class="home-hero__background"></div>
@@ -9,11 +8,7 @@
         <div class="home-hero__container">
             <div class="home-hero__content">
                 <span class="home-hero__kicker">
-                    <i
-                        class="fas fa-location-dot"
-                        aria-hidden="true"
-                    ></i>
-
+                    <i class="fas fa-location-dot" aria-hidden="true"></i>
                     Elliot Lake, Ontario
                 </span>
 
@@ -23,49 +18,26 @@
                 </h1>
 
                 <p>
-                    Ski, ride, learn and explore right in the heart
-                    of Elliot Lake.
+                    Ski, ride, learn and explore right in the heart of Elliot Lake.
                 </p>
 
                 <div class="home-hero__actions">
-                    <a
-                        class="home-hero__primary-button"
-                        routerLink="/tickets/lift-tickets"
-                    >
-                        <i
-                            class="fas fa-ticket"
-                            aria-hidden="true"
-                        ></i>
-
-                        Buy Tickets
+                    <a class="btn btn--primary btn--lg" routerLink="/tickets/lift-tickets">
+                        <i class="fas fa-ticket" aria-hidden="true"></i>
+                        <span>Buy Tickets</span>
                     </a>
 
-                    <a
-                        class="home-hero__secondary-button"
-                        routerLink="/mountain"
-                    >
-                        Explore the Mountain
-
-                        <i
-                            class="fa-solid fa-arrow-right"
-                            aria-hidden="true"
-                        ></i>
+                    <a class="btn btn--accent btn--lg btn--arrow" routerLink="/mountain">
+                        <span>Explore the Mountain</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <a
-            class="home-hero__scroll"
-            href="#mountain-status"
-            aria-label="Scroll to mountain status"
-        >
+        <a class="home-hero__scroll" href="#mountain-status" aria-label="Scroll to mountain status">
             <span>Explore</span>
-
-            <i
-                class="fa-solid fa-arrow-down"
-                aria-hidden="true"
-            ></i>
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
         </a>
     </section>
 
@@ -81,22 +53,15 @@
                     ></app-status-message>
                 </div>
 
-                <a routerLink="/mountain/conditions">
-                    Full Conditions
-
-                    <i
-                        class="fa-solid fa-arrow-right"
-                        aria-hidden="true"
-                    ></i>
+                <a class="btn btn--outline btn--sm btn--arrow" routerLink="/mountain/conditions">
+                    <span>Full Conditions</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
 
             <div class="mountain-status__grid">
                 <div class="mountain-status__item">
-                    <i
-                        class="fas fa-mountain"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-mountain" aria-hidden="true"></i>
 
                     <div>
                         <strong>Trails</strong>
@@ -107,10 +72,7 @@
                 </div>
 
                 <div class="mountain-status__item">
-                    <i
-                        class="fas fa-cable-car"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-cable-car" aria-hidden="true"></i>
 
                     <div>
                         <strong>Lifts</strong>
@@ -121,22 +83,16 @@
                 </div>
 
                 <div class="mountain-status__item">
-                    <i
-                        class="fas fa-person-skiing"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-person-skiing" aria-hidden="true"></i>
 
                     <div>
                         <strong>Terrain Park</strong>
-                        <span>Closed</span>
+                        <span>{{ getStatusLabel(mountainService.terrainPark().status) }}</span>
                     </div>
                 </div>
 
                 <div class="mountain-status__item">
-                    <i
-                        class="fas fa-calendar-days"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fas fa-calendar-days" aria-hidden="true"></i>
 
                     <div>
                         <strong>Season</strong>
@@ -147,19 +103,13 @@
         </div>
     </section>
 
-
     <!-- QUICK LINKS -->
     <section class="quick-links">
         <div class="quick-links__container">
             @for (item of mountainQuickLinks; track item.path) {
-                <a class="quick-links__item"
-                   [routerLink]="item.path"
-                >
+                <a class="quick-links__item" [routerLink]="item.path">
                     <div class="quick-links__icon">
-                        <i
-                            [class]="item.icon"
-                            aria-hidden="true"
-                        ></i>
+                        <i [class]="item.icon" aria-hidden="true"></i>
                     </div>
 
                     <div class="quick-links__content">
@@ -167,15 +117,11 @@
                         <span>{{ item.description }}</span>
                     </div>
 
-                    <i
-                        class="fa-solid fa-arrow-right quick-links__arrow"
-                        aria-hidden="true"
-                    ></i>
+                    <i class="fa-solid fa-arrow-right quick-links__arrow" aria-hidden="true"></i>
                 </a>
             }
         </div>
     </section>
-
 
     <!-- MOUNTAIN INTRO -->
     <section class="mountain-intro">
@@ -191,27 +137,18 @@
                 </h2>
 
                 <p>
-                    Mount Dufour brings skiing and snowboarding directly
-                    to the heart of Elliot Lake, with terrain for beginners,
-                    experienced riders and everyone in between.
+                    Mount Dufour brings skiing and snowboarding directly to the heart of Elliot Lake, with terrain for
+                    beginners, experienced riders and everyone in between.
                 </p>
 
                 <p>
-                    With affordable access, virtually no lift lines,
-                    equipment rentals, lessons and a full-service chalet,
-                    everything you need for a great day on snow is right here.
+                    With affordable access, virtually no lift lines, equipment rentals, lessons and a full-service
+                    chalet, everything you need for a great day on snow is right here.
                 </p>
 
-                <a
-                    class="text-link"
-                    routerLink="/mountain/about"
-                >
-                    Discover Mount Dufour
-
-                    <i
-                        class="fa-solid fa-arrow-right"
-                        aria-hidden="true"
-                    ></i>
+                <a class="btn btn--outline btn--sm btn--arrow" routerLink="/mountain/about">
+                    <span>Discover Mount Dufour</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -219,11 +156,7 @@
                 <div class="mountain-intro__image"></div>
 
                 <div class="mountain-intro__badge">
-                    <i
-                        class="fas fa-mountain"
-                        aria-hidden="true"
-                    ></i>
-
+                    <i class="fas fa-mountain" aria-hidden="true"></i>
                     <div>
                         <strong>Northern Ontario</strong>
                         <span>Winter starts here.</span>
@@ -233,25 +166,18 @@
         </div>
     </section>
 
-
     <!-- MOUNTAIN STATS -->
     <section class="mountain-stats">
         <div class="mountain-stats__container">
             @for (stat of mountainService.stats(); track stat.label) {
                 <div class="mountain-stats__item">
-                    <i
-                        [class]="stat.icon"
-                        aria-hidden="true"
-                    ></i>
-
+                    <i [class]="stat.icon" aria-hidden="true"></i>
                     <strong>{{ stat.value }}</strong>
-
                     <span>{{ stat.label }}</span>
                 </div>
             }
         </div>
     </section>
-
 
     <!-- EXPERIENCES -->
     <section class="experiences">
@@ -269,9 +195,8 @@
                 </div>
 
                 <p>
-                    Whether it's your first day on snow or another
-                    weekend on your favourite run, we'll help you get
-                    out there.
+                    Whether it's your first day on snow or another weekend on your favourite run, we'll help you get out
+                    there.
                 </p>
             </header>
 
@@ -279,10 +204,7 @@
                 @for (experience of mountainExperiences; track experience.path) {
                     <article class="experience-card">
                         <div class="experience-card__icon">
-                            <i
-                                [class]="experience.icon"
-                                aria-hidden="true"
-                            ></i>
+                            <i [class]="experience.icon" aria-hidden="true"></i>
                         </div>
 
                         <span class="experience-card__label">
@@ -293,20 +215,15 @@
 
                         <p>{{ experience.description }}</p>
 
-                        <a [routerLink]="experience.path">
-                            Learn More
-
-                            <i
-                                class="fa-solid fa-arrow-right"
-                                aria-hidden="true"
-                            ></i>
+                        <a class="btn btn--outline btn--sm btn--arrow" [routerLink]="experience.path">
+                            <span>Learn More</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </article>
                 }
             </div>
         </div>
     </section>
-
 
     <!-- CHALET / COMMUNITY -->
     <section class="community">
@@ -321,33 +238,18 @@
                 </h2>
 
                 <p>
-                    Mount Dufour is a professionally operated,
-                    non-profit ski area supported by the people and
+                    Mount Dufour is a professionally operated, non-profit ski area supported by the people and
                     businesses of Elliot Lake.
                 </p>
 
                 <div class="community__actions">
-                    <a
-                        class="community__primary-button"
-                        routerLink="/mountain/about"
-                    >
-                        Our Story
-                    </a>
-
-                    <a
-                        class="community__secondary-button"
-                        routerLink="/sponsors"
-                    >
-                        Our Sponsors
-                    </a>
+                    <a class="btn btn--primary" routerLink="/mountain/about">Our Story</a>
+                    <a class="btn btn--outline" routerLink="/sponsors">Our Sponsors</a>
                 </div>
             </div>
 
             <div class="community__feature">
-                <i
-                    class="fas fa-fire-flame-curved"
-                    aria-hidden="true"
-                ></i>
+                <i class="fas fa-fire-flame-curved" aria-hidden="true"></i>
 
                 <span>The Chalet</span>
 
@@ -356,17 +258,12 @@
                 </h3>
 
                 <p>
-                    Food, rentals, lockers and the slopeside lounge,
-                    all right at the base of the mountain.
+                    Food, rentals, lockers and the slopeside lounge, all right at the base of the mountain.
                 </p>
 
-                <a routerLink="/chalet">
-                    Explore The Chalet
-
-                    <i
-                        class="fa-solid fa-arrow-right"
-                        aria-hidden="true"
-                    ></i>
+                <a class="btn btn--accent-outline btn--arrow" routerLink="/chalet">
+                    <span>Explore The Chalet</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

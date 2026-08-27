@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MOUNTAIN_EXPERIENCES, MOUNTAIN_QUICK_LINKS } from '../../config/tokens/mountain.tokens';
-import { getStatusClassName } from '../../config/utils';
+import { getStatusLabel } from '../../config/utils';
 import { StatusMessage } from '../../partials/season/status-message/status-message';
 import { MountainService } from '../../services/mountain';
 
@@ -16,7 +16,7 @@ import { MountainService } from '../../services/mountain';
     standalone: true
 })
 export class Home {
-    public readonly getStatusClassName = getStatusClassName;
+    public readonly getStatusLabel = getStatusLabel;
 
     public readonly mountainExperiences = inject(MOUNTAIN_EXPERIENCES);
 
