@@ -1,4 +1,5 @@
 @use 'breakpoints' as bp;
+@use 'mixins' as m;
 
 :host {
     display: block;
@@ -10,100 +11,7 @@
 // ============================================
 
 .hours-hero {
-    background: linear-gradient(
-                    135deg,
-                    var(--footer-background) 0%,
-                    var(--color-secondary) 100%
-    );
-    color: var(--color-text-inverse);
-    padding: 4.5rem 0;
-
-    &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
-        padding: 0 var(--container-padding);
-    }
-
-    &__breadcrumb {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.625rem;
-        margin-bottom: 3rem;
-
-        a,
-        span {
-            color: var(--color-text-inverse);
-            font-size: 0.75rem;
-            font-weight: 600;
-            opacity: 0.7;
-            text-decoration: none;
-        }
-
-        a {
-            transition: opacity var(--transition-fast);
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-
-        i {
-            font-size: 0.5rem;
-            opacity: 0.4;
-        }
-    }
-
-    &__content {
-        align-items: end;
-        display: flex;
-        gap: 3rem;
-        justify-content: space-between;
-
-        > div:first-child {
-            max-width: 46rem;
-        }
-    }
-
-    h1 {
-        color: var(--color-text-inverse);
-        font-size: clamp(3rem, 6vw, 5.5rem);
-        letter-spacing: -0.055em;
-        line-height: 0.95;
-        margin: 0;
-    }
-
-    p {
-        color: var(--color-text-inverse);
-        font-size: 1rem;
-        line-height: 1.7;
-        margin: 1.5rem 0 0;
-        max-width: 38rem;
-        opacity: 0.72;
-    }
-
-    @include bp.down(md) {
-        padding: 3.5rem 0;
-
-        &__container {
-            padding: 0 1.5rem;
-        }
-
-        &__breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        &__content {
-            align-items: flex-start;
-            flex-direction: column;
-        }
-    }
-
-    @include bp.down(sm) {
-        &__container {
-            padding: 0 1.125rem;
-        }
-    }
+    @include m.dark-page-hero('> div:first-child', 46rem);
 }
 
 
@@ -116,8 +24,7 @@
     padding: 6rem 0;
 
     &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
+        @include m.page-container(false);
         padding: 0 var(--container-padding);
     }
 
@@ -151,9 +58,7 @@
     }
 
     &__schedule {
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-xl);
+        @include m.surface-card(var(--radius-xl), var(--color-border));
         overflow: hidden;
     }
 
@@ -263,22 +168,12 @@
 // ============================================
 
 .hours-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    @include m.surface-card(var(--radius-lg), var(--color-border));
     padding: 1.75rem;
 
     &__icon {
-        align-items: center;
-        background: var(--color-primary-soft);
-        border-radius: var(--radius-md);
-        color: var(--color-primary);
-        display: flex;
-        font-size: 1.125rem;
-        height: 3rem;
-        justify-content: center;
+        @include m.soft-icon-tile(3rem, 1.125rem);
         margin-bottom: 1.5rem;
-        width: 3rem;
     }
 
     > span {
@@ -338,10 +233,9 @@
     background: var(--color-background-alt);
 
     &__container {
+        @include m.page-container(false);
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
@@ -416,106 +310,5 @@
 // ============================================
 
 .hours-cta {
-    background: var(--color-surface);
-    padding: 5rem var(--container-padding);
-
-    &__container {
-        align-items: center;
-        background: var(--footer-background);
-        border-radius: var(--radius-xl);
-        color: var(--footer-text);
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: auto 1fr auto;
-        margin: 0 auto;
-        max-width: calc(var(--container-width) - (var(--container-padding) * 2));
-        padding: 2.5rem 3rem;
-    }
-
-    &__icon {
-        align-items: center;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: var(--radius-lg);
-        color: var(--color-accent);
-        display: flex;
-        font-size: 2rem;
-        height: 5rem;
-        justify-content: center;
-        width: 5rem;
-    }
-
-    &__content {
-        h2 {
-            color: var(--footer-text);
-            font-size: 2rem;
-            letter-spacing: -0.035em;
-            margin: 0;
-        }
-
-        p {
-            color: var(--footer-text-muted);
-            line-height: 1.6;
-            margin: 0.625rem 0 0;
-        }
-    }
-
-    > a {
-        align-items: center;
-        background: var(--color-primary);
-        border-radius: var(--radius-pill);
-        color: var(--color-text-inverse);
-        display: inline-flex;
-        font-size: 0.75rem;
-        font-weight: 800;
-        gap: 0.625rem;
-        justify-content: center;
-        min-height: 3rem;
-        padding: 0 1.25rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-
-    @include bp.down(lg) {
-        &__container {
-            grid-template-columns: auto 1fr;
-
-            > a {
-                grid-column: 2;
-                justify-self: start;
-            }
-        }
-    }
-
-    @include bp.down(md) {
-        padding: 4rem 1.5rem;
-
-        &__container {
-            grid-template-columns: 1fr;
-            padding: 2rem;
-
-            > a {
-                grid-column: 1;
-            }
-        }
-    }
-
-    @include bp.down(sm) {
-        padding-left: 1.125rem;
-        padding-right: 1.125rem;
-
-        &__container {
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-        }
-
-        &__icon {
-            height: 4rem;
-            width: 4rem;
-        }
-
-        > a {
-            width: 100%;
-        }
-    }
+    @include m.dark-cta;
 }

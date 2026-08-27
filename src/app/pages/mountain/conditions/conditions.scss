@@ -1,4 +1,5 @@
 @use 'breakpoints' as bp;
+@use 'mixins' as m;
 
 :host {
     display: block;
@@ -9,101 +10,7 @@
 // ============================================
 
 .conditions-hero {
-    background:
-            linear-gradient(
-                            135deg,
-                            var(--footer-background) 0%,
-                            var(--color-secondary) 100%
-            );
-    color: var(--color-text-inverse);
-    padding: 4.5rem 0;
-
-    &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
-        padding: 0 var(--container-padding);
-    }
-
-    &__breadcrumb {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.625rem;
-        margin-bottom: 3rem;
-
-        a,
-        span {
-            color: var(--color-text-inverse);
-            font-size: 0.75rem;
-            font-weight: 600;
-            opacity: 0.7;
-            text-decoration: none;
-        }
-
-        a {
-            transition: opacity var(--transition-fast);
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-
-        i {
-            font-size: 0.5rem;
-            opacity: 0.4;
-        }
-    }
-
-    &__content {
-        align-items: end;
-        display: flex;
-        gap: 3rem;
-        justify-content: space-between;
-
-        > div:first-child {
-            max-width: 46rem;
-        }
-    }
-
-    h1 {
-        color: var(--color-text-inverse);
-        font-size: clamp(3rem, 6vw, 5.5rem);
-        letter-spacing: -0.055em;
-        line-height: 0.95;
-        margin: 0;
-    }
-
-    p {
-        color: var(--color-text-inverse);
-        font-size: 1rem;
-        line-height: 1.7;
-        margin: 1.5rem 0 0;
-        max-width: 38rem;
-        opacity: 0.72;
-    }
-
-    @include bp.down(md) {
-        padding: 3.5rem 0;
-
-        &__container {
-            padding: 0 1.5rem;
-        }
-
-        &__breadcrumb {
-            margin-bottom: 2rem;
-        }
-
-        &__content {
-            align-items: flex-start;
-            flex-direction: column;
-        }
-    }
-
-    @include bp.down(sm) {
-        &__container {
-            padding: 0 1.125rem;
-        }
-    }
+    @include m.dark-page-hero('> div:first-child', 46rem);
 }
 
 
@@ -116,10 +23,9 @@
     border-bottom: 1px solid var(--color-border);
 
     &__container {
+        @include m.page-container(false);
         align-items: stretch;
         display: flex;
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
@@ -179,35 +85,23 @@
     padding: 2rem 0;
 
     &__container {
+        @include m.page-container(false);
         display: grid;
         gap: 1rem;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
     &__card {
+        @include m.surface-card(var(--radius-md));
         align-items: center;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border-light);
-        border-radius: var(--radius-md);
         display: flex;
         gap: 1rem;
         padding: 1.25rem;
     }
 
     &__icon {
-        align-items: center;
-        background: var(--color-primary-soft);
-        border-radius: var(--radius-md);
-        color: var(--color-primary);
-        display: flex;
-        flex-shrink: 0;
-        font-size: 1.25rem;
-        height: 3rem;
-        justify-content: center;
-        width: 3rem;
+        @include m.soft-icon-tile(3rem, 1.25rem);
     }
 
     &__content {
@@ -264,11 +158,10 @@
     padding: 5rem 0 7rem;
 
     &__container {
+        @include m.page-container(false);
         display: flex;
         flex-direction: column;
         gap: 3rem;
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
@@ -314,9 +207,7 @@
 // ============================================
 
 .conditions-table {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    @include m.surface-card(var(--radius-lg), var(--color-border));
     overflow: hidden;
 
     &__header,
@@ -500,25 +391,15 @@
 }
 
 .lift-card {
+    @include m.surface-card(var(--radius-lg), var(--color-border));
     align-items: center;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
     display: grid;
     gap: 1rem;
     grid-template-columns: auto 1fr auto;
     padding: 1.5rem;
 
     &__icon {
-        align-items: center;
-        background: var(--color-primary-soft);
-        border-radius: var(--radius-md);
-        color: var(--color-primary);
-        display: flex;
-        font-size: 1.25rem;
-        height: 3.25rem;
-        justify-content: center;
-        width: 3.25rem;
+        @include m.soft-icon-tile(3.25rem, 1.25rem);
     }
 
     &__content {
@@ -564,15 +445,7 @@
     padding: 2.5rem;
 
     &__icon {
-        align-items: center;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: var(--radius-lg);
-        color: var(--color-accent);
-        display: flex;
-        font-size: 2rem;
-        height: 5rem;
-        justify-content: center;
-        width: 5rem;
+        @include m.dark-icon-tile(5rem, 2rem);
     }
 
     &__content {
@@ -620,9 +493,7 @@
 // ============================================
 
 .trail-legend {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    @include m.surface-card(var(--radius-lg), var(--color-border));
     padding: 1.5rem;
 
     &__heading {

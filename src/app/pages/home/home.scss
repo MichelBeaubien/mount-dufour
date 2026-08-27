@@ -1,4 +1,5 @@
 @use 'breakpoints' as bp;
+@use 'mixins' as m;
 
 :host {
     display: block;
@@ -41,11 +42,9 @@
     }
 
     &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
+        @include m.page-container;
         padding: 7rem var(--container-padding);
         position: relative;
-        width: 100%;
         z-index: 2;
     }
 
@@ -188,8 +187,7 @@
     border-bottom: 1px solid var(--color-border);
 
     &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
+        @include m.page-container(false);
         padding: 2rem var(--container-padding);
     }
 
@@ -322,10 +320,9 @@
     background: var(--color-background-alt);
 
     &__container {
+        @include m.page-container(false);
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 2rem var(--container-padding);
     }
 
@@ -362,17 +359,11 @@
     }
 
     &__icon {
-        align-items: center;
-        background: var(--color-primary-soft);
-        border-radius: var(--radius-md);
-        color: var(--color-primary);
-        display: flex;
+        @include m.soft-icon-tile(3rem);
         height: 3rem;
-        justify-content: center;
         transition: background-color var(--transition-fast),
         color var(--transition-fast),
         transform var(--transition-fast);
-        width: 3rem;
     }
 
     &__content {
@@ -451,12 +442,11 @@
     padding: 7rem 0;
 
     &__container {
+        @include m.page-container(false);
         align-items: center;
         display: grid;
         gap: clamp(3rem, 7vw, 7rem);
         grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
@@ -495,9 +485,8 @@
     }
 
     &__badge {
+        @include m.surface-card(var(--radius-lg), transparent);
         align-items: center;
-        background: var(--color-surface);
-        border-radius: var(--radius-lg);
         bottom: -1.5rem;
         box-shadow: var(--shadow-lg);
         display: flex;
@@ -572,10 +561,9 @@
     color: var(--color-text-inverse);
 
     &__container {
+        @include m.page-container(false);
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 
@@ -653,8 +641,7 @@
     padding: 7rem 0;
 
     &__container {
-        margin: 0 auto;
-        max-width: var(--container-width);
+        @include m.page-container(false);
         padding: 0 var(--container-padding);
     }
 
@@ -710,9 +697,7 @@
 }
 
 .experience-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-lg);
+    @include m.surface-card;
     padding: 2rem;
     transition: box-shadow var(--transition-base),
     transform var(--transition-base);
@@ -723,16 +708,8 @@
     }
 
     &__icon {
-        align-items: center;
-        background: var(--color-primary-soft);
-        border-radius: var(--radius-md);
-        color: var(--color-primary);
-        display: flex;
-        font-size: 1.5rem;
-        height: 3.5rem;
-        justify-content: center;
+        @include m.soft-icon-tile(3.5rem, 1.5rem);
         margin-bottom: 2rem;
-        width: 3.5rem;
     }
 
     &__label {
@@ -768,12 +745,11 @@
     padding: 7rem 0;
 
     &__container {
+        @include m.page-container(false);
         align-items: stretch;
         display: grid;
         gap: 2rem;
         grid-template-columns: 1.1fr 0.9fr;
-        margin: 0 auto;
-        max-width: var(--container-width);
         padding: 0 var(--container-padding);
     }
 

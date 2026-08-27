@@ -1,0 +1,282 @@
+@use 'breakpoints' as bp;
+
+@mixin page-container($include-width: true) {
+    margin: 0 auto;
+    max-width: var(--container-width);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+
+    @if $include-width {
+        width: 100%;
+    }
+}
+
+@mixin responsive-gutters($md: 1.5rem, $sm: 1.125rem) {
+    @if $md != null {
+        @include bp.down(md) {
+            padding-left: $md;
+            padding-right: $md;
+        }
+    }
+
+    @if $sm != null {
+        @include bp.down(sm) {
+            padding-left: $sm;
+            padding-right: $sm;
+        }
+    }
+}
+
+@mixin surface-card(
+    $radius: var(--radius-lg),
+    $border-color: var(--color-border-light),
+    $background: var(--color-surface)
+) {
+    background: $background;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+}
+
+@mixin soft-icon-tile(
+    $size,
+    $font-size: null,
+    $radius: var(--radius-md)
+) {
+    align-items: center;
+    background: var(--color-primary-soft);
+    border-radius: $radius;
+    color: var(--color-primary);
+    display: flex;
+    flex-shrink: 0;
+    height: $size;
+    justify-content: center;
+    width: $size;
+
+    @if $font-size != null {
+        font-size: $font-size;
+    }
+}
+
+@mixin dark-icon-tile(
+    $size,
+    $font-size: null,
+    $radius: var(--radius-lg),
+    $background: rgba(255, 255, 255, 0.08),
+    $color: var(--color-accent)
+) {
+    align-items: center;
+    background: $background;
+    border-radius: $radius;
+    color: $color;
+    display: flex;
+    flex-shrink: 0;
+    height: $size;
+    justify-content: center;
+    width: $size;
+
+    @if $font-size != null {
+        font-size: $font-size;
+    }
+}
+
+@mixin dark-page-hero($content-selector, $content-max-width) {
+    background: linear-gradient(
+                    135deg,
+                    var(--footer-background) 0%,
+                    var(--color-secondary) 100%
+    );
+    color: var(--color-text-inverse);
+    padding: 4.5rem 0;
+
+    &__container {
+        @include page-container;
+        @include responsive-gutters;
+    }
+
+    &__breadcrumb {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.625rem;
+        margin-bottom: 3rem;
+
+        a,
+        span {
+            color: var(--color-text-inverse);
+            font-size: 0.75rem;
+            font-weight: 600;
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        a {
+            transition: opacity var(--transition-fast);
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        i {
+            font-size: 0.5rem;
+            opacity: 0.4;
+        }
+    }
+
+    &__content {
+        align-items: end;
+        display: flex;
+        gap: 3rem;
+        justify-content: space-between;
+
+        #{$content-selector} {
+            max-width: $content-max-width;
+        }
+    }
+
+    h1 {
+        color: var(--color-text-inverse);
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        letter-spacing: -0.055em;
+        line-height: 0.95;
+        margin: 0;
+    }
+
+    p {
+        color: var(--color-text-inverse);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 1.5rem 0 0;
+        max-width: 38rem;
+        opacity: 0.72;
+    }
+
+    @include bp.down(md) {
+        padding: 3.5rem 0;
+
+        &__breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        &__content {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+}
+
+@mixin dark-cta(
+    $compact-radius-at: sm,
+    $icon-resize-at: sm
+) {
+    background: var(--color-surface);
+    padding: 5rem var(--container-padding);
+
+    &__container {
+        align-items: center;
+        background: var(--footer-background);
+        border-radius: var(--radius-xl);
+        color: var(--footer-text);
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: auto 1fr auto;
+        margin: 0 auto;
+        max-width: calc(var(--container-width) - (var(--container-padding) * 2));
+        padding: 2.5rem 3rem;
+    }
+
+    &__icon {
+        @include dark-icon-tile(5rem, 2rem);
+    }
+
+    &__content {
+        h2 {
+            color: var(--footer-text);
+            font-size: 2rem;
+            letter-spacing: -0.035em;
+            margin: 0;
+        }
+
+        p {
+            color: var(--footer-text-muted);
+            line-height: 1.6;
+            margin: 0.625rem 0 0;
+        }
+    }
+
+    > a {
+        align-items: center;
+        background: var(--color-primary);
+        border-radius: var(--radius-pill);
+        color: var(--color-text-inverse);
+        display: inline-flex;
+        font-size: 0.75rem;
+        font-weight: 800;
+        gap: 0.625rem;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0 1.25rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
+    @include bp.down(lg) {
+        &__container {
+            grid-template-columns: auto 1fr;
+
+            > a {
+                grid-column: 2;
+                justify-self: start;
+            }
+        }
+    }
+
+    @include bp.down(md) {
+        padding: 4rem 1.5rem;
+
+        &__container {
+            grid-template-columns: 1fr;
+            padding: 2rem;
+
+            @if $compact-radius-at == md {
+                border-radius: var(--radius-lg);
+            }
+
+            > a {
+                grid-column: 1;
+            }
+        }
+
+        @if $icon-resize-at == md {
+            &__icon {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+    }
+
+    @include bp.down(sm) {
+        padding-left: 1.125rem;
+        padding-right: 1.125rem;
+
+        &__container {
+            padding: 1.75rem;
+
+            @if $compact-radius-at == sm {
+                border-radius: var(--radius-lg);
+            }
+        }
+
+        @if $icon-resize-at == sm {
+            &__icon {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+
+        > a {
+            width: 100%;
+        }
+    }
+}
