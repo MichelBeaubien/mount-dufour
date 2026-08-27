@@ -108,7 +108,9 @@
 
                     <div>
                         <strong>Trails</strong>
-                        <span>0 of 7 open</span>
+                        <span>
+                            {{ mountainService.openTrailsCount() }} of {{ mountainService.totalTrails() }} open
+                        </span>
                     </div>
                 </div>
 
@@ -120,7 +122,9 @@
 
                     <div>
                         <strong>Lifts</strong>
-                        <span>0 of 2 open</span>
+                        <span>
+                            {{ mountainService.openLiftsCount() }} of {{ mountainService.totalLifts() }} open
+                        </span>
                     </div>
                 </div>
 
@@ -241,7 +245,7 @@
     <!-- MOUNTAIN STATS -->
     <section class="mountain-stats">
         <div class="mountain-stats__container">
-            @for (stat of mountainStats; track stat.label) {
+            @for (stat of mountainService.stats(); track stat.label) {
                 <div class="mountain-stats__item">
                     <i
                         [class]="stat.icon"

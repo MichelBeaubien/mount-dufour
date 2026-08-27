@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MOUNTAIN_EXPERIENCES, MOUNTAIN_QUICK_LINKS, MOUNTAIN_STATS } from '../../config/tokens/mountain.tokens';
+import { MOUNTAIN_EXPERIENCES, MOUNTAIN_QUICK_LINKS } from '../../config/tokens/mountain.tokens';
+import { MountainService } from '../../services/mountain';
 
 @Component({
     imports: [
@@ -14,7 +15,7 @@ import { MOUNTAIN_EXPERIENCES, MOUNTAIN_QUICK_LINKS, MOUNTAIN_STATS } from '../.
 export class Home {
     public readonly mountainExperiences = inject(MOUNTAIN_EXPERIENCES);
 
-    public readonly mountainStats = inject(MOUNTAIN_STATS);
-
     public readonly mountainQuickLinks = inject(MOUNTAIN_QUICK_LINKS);
+
+    public readonly mountainService = inject(MountainService);
 }

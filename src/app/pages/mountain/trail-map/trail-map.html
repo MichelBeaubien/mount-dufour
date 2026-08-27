@@ -136,7 +136,7 @@
     <!-- STATS -->
     <section class="mountain-stats">
         <div class="mountain-stats__container">
-            @for (stat of mountainStats; track stat.label) {
+            @for (stat of mountainService.stats(); track stat.label) {
                 <article class="mountain-stats__item">
                     <i
                         [class]="stat.icon"
@@ -172,7 +172,7 @@
             </header>
 
             <div class="trail-directory__grid">
-                @for (trail of mountainTrails; track trail.name) {
+                @for (trail of mountainService.trails(); track trail.name) {
                     <article class="trail-card">
                         <div
                             class="trail-card__symbol"

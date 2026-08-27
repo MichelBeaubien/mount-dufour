@@ -1,10 +1,40 @@
 export type MountainStatus = 'open' | 'closed' | 'hold';
 
-type TrailDifficulty = 'beginner' | 'intermediate' | 'advanced';
+export type TrailDifficulty = 'beginner' | 'intermediate' | 'advanced';
+
+export interface Experience {
+    description: string;
+    icon: string;
+    label: string;
+    path: string;
+    title: string;
+}
+
+export interface Lift {
+    name: string;
+    status: MountainStatus;
+    type: string;
+}
+
+export interface MountainData {
+    lifts: Lift[];
+    snowmakingPercent: number;
+    status: MountainStatus;
+    terrainPark: TerrainPark;
+    trails: Trail[];
+    verticalFeet: number;
+}
 
 export interface MountainStat {
     icon: string;
     label: string;
+    value: string;
+}
+
+export interface MountainSummary {
+    icon: string;
+    label: string;
+    status?: MountainStatus;
     value: string;
 }
 
@@ -15,19 +45,8 @@ export interface QuickLink {
     path: string;
 }
 
-export interface Experience {
-    description: string;
-    icon: string;
-    label: string;
-    path: string;
-    title: string;
-}
-
-export interface MountainSummary {
-    icon: string;
-    label: string;
-    status?: MountainStatus;
-    value: string;
+export interface TerrainPark {
+    status: MountainStatus;
 }
 
 export interface Trail {
@@ -35,10 +54,4 @@ export interface Trail {
     groomed: boolean;
     name: string;
     status: MountainStatus;
-}
-
-export interface Lift {
-    name: string;
-    status: MountainStatus;
-    type: string;
 }

@@ -43,18 +43,15 @@
 
                 <div
                     class="conditions-hero__status"
-                    [class.is-open]="mountainStatus === 'open'"
-                    [class.is-closed]="mountainStatus === 'closed'"
-                    [class.is-hold]="mountainStatus === 'hold'"
+                    [class.is-open]="mountainService.status() === 'open'"
+                    [class.is-closed]="mountainService.status() === 'closed'"
+                    [class.is-hold]="mountainService.status() === 'hold'"
                 >
                     <span class="conditions-hero__status-indicator"></span>
 
                     <div>
                         <span>Mountain Status</span>
-
-                        <strong>
-                            {{ getStatusLabel(mountainStatus) }}
-                        </strong>
+                        <strong>{{ getStatusLabel(mountainService.status()) }}</strong>
                     </div>
                 </div>
             </div>
@@ -112,7 +109,7 @@
     <!-- SUMMARY -->
     <section class="conditions-summary">
         <div class="conditions-summary__container">
-            @for (item of mountainSummary; track item.label) {
+            @for (item of mountainService.summary(); track item.label) {
                 <article class="conditions-summary__card">
                     <div class="conditions-summary__icon">
                         <i
@@ -154,7 +151,7 @@
                     </div>
 
                     <span class="conditions-panel__count">
-                        0 of {{ mountainTrails.length }} open
+                        {{ mountainService.openTrailsCount() }} of {{ mountainService.totalTrails() }} open
                     </span>
                 </header>
 
@@ -167,7 +164,7 @@
                         <span>Status</span>
                     </div>
 
-                    @for (trail of mountainTrails; track trail.name) {
+                    @for (trail of mountainService.trails(); track trail.name) {
                         <div class="conditions-table__row">
 
                             <div class="conditions-table__name">
@@ -238,12 +235,12 @@
                     </div>
 
                     <span class="conditions-panel__count">
-                        0 of {{ mountainLifts.length }} open
+                        {{ mountainService.openLiftsCount() }} of {{ mountainService.totalLifts() }} open
                     </span>
                 </header>
 
                 <div class="lift-grid">
-                    @for (lift of mountainLifts; track lift.name) {
+                    @for (lift of mountainService.lifts(); track lift.name) {
                         <article class="lift-card">
                             <div class="lift-card__icon">
                                 <i

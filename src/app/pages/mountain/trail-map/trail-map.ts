@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MOUNTAIN_STATS, MOUNTAIN_TRAILS } from '../../../config/tokens/mountain.tokens';
+import { MountainService } from '../../../services/mountain';
 
 @Component({
     imports: [
@@ -12,7 +12,5 @@ import { MOUNTAIN_STATS, MOUNTAIN_TRAILS } from '../../../config/tokens/mountain
     standalone: true
 })
 export class TrailMap {
-    public readonly mountainStats = inject(MOUNTAIN_STATS);
-
-    public readonly mountainTrails = inject(MOUNTAIN_TRAILS);
+    public readonly mountainService = inject(MountainService);
 }

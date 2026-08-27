@@ -1,12 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-    MOUNTAIN_LIFTS,
-    MOUNTAIN_STATUS,
-    MOUNTAIN_SUMMARY,
-    MOUNTAIN_TRAILS
-} from '../../../config/tokens/mountain.tokens';
 import { getStatusLabel } from '../../../config/utils';
+import { MountainService } from '../../../services/mountain';
 
 @Component({
     imports: [
@@ -20,11 +15,5 @@ import { getStatusLabel } from '../../../config/utils';
 export class Conditions {
     public readonly getStatusLabel = getStatusLabel;
 
-    public readonly mountainLifts = inject(MOUNTAIN_LIFTS);
-
-    public readonly mountainStatus = inject(MOUNTAIN_STATUS);
-
-    public readonly mountainSummary = inject(MOUNTAIN_SUMMARY);
-
-    public readonly mountainTrails = inject(MOUNTAIN_TRAILS);
+    public readonly mountainService = inject(MountainService);
 }
