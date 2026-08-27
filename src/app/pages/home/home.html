@@ -69,24 +69,16 @@
         </a>
     </section>
 
-
     <!-- MOUNTAIN STATUS -->
-    <section
-        id="mountain-status"
-        class="mountain-status"
-    >
+    <section id="mountain-status" class="mountain-status">
         <div class="mountain-status__container">
             <div class="mountain-status__heading">
                 <div class="mountain-status__state">
-                    <span class="mountain-status__indicator"></span>
-
-                    <div>
-                        <span class="mountain-status__label">
-                            Mountain Status
-                        </span>
-
-                        <strong>Closed for the season</strong>
-                    </div>
+                    <app-status-message [message]="mountainService.season().message"
+                                        [status]="mountainService.season().status"
+                                        theme="dark"
+                                        [showTitle]="true"
+                    ></app-status-message>
                 </div>
 
                 <a routerLink="/mountain/conditions">

@@ -1,7 +1,15 @@
 import { computed, Service, signal } from '@angular/core';
 import { getStatusLabel } from '../config/utils';
 import { MOUNTAIN_DATA } from '../data/mountain.data';
-import { Lift, MountainStat, MountainStatus, MountainSummary, TerrainPark, Trail } from '../interfaces/mountain';
+import {
+    Lift,
+    MountainSeason,
+    MountainStat,
+    MountainStatus,
+    MountainSummary,
+    TerrainPark,
+    Trail
+} from '../interfaces/mountain';
 
 @Service()
 export class MountainService {
@@ -10,6 +18,8 @@ export class MountainService {
     public readonly openLiftsCount = computed<number>(() => this.lifts().filter((lift) => lift.status === 'open').length);
 
     public readonly openTrailsCount = computed<number>(() => this.trails().filter((trail) => trail.status === 'open').length);
+
+    public readonly season = computed<MountainSeason>(() => this.data().season);
 
     public readonly snowmakingPercent = computed<number>(() => this.data().snowmakingPercent);
 

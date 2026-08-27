@@ -1,4 +1,6 @@
-export type MountainStatus = 'open' | 'closed' | 'hold';
+export type MountainStatus = 'open' | 'closed' | 'hold' | 'opening-soon';
+
+export type StatusMessageTheme = 'light' | 'dark';
 
 export type TrailDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
@@ -18,11 +20,17 @@ export interface Lift {
 
 export interface MountainData {
     lifts: Lift[];
+    season: MountainSeason;
     snowmakingPercent: number;
     status: MountainStatus;
     terrainPark: TerrainPark;
     trails: Trail[];
     verticalFeet: number;
+}
+
+export interface MountainSeason {
+    message: string;
+    status: MountainStatus;
 }
 
 export interface MountainStat {

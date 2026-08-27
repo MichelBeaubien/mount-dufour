@@ -41,18 +41,13 @@
                     </p>
                 </div>
 
-                <div
-                    class="conditions-hero__status"
-                    [class.is-open]="mountainService.status() === 'open'"
-                    [class.is-closed]="mountainService.status() === 'closed'"
-                    [class.is-hold]="mountainService.status() === 'hold'"
-                >
-                    <span class="conditions-hero__status-indicator"></span>
-
-                    <div>
-                        <span>Mountain Status</span>
-                        <strong>{{ getStatusLabel(mountainService.status()) }}</strong>
-                    </div>
+                <div class="conditions-hero__status">
+                    <app-status-message [message]="getStatusLabel(mountainService.status())"
+                                        [status]="mountainService.status()"
+                                        [showTitle]="true"
+                                        title="Mountain Status"
+                                        icon="fa-mountain"
+                    ></app-status-message>
                 </div>
             </div>
         </div>
@@ -63,33 +58,24 @@
     <section class="report-meta">
         <div class="report-meta__container">
             <div class="report-meta__item">
-                <i
-                    class="fas fa-calendar-day"
-                    aria-hidden="true"
-                ></i>
-
-                <div>
-                    <span>Season Status</span>
-                    <strong>Closed for the season</strong>
-                </div>
+                <app-status-message [message]="mountainService.season().message"
+                                    [status]="mountainService.season().status"
+                                    theme="dark"
+                                    [showTitle]="true"
+                ></app-status-message>
             </div>
 
             <div class="report-meta__item">
-                <i
-                    class="fas fa-clock"
-                    aria-hidden="true"
-                ></i>
-
-                <div>
-                    <span>Last Updated</span>
-                    <strong>Season End</strong>
-                </div>
+                <app-status-message message="Season End"
+                                    [status]="mountainService.season().status"
+                                    theme="dark"
+                                    [showTitle]="true"
+                                    title="Last Updated"
+                                    icon="fa-clock"
+                ></app-status-message>
             </div>
 
-            <a
-                class="report-meta__map"
-                routerLink="/mountain/trail-map"
-            >
+            <a class="report-meta__map" routerLink="/mountain/trail-map">
                 <i
                     class="fas fa-map"
                     aria-hidden="true"

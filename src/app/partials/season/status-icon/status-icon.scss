@@ -1,0 +1,32 @@
+:host {
+    display: inline-flex;
+}
+
+.season-status-icon {
+    --season-status-color: var(--color-closed);
+
+    align-items: center;
+    aspect-ratio: 1;
+    color: var(--season-status-color);
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 12px;
+    justify-content: center;
+    width: 15px;
+
+    &.is-open {
+        --season-status-color: var(--color-open);
+    }
+
+    &.is-closed {
+        --season-status-color: var(--color-closed);
+    }
+
+    &.is-hold {
+        --season-status-color: var(--color-hold);
+    }
+
+    &.is-opening-soon {
+        --season-status-color: var(--color-opening-soon);
+    }
+}

@@ -1,11 +1,14 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HEADER_NAV_ITEMS } from '../../config/tokens/nav-items.tokens';
+import { StatusMessage } from '../../partials/season/status-message/status-message';
+import { MountainService } from '../../services/mountain';
 
 @Component({
     imports: [
         RouterLink,
-        RouterLinkActive
+        RouterLinkActive,
+        StatusMessage
     ],
     selector: 'app-header',
     styleUrl: './header.scss',
@@ -14,6 +17,8 @@ import { HEADER_NAV_ITEMS } from '../../config/tokens/nav-items.tokens';
 })
 export class Header {
     public readonly isMenuOpen = signal<boolean>(false);
+
+    public readonly mountainService = inject(MountainService);
 
     public readonly navItems = inject(HEADER_NAV_ITEMS);
 

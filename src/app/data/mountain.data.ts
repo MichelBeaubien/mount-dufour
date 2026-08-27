@@ -13,8 +13,12 @@ export const MOUNTAIN_DATA: MountainData = {
             type: 'Surface Lift'
         }
     ],
+    season: {
+        message: 'Closed for the Season',
+        status: 'closed'
+    },
     snowmakingPercent: 100,
-    status: 'open',
+    status: 'closed',
     terrainPark: {
         status: 'closed'
     },

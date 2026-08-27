@@ -2,6 +2,27 @@
 
 :root {
     // ============================================
+    // BASE PALETTE
+    // ============================================
+
+    --palette-white: #FFFFFF;
+    --palette-navy: #102A36;
+    --palette-charcoal: #17252D;
+
+    --palette-blue: #347FA1;
+    --palette-blue-light: #DCECF3;
+
+    --palette-green: #32845A;
+    --palette-green-light: #DFF2E7;
+
+    --palette-amber: #D4912E;
+    --palette-amber-light: #FAECD5;
+
+    --palette-red: #C94A4A;
+    --palette-red-light: #F7DDDD;
+
+
+    // ============================================
     // BRAND
     // ============================================
 
@@ -25,22 +46,21 @@
     --color-background: #F5F8FA;
     --color-background-alt: #EAF0F3;
 
-    --color-surface: #FFFFFF;
+    --color-surface: var(--palette-white);
     --color-surface-alt: #EEF3F5;
-    --color-surface-raised: #FFFFFF;
+    --color-surface-raised: var(--palette-white);
 
 
     // ============================================
     // TEXT
     // ============================================
 
-    --color-text: #17252D;
+    --color-text: var(--palette-charcoal);
     --color-text-muted: #60727C;
     --color-text-subtle: #81919A;
 
-    --color-heading: #102A36;
-
-    --color-text-inverse: #FFFFFF;
+    --color-heading: var(--palette-navy);
+    --color-text-inverse: var(--palette-white);
 
 
     // ============================================
@@ -56,30 +76,38 @@
     // STATES
     // ============================================
 
-    --color-success: #32845A;
-    --color-success-soft: #DFF2E7;
+    --color-success: var(--palette-green);
+    --color-success-soft: var(--palette-green-light);
 
-    --color-warning: #D4912E;
-    --color-warning-soft: #FAECD5;
+    --color-warning: var(--palette-amber);
+    --color-warning-soft: var(--palette-amber-light);
 
-    --color-danger: #C94A4A;
-    --color-danger-soft: #F7DDDD;
+    --color-danger: var(--palette-red);
+    --color-danger-soft: var(--palette-red-light);
 
-    --color-info: #347FA1;
-    --color-info-soft: #DCECF3;
+    --color-info: var(--palette-blue);
+    --color-info-soft: var(--palette-blue-light);
 
 
     // ============================================
     // MOUNTAIN STATUS
     // ============================================
 
-    --color-open: #32845A;
-    --color-closed: #C94A4A;
-    --color-hold: #D4912E;
+    --color-open: var(--palette-green);
+    --color-open-soft: var(--color-success-soft);
 
-    --color-groomed: #347FA1;
+    --color-hold: var(--palette-amber);
+    --color-hold-soft: var(--color-warning-soft);
 
-    --color-snow: #FFFFFF;
+    --color-opening-soon: var(--palette-blue);
+    --color-opening-soon-soft: var(--color-info-soft);
+
+    --color-closed: var(--palette-red);
+    --color-closed-soft: var(--color-danger-soft);
+
+    --color-groomed: var(--palette-blue);
+
+    --color-snow: var(--palette-white);
     --color-ice: #D9EDF4;
 
 
@@ -88,9 +116,9 @@
     // ============================================
 
     --color-trail-beginner: #3A9D5D;
-    --color-trail-intermediate: #347FA1;
+    --color-trail-intermediate: var(--palette-blue);
     --color-trail-advanced: #252B30;
-    --color-trail-expert: #252B30;
+    --color-trail-expert: var(--color-trail-advanced);
 
 
     // ============================================
@@ -106,11 +134,11 @@
     // ============================================
 
     --header-background: rgba(255, 255, 255, 0.94);
-    --header-text: #17252D;
+    --header-text: var(--color-text);
     --header-border: rgba(16, 42, 54, 0.1);
 
-    --status-bar-background: #102A36;
-    --status-bar-text: #FFFFFF;
+    --status-bar-background: var(--color-heading);
+    --status-bar-text: var(--palette-white);
 
 
     // ============================================
@@ -120,7 +148,7 @@
     --footer-background: #0B222C;
     --footer-surface: #102E39;
 
-    --footer-text: #FFFFFF;
+    --footer-text: var(--palette-white);
     --footer-text-muted: #9EB1BA;
 
     --footer-border: rgba(255, 255, 255, 0.1);
@@ -132,11 +160,11 @@
 
     --button-primary-background: var(--color-primary);
     --button-primary-background-hover: var(--color-primary-hover);
-    --button-primary-text: #FFFFFF;
+    --button-primary-text: var(--palette-white);
 
     --button-secondary-background: var(--color-secondary);
     --button-secondary-background-hover: var(--color-secondary-hover);
-    --button-secondary-text: #FFFFFF;
+    --button-secondary-text: var(--palette-white);
 
 
     // ============================================
@@ -144,9 +172,7 @@
     // ============================================
 
     --shadow-sm: 0 2px 8px rgba(16, 42, 54, 0.06);
-
     --shadow-md: 0 8px 24px rgba(16, 42, 54, 0.1);
-
     --shadow-lg: 0 20px 50px rgba(16, 42, 54, 0.14);
 
 
@@ -186,9 +212,13 @@
     // ============================================
 
     --color-focus: #4AA3C3;
-
     --focus-ring: 0 0 0 3px rgba(74, 163, 195, 0.3);
 }
+
+
+// ============================================
+// GLOBAL
+// ============================================
 
 *,
 *::before,
@@ -211,8 +241,8 @@ body {
 body {
     background: var(--color-background);
     color: var(--color-text);
-    margin: 0;
-    transition: background-color var(--transition-base), color var(--transition-base);
+    transition: background-color var(--transition-base),
+    color var(--transition-base);
 }
 
 h1,
@@ -230,10 +260,10 @@ a {
 
 ::selection {
     background: var(--color-primary);
-    color: #FFFFFF;
+    color: var(--color-text-inverse);
 }
 
 :focus-visible {
-    outline: none;
     box-shadow: var(--focus-ring);
+    outline: none;
 }

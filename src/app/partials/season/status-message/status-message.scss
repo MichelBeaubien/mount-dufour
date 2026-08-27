@@ -1,0 +1,41 @@
+:host {
+    display: block;
+}
+
+.season-status-message {
+    --status-message-title-color: var(--color-text-muted);
+    --status-message-text-color: var(--color-heading);
+
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+
+    &.status-message-light {
+        --status-message-title-color: var(--footer-text-muted);
+        --status-message-text-color: var(--footer-text);
+    }
+
+    &.status-message-dark {
+        --status-message-title-color: var(--color-text-muted);
+        --status-message-text-color: var(--color-heading);
+    }
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__title {
+        color: var(--status-message-title-color);
+        display: block;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    &__message {
+        color: var(--status-message-text-color);
+        display: block;
+        font-size: 1rem;
+    }
+}

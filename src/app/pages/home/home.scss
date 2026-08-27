@@ -262,24 +262,7 @@
     }
 
     &__state {
-        align-items: center;
         display: flex;
-        gap: 0.875rem;
-
-        strong {
-            color: var(--color-heading);
-            display: block;
-            font-size: 1.125rem;
-            margin-top: 0.125rem;
-        }
-    }
-
-    &__indicator {
-        background: var(--color-closed);
-        border-radius: 50%;
-        box-shadow: 0 0 0 0.35rem var(--color-danger-soft);
-        height: 0.625rem;
-        width: 0.625rem;
     }
 
     &__label {

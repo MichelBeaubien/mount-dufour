@@ -1,1 +1,249 @@
-<p>hours works!</p>
+<main class="hours">
+    <!-- HERO -->
+    <section class="hours-hero">
+        <div class="hours-hero__container">
+            <nav
+                class="hours-hero__breadcrumb"
+                aria-label="Breadcrumb"
+            >
+                <a routerLink="/">
+                    Home
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <a routerLink="/mountain">
+                    Mountain
+                </a>
+
+                <i
+                    class="fas fa-chevron-right"
+                    aria-hidden="true"
+                ></i>
+
+                <span>Hours</span>
+            </nav>
+
+            <div class="hours-hero__content">
+                <div>
+                    <span class="hours-hero__kicker">
+                        Plan Your Day
+                    </span>
+
+                    <h1>Hours of Operation</h1>
+
+                    <p>
+                        Check Mount Dufour's operating schedule before
+                        heading to the hill.
+                    </p>
+                </div>
+
+                <div class="hours-hero__status">
+                    <app-status-message [message]="mountainService.season().message"
+                                        [status]="mountainService.season().status"
+                                        [showTitle]="true"
+                    ></app-status-message>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOURS -->
+    <section class="operating-hours">
+        <div class="operating-hours__container">
+            <header class="operating-hours__header">
+                <div>
+                    <span class="section-kicker">
+                        Weekly Schedule
+                    </span>
+
+                    <h2>When we're on the mountain.</h2>
+                </div>
+
+                <p>
+                    Operating hours may change due to weather,
+                    snow conditions and mountain operations.
+                </p>
+            </header>
+
+            <div class="operating-hours__layout">
+                <div class="operating-hours__schedule">
+                    @for (day of hoursService.schedule();
+                      track day.day) {
+                        <div
+                            class="operating-day"
+                            [class.operating-day--open]="day.isOpen"
+                            [class.operating-day--closed]="!day.isOpen"
+                        >
+                            <div class="operating-day__name">
+                                <span
+                                    class="operating-day__indicator"
+                                    aria-hidden="true"
+                                ></span>
+
+                                <strong>
+                                    {{ day.day }}
+                                </strong>
+                            </div>
+
+                            <span
+                                class="operating-day__hours"
+                                [class.is-open]="day.isOpen"
+                            >
+                                {{ hoursService.formatHours(day) }}
+                            </span>
+                        </div>
+                    }
+                </div>
+
+                <!-- INFO -->
+                <aside class="operating-hours__aside">
+                    <article class="hours-card hours-card--call">
+                        <div class="hours-card__icon">
+                            <i
+                                class="fas fa-phone"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+
+                        <span>Coming From Out of Town?</span>
+
+                        <h3>Call before you drive.</h3>
+
+                        <p>
+                            {{ hoursService.callAheadMessage() }}
+                        </p>
+
+                        <a
+                            [href]="'tel:' + hoursService.phone()"
+                        >
+                            <i
+                                class="fas fa-phone"
+                                aria-hidden="true"
+                            ></i>
+
+                            {{ hoursService.phone() }}
+                        </a>
+                    </article>
+
+
+                    <article class="hours-card">
+                        <div class="hours-card__icon">
+                            <i
+                                class="fas fa-cloud-sun"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+
+                        <span>Weather Permitting</span>
+
+                        <h3>Conditions come first.</h3>
+
+                        <p>
+                            {{ hoursService.weatherMessage() }}
+                        </p>
+
+                        <a routerLink="/mountain/conditions">
+                            Check Conditions
+
+                            <i
+                                class="fas fa-arrow-right"
+                                aria-hidden="true"
+                            ></i>
+                        </a>
+                    </article>
+
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO STRIP -->
+    <section class="hours-info">
+        <div class="hours-info__container">
+
+            <article>
+                <i
+                    class="fas fa-cable-car"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <strong>Lift Operations</strong>
+                    <span>
+                        During regular operating days, lifts typically
+                        operate from 9:00 AM to 4:00 PM.
+                    </span>
+                </div>
+            </article>
+
+            <article>
+                <i
+                    class="fas fa-snowflake"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <strong>Weather Dependent</strong>
+                    <span>
+                        Rain, snow conditions or severe weather can
+                        affect daily operations.
+                    </span>
+                </div>
+            </article>
+
+            <article>
+                <i
+                    class="fas fa-circle-info"
+                    aria-hidden="true"
+                ></i>
+
+                <div>
+                    <strong>Check Before You Go</strong>
+                    <span>
+                        Current conditions provide the most up-to-date
+                        mountain status.
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hours-cta">
+        <div class="hours-cta__container">
+            <div class="hours-cta__icon">
+                <i
+                    class="fas fa-mountain"
+                    aria-hidden="true"
+                ></i>
+            </div>
+
+            <div class="hours-cta__content">
+                <span class="section-kicker">
+                    Ready for the Mountain?
+                </span>
+
+                <h2>Check today's conditions.</h2>
+
+                <p>
+                    See current trail, lift and terrain park
+                    availability before making the trip.
+                </p>
+            </div>
+
+            <a routerLink="/mountain/conditions">
+                View Conditions
+
+                <i
+                    class="fas fa-arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+        </div>
+    </section>
+</main>

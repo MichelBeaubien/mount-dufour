@@ -1,0 +1,18 @@
+<div class="season-status-message"
+     [class.status-message-dark]="theme() === 'dark'"
+     [class.status-message-light]="theme() === 'light'"
+>
+    <app-status-icon [icon]="icon()" [status]="status()"/>
+
+    <div class="season-status-message__content">
+        @if (showTitle()) {
+            <span class="season-status-message__title">
+                {{ title() }}
+            </span>
+        }
+
+        <strong class="season-status-message__message">
+            {{ message() }}
+        </strong>
+    </div>
+</div>
