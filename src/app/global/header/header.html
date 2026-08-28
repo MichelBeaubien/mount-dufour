@@ -43,9 +43,43 @@
 
             <nav class="site-header__desktop-nav" aria-label="Primary navigation">
                 @for (item of navItems; track item.route) {
-                    <a [routerLink]="item.route" routerLinkActive="is-active">
-                        {{ item.name }}
-                    </a>
+                    @if (item.children?.length) {
+                        <div class="site-header__nav-item"
+                             (mouseenter)="openDropdown(item.route)"
+                             (mouseleave)="closeDropdown()"
+                        >
+                            <div class="site-header__nav-parent">
+                                <a [routerLink]="item.route"
+                                   routerLinkActive="is-active"
+                                   [class.is-active]="isDropdownOpen(item.route)"
+                                >
+                                    {{ item.name }}
+                                </a>
+
+                                <button class="site-header__dropdown-trigger"
+                                        type="button"
+                                        [attr.aria-expanded]="isDropdownOpen(item.route)"
+                                        [attr.aria-label]="'Open ' + item.name + ' menu'"
+                                        (click)="toggleDropdown(item.route)"
+                                >
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="site-header__dropdown" [class.is-open]="isDropdownOpen(item.route)">
+                                @for (child of item.children; track child.route) {
+                                    <a [routerLink]="child.route" routerLinkActive="is-active"
+                                       (click)="closeDropdown()">
+                                        {{ child.name }}
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    } @else {
+                        <a [routerLink]="item.route" routerLinkActive="is-active">
+                            {{ item.name }}
+                        </a>
+                    }
                 }
             </nav>
 
@@ -72,33 +106,53 @@
         </div>
     </div>
 
-    <div id="mobile-navigation"
-         class="site-header__mobile-nav"
-         [class.is-open]="isMenuOpen()"
-    >
+    <div id="mobile-navigation" class="site-header__mobile-nav" [class.is-open]="isMenuOpen()">
         <nav aria-label="Mobile navigation">
             @for (item of navItems; track item.route) {
-                <a [routerLink]="item.route"
-                   routerLinkActive="is-active"
-                   (click)="closeMenu()"
-                >
-                    {{ item.name }}
-                </a>
+                @if (item.children?.length) {
+                    <div class="site-header__mobile-group">
+                        <div class="site-header__mobile-parent">
+                            <a [routerLink]="item.route"
+                               routerLinkActive="is-active"
+                               (click)="closeMenu()"
+                            >
+                                {{ item.name }}
+                            </a>
+
+                            <button type="button"
+                                    [attr.aria-expanded]="isDropdownOpen(item.route)"
+                                    [attr.aria-label]="'Toggle ' + item.name + ' menu'"
+                                    (click)="toggleDropdown(item.route)"
+                            >
+                                <i class="fas fa-chevron-down"
+                                   [class.is-open]="isDropdownOpen(item.route)"
+                                   aria-hidden="true"
+                                ></i>
+                            </button>
+                        </div>
+
+                        @if (isDropdownOpen(item.route)) {
+                            <div class="site-header__mobile-children">
+                                @for (child of item.children; track child.route) {
+                                    <a [routerLink]="child.route"
+                                       routerLinkActive="is-active"
+                                       (click)="closeMenu()"
+                                    >
+                                        {{ child.name }}
+                                    </a>
+                                }
+                            </div>
+                        }
+                    </div>
+                } @else {
+                    <a [routerLink]="item.route"
+                       routerLinkActive="is-active"
+                       (click)="closeMenu()"
+                    >
+                        {{ item.name }}
+                    </a>
+                }
             }
-
-            <a routerLink="/mountain/conditions"
-               routerLinkActive="is-active"
-               (click)="closeMenu()"
-            >
-                Conditions
-            </a>
-
-            <a routerLink="/mountain/hours"
-               routerLinkActive="is-active"
-               (click)="closeMenu()"
-            >
-                Hours
-            </a>
 
             <a routerLink="/contact"
                routerLinkActive="is-active"

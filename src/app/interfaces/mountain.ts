@@ -4,6 +4,12 @@ export type StatusMessageTheme = 'light' | 'dark';
 
 export type TrailDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
+export interface AboutFeature {
+    description: string;
+    icon: string;
+    title: string;
+}
+
 export interface Experience {
     description: string;
     icon: string;

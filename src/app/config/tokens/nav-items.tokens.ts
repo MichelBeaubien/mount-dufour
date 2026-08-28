@@ -6,28 +6,84 @@ export const HEADER_NAV_ITEMS = new InjectionToken<NavigationItem[]>('header-nav
     providedIn: 'root',
     factory: () => ([
         {
-            route: '/mountain',
-            name: 'Mountain'
+            children: [
+                {
+                    name: 'About',
+                    route: '/mountain/about'
+                },
+                {
+                    name: 'Conditions',
+                    route: '/mountain/conditions'
+                },
+                {
+                    name: 'Trail Map',
+                    route: '/mountain/trail-map'
+                },
+                {
+                    name: 'Hours',
+                    route: '/mountain/hours'
+                }
+            ],
+            name: 'Mountain',
+            route: '/mountain'
         },
         {
-            route: '/tickets',
-            name: 'Tickets & Passes'
+            children: [
+                {
+                    name: 'Lift Tickets',
+                    route: '/tickets/lift-tickets'
+                },
+                {
+                    name: 'Season Passes',
+                    route: '/tickets/season-passes'
+                },
+                {
+                    name: 'Deals',
+                    route: '/tickets/deals'
+                }
+            ],
+            name: 'Tickets',
+            route: '/tickets'
         },
         {
-            route: '/lessons-rentals',
-            name: 'Lessons & Rentals'
+            children: [
+                {
+                    name: 'Snow School',
+                    route: '/lessons-rentals/snow-school'
+                },
+                {
+                    name: 'Equipment Rentals',
+                    route: '/lessons-rentals/rentals'
+                }
+            ],
+            name: 'Lessons & Rentals',
+            route: '/lessons-rentals'
         },
         {
-            route: '/chalet',
-            name: 'The Chalet'
+            children: [
+                {
+                    name: 'Food & Drink',
+                    route: '/chalet/food-drink'
+                },
+                {
+                    name: 'Slopeside Lounge',
+                    route: '/chalet/lounge'
+                },
+                {
+                    name: 'Lockers',
+                    route: '/chalet/lockers'
+                }
+            ],
+            name: 'Chalet',
+            route: '/chalet'
         },
         {
-            route: '/news-events',
-            name: 'News & Events'
+            name: 'News & Events',
+            route: '/news-events'
         },
         {
-            route: '/plan-your-visit',
-            name: 'Plan Your Visit'
+            name: 'Plan Your Visit',
+            route: '/plan-your-visit'
         }
     ])
 });

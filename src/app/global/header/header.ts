@@ -16,14 +16,33 @@ import { MountainService } from '../../services/mountain';
     standalone: true
 })
 export class Header {
+    public readonly activeDropdown = signal<string | null>(null);
+
     public readonly isMenuOpen = signal<boolean>(false);
 
     public readonly mountainService = inject(MountainService);
 
     public readonly navItems = inject(HEADER_NAV_ITEMS);
 
+    public closeDropdown(): void {
+        this.activeDropdown.set(null);
+    }
+
     public closeMenu(): void {
         this.isMenuOpen.set(false);
+        this.closeDropdown();
+    }
+
+    public isDropdownOpen(route: string): boolean {
+        return this.activeDropdown() === route;
+    }
+
+    public openDropdown(route: string): void {
+        this.activeDropdown.set(route);
+    }
+
+    public toggleDropdown(route: string): void {
+        this.activeDropdown.update((activeRoute) => activeRoute === route ? null : route);
     }
 
     public toggleMenu(): void {
