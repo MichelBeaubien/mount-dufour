@@ -453,3 +453,24 @@
         color: var(--color-text-inverse);
     }
 }
+
+.section-title {
+    color: var(--color-heading);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    letter-spacing: -0.045em;
+    line-height: 1;
+    margin: 0;
+
+    > span {
+        color: var(--color-primary);
+        display: block;
+    }
+
+    &--accent-title {
+        color: var(--color-accent);
+    }
+
+    &--sm {
+        font-size: clamp(2rem, 3vw, 3rem);
+    }
+}

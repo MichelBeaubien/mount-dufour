@@ -452,15 +452,7 @@
 
     &__content {
         h2 {
-            font-size: clamp(2.5rem, 4vw, 4.25rem);
-            letter-spacing: -0.045em;
-            line-height: 1;
             margin: 0 0 2rem;
-
-            span {
-                color: var(--color-primary);
-                display: block;
-            }
         }
 
         p {
@@ -650,15 +642,7 @@
         margin-bottom: 3.5rem;
 
         h2 {
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            letter-spacing: -0.045em;
-            line-height: 1;
             margin: 0;
-
-            span {
-                color: var(--color-primary);
-                display: block;
-            }
         }
 
         > p {
@@ -749,41 +733,23 @@
         align-items: stretch;
         display: grid;
         gap: 2rem;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 0 var(--container-padding);
-    }
-
-    &__content {
-        background: var(--color-background-alt);
-        border-radius: var(--radius-xl);
-        padding: clamp(2rem, 5vw, 5rem);
-
-        h2 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            letter-spacing: -0.05em;
-            line-height: 1;
-            margin: 0 0 1.5rem;
-        }
-
-        p {
-            color: var(--color-text-muted);
-            line-height: 1.8;
-            margin: 0;
-            max-width: 38rem;
-        }
     }
 
     &__actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        margin-top: 2rem;
+        margin-top: auto;
     }
 
     &__feature {
         background: var(--footer-background);
         border-radius: var(--radius-xl);
         color: var(--footer-text);
+        display: flex;
+        flex-direction: column;
         padding: clamp(2rem, 5vw, 4rem);
 
         > i {
@@ -793,7 +759,6 @@
         }
 
         > span {
-            color: var(--color-accent);
             display: block;
             font-size: 0.6875rem;
             font-weight: 800;
@@ -802,21 +767,26 @@
             text-transform: uppercase;
         }
 
-        h3 {
-            color: var(--footer-text);
-            font-size: clamp(2rem, 4vw, 3rem);
-            letter-spacing: -0.04em;
-            line-height: 1;
+        h2 {
             margin: 0 0 1.25rem;
         }
 
         p {
             color: var(--footer-text-muted);
             line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
-        a {
-            margin-top: 1.5rem;
+        &--content {
+            background: var(--color-background-alt);
+
+            > i {
+                color: var(--color-primary);
+            }
+
+            p {
+                color: var(--color-text-muted);
+            }
         }
     }
 
