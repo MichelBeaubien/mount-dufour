@@ -1,53 +1,18 @@
 <main class="trail-map">
-    <!-- HERO -->
-    <section class="trail-map-hero">
-        <div class="trail-map-hero__container">
-            <nav class="trail-map-hero__breadcrumb" aria-label="Breadcrumb">
-                <a routerLink="/">
-                    Home
-                </a>
+    <app-secondary-hero [hero]="hero()">
+        <a hero-panel class="hero-panel hero-panel--on-hover has-arrow"
+           routerLink="/mountain/conditions"
+        >
+            <app-status-message message="Mountain Conditions"
+                                [status]="mountainService.status()"
+                                icon="fa-mountain"
+                                [showTitle]="true"
+                                title="Before You Ride"
+            ></app-status-message>
 
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <a routerLink="/mountain">
-                    Mountain
-                </a>
-
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <span>Trail Map</span>
-            </nav>
-
-            <div class="trail-map-hero__content">
-                <div>
-                    <span class="section-kicker section-kicker--accent">
-                        Explore the Mountain
-                    </span>
-
-                    <h1>Trail Map</h1>
-
-                    <p>
-                        {{ mountainService.totalTrails() | numberWord | titlecase }}
-                        trails, {{ mountainService.totalLifts() | numberWord }} lifts and terrain for every kind of day
-                        on the mountain.
-                    </p>
-                </div>
-
-                <a class="hero-panel hero-panel--on-hover has-arrow"
-                   routerLink="/mountain/conditions"
-                >
-                    <app-status-message message="Mountain Conditions"
-                                        [status]="mountainService.status()"
-                                        icon="fa-mountain"
-                                        [showTitle]="true"
-                                        title="Before You Ride"
-                    ></app-status-message>
-
-                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+    </app-secondary-hero>
 
     <!-- MAP -->
     <section class="mountain-map">

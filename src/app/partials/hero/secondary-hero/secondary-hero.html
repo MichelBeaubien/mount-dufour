@@ -1,0 +1,45 @@
+<section class="secondary-hero">
+    <div class="container secondary-hero__container">
+        @if (hero().breadcrumbs?.length) {
+            <nav class="secondary-hero__breadcrumb" aria-label="Breadcrumb">
+                @for (breadcrumb of hero().breadcrumbs; track breadcrumb.label; let last = $last) {
+                    @if (breadcrumb.route && !last) {
+                        <a [routerLink]="breadcrumb.route">
+                            {{ breadcrumb.label }}
+                        </a>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    } @else {
+                        <span>
+                            {{ breadcrumb.label }}
+                        </span>
+                    }
+                }
+            </nav>
+        }
+
+        <div class="secondary-hero__content">
+            <div class="secondary-hero__copy">
+                @if (hero().kicker) {
+                    <span class="section-kicker section-kicker--accent">
+                        {{ hero().kicker }}
+                    </span>
+                }
+
+                <h1>
+                    {{ hero().title }}
+                </h1>
+
+                @if (hero().description) {
+                    <p>
+                        {{ hero().description }}
+                    </p>
+                }
+            </div>
+
+            <div class="secondary-hero__panel">
+                <ng-content select="[hero-panel]"></ng-content>
+            </div>
+        </div>
+    </div>
+</section>

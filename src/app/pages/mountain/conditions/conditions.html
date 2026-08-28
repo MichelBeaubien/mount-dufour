@@ -1,48 +1,14 @@
 <main class="conditions">
-    <!-- PAGE HERO -->
-    <section class="conditions-hero">
-        <div class="conditions-hero__container">
-            <nav class="conditions-hero__breadcrumb" aria-label="Breadcrumb">
-                <a routerLink="/">
-                    Home
-                </a>
-
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <a routerLink="/mountain">
-                    Mountain
-                </a>
-
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <span>Conditions</span>
-            </nav>
-
-            <div class="conditions-hero__content">
-                <div>
-                    <span class="section-kicker section-kicker--accent">
-                        Mountain Report
-                    </span>
-
-                    <h1>Mountain Conditions</h1>
-
-                    <p>
-                        Check current trail, lift and terrain park conditions before heading to the hill.
-                    </p>
-                </div>
-
-                <div class="hero-panel">
-                    <app-status-message [message]="getStatusLabel(mountainService.status())"
-                                        [status]="mountainService.status()"
-                                        [showTitle]="true"
-                                        title="Mountain Status"
-                                        icon="fa-mountain"
-                    ></app-status-message>
-                </div>
-            </div>
+    <app-secondary-hero [hero]="hero()">
+        <div hero-panel class="hero-panel">
+            <app-status-message [message]="getStatusLabel(mountainService.status())"
+                                [status]="mountainService.status()"
+                                [showTitle]="true"
+                                title="Mountain Status"
+                                icon="fa-mountain"
+            ></app-status-message>
         </div>
-    </section>
-
+    </app-secondary-hero>
 
     <!-- REPORT META -->
     <section class="report-meta">

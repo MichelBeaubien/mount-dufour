@@ -1,0 +1,9 @@
+@use 'mixins' as m;
+
+:host {
+    display: block;
+}
+
+.secondary-hero {
+    @include m.dark-page-hero('> div:first-child', 46rem);
+}

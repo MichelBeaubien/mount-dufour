@@ -1,13 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { getStatusClassName, getStatusLabel } from '../../../config/utils';
+import { getStatusLabel } from '../../../config/utils';
+import { HeroOptions } from '../../../interfaces/hero';
+import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
 import { StatusMessage } from '../../../partials/season/status-message/status-message';
 import { MountainService } from '../../../services/mountain';
 
 @Component({
     imports: [
         RouterLink,
-        StatusMessage
+        StatusMessage,
+        SecondaryHero
     ],
     selector: 'app-conditions',
     styleUrl: './conditions.scss',
@@ -15,9 +18,26 @@ import { MountainService } from '../../../services/mountain';
     standalone: true
 })
 export class Conditions {
-    public readonly getStatusLabel = getStatusLabel;
+    public readonly hero = computed<HeroOptions>(() => ({
+        kicker: 'Mountain Report',
+        title: 'Mountain Conditions',
+        description: 'Check current trail, lift and terrain park conditions before heading to the hill.',
+        breadcrumbs: [
+            {
+                label: 'Home',
+                route: '/'
+            },
+            {
+                label: 'Mountain',
+                route: '/mountain'
+            },
+            {
+                label: 'Conditions'
+            }
+        ]
+    }));
 
-    public readonly getStatusClassName = getStatusClassName;
+    public readonly getStatusLabel = getStatusLabel;
 
     public readonly mountainService = inject(MountainService);
 }

@@ -149,6 +149,10 @@
         margin: 1.5rem 0 0;
         max-width: 38rem;
         opacity: 0.72;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
 
     @include bp.down(md) {

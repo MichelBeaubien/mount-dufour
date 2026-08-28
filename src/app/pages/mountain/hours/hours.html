@@ -1,45 +1,12 @@
 <main class="hours">
-    <!-- HERO -->
-    <section class="hours-hero">
-        <div class="hours-hero__container">
-            <nav class="hours-hero__breadcrumb" aria-label="Breadcrumb">
-                <a routerLink="/">
-                    Home
-                </a>
-
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <a routerLink="/mountain">
-                    Mountain
-                </a>
-
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-
-                <span>Hours</span>
-            </nav>
-
-            <div class="hours-hero__content">
-                <div>
-                    <span class="section-kicker section-kicker--accent">
-                        Plan Your Day
-                    </span>
-
-                    <h1>Hours of Operation</h1>
-
-                    <p>
-                        Check Mount Dufour's operating schedule before heading to the hill.
-                    </p>
-                </div>
-
-                <div class="hero-panel">
-                    <app-status-message [message]="mountainService.season().message"
-                                        [status]="mountainService.season().status"
-                                        [showTitle]="true"
-                    ></app-status-message>
-                </div>
-            </div>
+    <app-secondary-hero [hero]="hero()">
+        <div hero-panel class="hero-panel">
+            <app-status-message [message]="mountainService.season().message"
+                                [status]="mountainService.season().status"
+                                [showTitle]="true"
+            ></app-status-message>
         </div>
-    </section>
+    </app-secondary-hero>
 
     <!-- HOURS -->
     <section class="operating-hours">

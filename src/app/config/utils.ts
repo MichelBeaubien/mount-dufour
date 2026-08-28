@@ -27,3 +27,21 @@ export function getStatusClassName(status: MountainStatus): string {
             return 'is-closed';
     }
 }
+
+export function numberToWord(value: number): string {
+    const words = [
+        'zero',
+        'one',
+        'two',
+        'three',
+        'four',
+        'five',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+        'ten'
+    ];
+
+    return words[value] ?? value.toString();
+}
