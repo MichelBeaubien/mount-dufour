@@ -24,7 +24,7 @@ export interface Lift {
     type: string;
 }
 
-export interface LiftTicketPrice {
+export interface LiftTicketsPrice {
     ageRange?: string;
     fullDay: number;
     halfDay: number;

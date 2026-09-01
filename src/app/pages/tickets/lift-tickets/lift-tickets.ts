@@ -1,20 +1,23 @@
 import { Component, computed, inject } from '@angular/core';
 import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
-import { MountainService } from '../../../services/mountain';
+import { SectionTitle } from '../../../partials/section-title/section-title';
+import { LiftTicketsService } from '../../../services/lift-tickets';
 
 @Component({
     imports: [
-        SecondaryHero
+        SecondaryHero,
+        SectionTitle
     ],
     selector: 'app-lift-tickets',
     styleUrl: './lift-tickets.scss',
     templateUrl: './lift-tickets.html',
-    standalone: true
+    standalone: true,
+    providers: [
+        LiftTicketsService,
+    ]
 })
 export class LiftTickets {
-    public readonly mountainService = inject(MountainService);
-
     public readonly hero = computed<HeroOptions>(() => ({
         kicker: 'Tickets & Passes',
         title: 'Lift Tickets',
@@ -34,5 +37,5 @@ export class LiftTickets {
         ]
     }));
 
-
+    public readonly liftTicketsService = inject(LiftTicketsService);
 }

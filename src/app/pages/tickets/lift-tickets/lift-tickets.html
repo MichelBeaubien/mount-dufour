@@ -1,6 +1,139 @@
 <main class="lift-tickets">
     <app-secondary-hero [hero]="hero()"></app-secondary-hero>
 
-    <section class="lift-tickets-section">
+    <section class="lift-tickets section">
+        <div class="container">
+            <app-section-title
+                kicker="2025 / 2026 Season"
+                title="Lift Ticket Pricing"
+                description="Choose a full-day ticket or hit the hill for an afternoon session."
+            ></app-section-title>
+
+            <div class="lift-tickets__grid">
+                @for (ticket of liftTicketsService.liftTickets(); track ticket.label) {
+                    <article class="ticket-card">
+                        <div class="ticket-card__header">
+                            <h3>{{ ticket.label }}</h3>
+
+                            @if (ticket.ageRange) {
+                                <span>{{ ticket.ageRange }}</span>
+                            }
+                        </div>
+
+                        <div class="ticket-card__prices">
+                            <div class="ticket-card__price">
+                            <span class="ticket-card__price-label">
+                                Full Day
+                            </span>
+
+                                <strong>
+                                    ${{ ticket.fullDay }}
+                                </strong>
+                            </div>
+
+                            <div class="ticket-card__price">
+                            <span class="ticket-card__price-label">
+                                Half Day
+                            </span>
+
+                                <strong>
+                                    ${{ ticket.halfDay }}
+                                </strong>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+
+            <p class="lift-tickets__tax">
+                All prices are subject to HST.
+            </p>
+        </div>
+    </section>
+
+    <section class="beginner-lift section">
+        <div class="container">
+            <div class="beginner-lift__inner">
+                <div>
+                <span class="beginner-lift__eyebrow">
+                    Just Getting Started?
+                </span>
+
+                    <h2>Beginner Lift</h2>
+
+                    <p>
+                        Stay on beginner terrain while you learn the basics
+                        and build your confidence.
+                    </p>
+                </div>
+
+                <div class="beginner-lift__price">
+                    <strong>$15</strong>
+                    <span>Full or Half Day</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="kids-special section">
+        <div class="container">
+            <div class="kids-special__inner">
+                <div class="kids-special__icon">
+                    <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                </div>
+
+                <div class="kids-special__content">
+                    <span>Family Special</span>
+
+                    <h2>Kids 10 & Under Ski for $35</h2>
+
+                    <p>
+                        Children ages 10 and under can ski for $35 when
+                        accompanied by an adult purchasing a full-day lift ticket.
+                    </p>
+
+                    <small>
+                        Limit one $35 child pass per paying adult full-day ticket.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ticket-info section">
+        <div class="container">
+            <app-section-title kicker="Plan Your Day"
+                               title="Ticket Information"
+            ></app-section-title>
+
+            <div class="ticket-info__grid">
+                <div class="ticket-info__item">
+                    <i class="fas fa-clock" aria-hidden="true"></i>
+
+                    <div>
+                        <strong>Lift Hours</strong>
+                        <span>9:00 AM – 4:00 PM</span>
+                    </div>
+                </div>
+
+                <div class="ticket-info__item">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+
+                    <div>
+                        <strong>Half Day</strong>
+                        <span>Begins at 12:30 PM</span>
+                    </div>
+                </div>
+
+                <div class="ticket-info__item">
+                    <i class="fas fa-receipt" aria-hidden="true"></i>
+
+                    <div>
+                        <strong>Taxes</strong>
+                        <span>All pricing is subject to HST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
