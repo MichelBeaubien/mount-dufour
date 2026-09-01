@@ -5,125 +5,6 @@
 }
 
 // ============================================
-// HERO
-// ============================================
-
-.about-hero {
-    color: var(--color-text-inverse);
-    min-height: 34rem;
-    overflow: hidden;
-    position: relative;
-
-    &__media,
-    &__overlay {
-        inset: 0;
-        position: absolute;
-    }
-
-    &__media {
-        img {
-            height: 100%;
-            object-fit: cover;
-            width: 100%;
-        }
-    }
-
-    &__overlay {
-        background: linear-gradient(
-                        90deg,
-                        rgba(11, 34, 44, 0.92) 0%,
-                        rgba(11, 34, 44, 0.72) 48%,
-                        rgba(11, 34, 44, 0.18) 100%
-        );
-    }
-
-    &__container {
-        display: flex;
-        flex-direction: column;
-        min-height: 34rem;
-        padding-bottom: 4rem;
-        padding-top: 2rem;
-        position: relative;
-        z-index: 2;
-    }
-
-    &__breadcrumb {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.625rem;
-
-        a,
-        span {
-            color: var(--color-text-inverse);
-            font-size: 0.75rem;
-            font-weight: 600;
-            opacity: 0.7;
-            text-decoration: none;
-        }
-
-        a {
-            transition: opacity var(--transition-fast);
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-
-        i {
-            font-size: 0.5rem;
-            opacity: 0.4;
-        }
-    }
-
-    &__content {
-        margin-top: auto;
-        max-width: 52rem;
-
-        h1 {
-            color: var(--color-text-inverse);
-            font-size: clamp(3rem, 6vw, 5.75rem);
-            letter-spacing: -0.055em;
-            line-height: 0.95;
-            margin: 0;
-
-            span {
-                color: var(--color-accent);
-                display: block;
-            }
-        }
-
-        p {
-            color: var(--color-text-inverse);
-            font-size: 1.125rem;
-            line-height: 1.7;
-            margin: 1.5rem 0 0;
-            max-width: 36rem;
-            opacity: 0.78;
-        }
-    }
-
-    @include bp.down(md) {
-        min-height: 30rem;
-
-        &__container {
-            min-height: 30rem;
-        }
-    }
-
-    @include bp.down(sm) {
-        &__overlay {
-            background: linear-gradient(
-                            180deg,
-                            rgba(11, 34, 44, 0.42) 0%,
-                            rgba(11, 34, 44, 0.92) 100%
-            );
-        }
-    }
-}
-
-
-// ============================================
 // INTRO
 // ============================================
 
@@ -141,13 +22,6 @@
     }
 
     &__content {
-        .section-title {
-            span {
-                color: var(--color-primary);
-                display: block;
-            }
-        }
-
         > p {
             color: var(--color-text-muted);
             line-height: 1.8;
@@ -324,18 +198,6 @@
     background: var(--color-background-alt);
     padding: 7rem 0;
 
-    &__header {
-        margin-bottom: 3rem;
-        max-width: 48rem;
-
-        .section-title {
-            span {
-                color: var(--color-primary);
-                display: block;
-            }
-        }
-    }
-
     &__grid {
         display: grid;
         gap: 1.5rem;
@@ -475,19 +337,12 @@
     background: var(--color-background);
     padding: 0 0 7rem;
 
-    &__container {
-        background: linear-gradient(
-                        135deg,
-                        var(--footer-background),
-                        var(--color-secondary)
-        );
+    &__content {
+        background: linear-gradient(135deg, var(--footer-background), var(--color-secondary));
         border-radius: var(--radius-xl);
         overflow: hidden;
-    }
-
-    &__content {
-        max-width: 44rem;
         padding: clamp(2.5rem, 7vw, 6rem);
+        width: 100%;
 
         > i {
             color: var(--color-accent);

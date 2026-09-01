@@ -24,6 +24,13 @@ export interface Lift {
     type: string;
 }
 
+export interface LiftTicketPrice {
+    ageRange?: string;
+    fullDay: number;
+    halfDay: number;
+    label: string;
+}
+
 export interface MountainData {
     lifts: Lift[];
     season: MountainSeason;

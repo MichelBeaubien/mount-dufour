@@ -1,1 +1,60 @@
-<p>primary-hero works!</p>
+<section class="primary-hero">
+    <div class="primary-hero__background" [style.background-image]="'url(' + hero().image + ')'"></div>
+    <div class="primary-hero__overlay"></div>
+
+    <div class="primary-hero__container">
+        @if (hero().breadcrumbs?.length) {
+            <nav class="primary-hero__breadcrumb" aria-label="Breadcrumb">
+                @for (breadcrumb of hero().breadcrumbs; track breadcrumb.label; let last = $last) {
+                    @if (breadcrumb.route && !last) {
+                        <a [routerLink]="breadcrumb.route">
+                            {{ breadcrumb.label }}
+                        </a>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    } @else {
+                        <span>
+                            {{ breadcrumb.label }}
+                        </span>
+                    }
+                }
+            </nav>
+        }
+
+        <div class="primary-hero__content">
+            @if (hero().kicker) {
+                <span class="primary-hero__kicker">
+                    @if (hero().kickerIcon) {
+                        <i class="fas {{ hero().kickerIcon }}" aria-hidden="true"></i>
+                    }
+                    {{ hero().kicker }}
+                </span>
+            }
+
+            <h1>
+                {{ hero().title }}
+                @if (hero().titleSpan) {
+                    <span>{{ hero().titleSpan }}</span>
+                }
+            </h1>
+
+            @if (hero().description) {
+                <p>{{ hero().description }}</p>
+            }
+
+            <div class="primary-hero__actions">
+                <ng-content select="[hero-actions]"></ng-content>
+            </div>
+        </div>
+    </div>
+
+    @if (hero().scrollTo?.href && hero().scrollTo?.label) {
+        <a class="primary-hero__scroll"
+           [href]="'#' + hero().scrollTo!.href"
+           [attr.aria-label]="hero().scrollTo!.label"
+        >
+            <span>Explore</span>
+            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+        </a>
+    }
+</section>

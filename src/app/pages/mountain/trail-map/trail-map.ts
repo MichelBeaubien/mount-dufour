@@ -1,16 +1,20 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { numberToWord } from '../../../config/utils';
 import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
 import { StatusMessage } from '../../../partials/season/status-message/status-message';
+import { SectionTitle } from '../../../partials/section-title/section-title';
 import { MountainService } from '../../../services/mountain';
 
 @Component({
     imports: [
         RouterLink,
         StatusMessage,
-        SecondaryHero
+        SecondaryHero,
+        SectionTitle,
+        TitleCasePipe
     ],
     selector: 'app-trail-map',
     styleUrl: './trail-map.scss',
@@ -38,4 +42,5 @@ export class TrailMap {
     }));
 
     public readonly mountainService = inject(MountainService);
+    protected readonly numberToWord = numberToWord;
 }

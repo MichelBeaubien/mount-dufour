@@ -68,16 +68,13 @@
         <div class="conditions-content__container">
             <!-- TRAILS -->
             <section class="conditions-panel">
-                <header class="conditions-panel__header">
-                    <div>
-                        <span class="section-kicker">Trail Report</span>
-                        <h2 class="section-title">Trails</h2>
-                    </div>
-
-                    <span class="conditions-panel__count">
-                        {{ mountainService.openTrailsCount() }} of {{ mountainService.totalTrails() }} open
-                    </span>
-                </header>
+                <app-section-title kicker="Trail Report"
+                                   title="Trails"
+                >
+                    <p section-side-info class="section-side-info">
+                        {{ mountainService.openTrailsCount() + ' of ' + mountainService.totalTrails() + ' open' }}
+                    </p>
+                </app-section-title>
 
                 <div class="conditions-table">
                     <div class="conditions-table__header">
@@ -140,16 +137,13 @@
 
             <!-- LIFTS -->
             <section class="conditions-panel">
-                <header class="conditions-panel__header">
-                    <div>
-                        <span class="section-kicker">Lift Report</span>
-                        <h2 class="section-title">Lifts</h2>
-                    </div>
-
-                    <span class="conditions-panel__count">
-                        {{ mountainService.openLiftsCount() }} of {{ mountainService.totalLifts() }} open
-                    </span>
-                </header>
+                <app-section-title kicker="Lift Report"
+                                   title="Lifts"
+                >
+                    <p section-side-info class="section-side-info">
+                        {{ mountainService.openLiftsCount() + ' of ' + mountainService.totalLifts() + ' open' }}
+                    </p>
+                </app-section-title>
 
                 <div class="lift-grid">
                     @for (lift of mountainService.lifts(); track lift.name) {

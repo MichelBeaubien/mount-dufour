@@ -436,6 +436,22 @@
 // SECTION KICKERS
 // ============================================
 
+.main-section-title {
+    display: flex;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    &:has([section-side-info]) {
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.inner-main-section-title {
+    display: flex;
+    flex-direction: column;
+}
+
 .section-kicker {
     color: var(--color-primary);
     display: block;
@@ -473,4 +489,16 @@
     &--sm {
         font-size: clamp(2rem, 3vw, 3rem);
     }
+}
+
+.section-description {
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.section-side-info {
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    font-weight: 700;
 }

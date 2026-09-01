@@ -17,13 +17,10 @@
     <!-- MAP -->
     <section class="mountain-map">
         <div class="mountain-map__container">
-            <header class="mountain-map__header">
-                <div>
-                    <span class="section-kicker">Mount Dufour Ski Area</span>
-                    <h2 class="section-title">Find your run.</h2>
-                </div>
-
-                <div class="mountain-map__legend">
+            <app-section-title kicker="Mount Dufour Ski Area"
+                               title="Find your run."
+            >
+                <div section-side-info class="mountain-map__legend">
                     <div>
                         <i class="fas fa-circle trail-symbol trail-symbol--beginner" aria-hidden="true"></i>
                         <span>Easiest</span>
@@ -39,7 +36,7 @@
                         <span>Most Difficult</span>
                     </div>
                 </div>
-            </header>
+            </app-section-title>
 
             <div class="mountain-map__image">
                 <img src="/assets/images/mountain/find-your-run.jpg" alt="Mount Dufour ski area trail map">
@@ -76,17 +73,10 @@
     <!-- TRAILS -->
     <section class="trail-directory">
         <div class="trail-directory__container">
-            <header class="trail-directory__header">
-                <div>
-                    <span class="section-kicker">The Mountain</span>
-                    <h2 class="section-title">Seven trails to explore.</h2>
-                </div>
-
-                <p>
-                    From gentle beginner terrain to steeper runs, Mount Dufour offers a variety of terrain right in the
-                    heart of Elliot Lake.
-                </p>
-            </header>
+            <app-section-title kicker="The Mountain"
+                               [title]="(numberToWord(mountainService.totalTrails()) | titlecase) + ' trails to explore.'"
+                               description="From gentle beginner terrain to steeper runs, Mount Dufour offers a variety of terrain right in the heart of Elliot Lake."
+            ></app-section-title>
 
             <div class="trail-directory__grid">
                 @for (trail of mountainService.trails(); track trail.name) {

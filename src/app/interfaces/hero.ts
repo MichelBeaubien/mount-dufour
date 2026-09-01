@@ -9,5 +9,11 @@ export interface HeroOptions {
     image?: string;
     imageAlt?: string;
     kicker?: string;
+    kickerIcon?: string;
     title: string;
+    titleSpan?: string;
+    scrollTo?: {
+        label: string;
+        href: string;
+    };
 }

@@ -1,45 +1,17 @@
 <main class="home">
-    <!-- HERO -->
-    <section class="home-hero">
-        <div class="home-hero__background"></div>
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg" routerLink="/tickets/lift-tickets">
+                <i class="fas fa-ticket" aria-hidden="true"></i>
+                <span>Buy Tickets</span>
+            </a>
 
-        <div class="home-hero__overlay"></div>
-
-        <div class="home-hero__container">
-            <div class="home-hero__content">
-                <span class="home-hero__kicker">
-                    <i class="fas fa-location-dot" aria-hidden="true"></i>
-                    Elliot Lake, Ontario
-                </span>
-
-                <h1>
-                    More mountain.
-                    <span>More skiing.</span>
-                </h1>
-
-                <p>
-                    Ski, ride, learn and explore right in the heart of Elliot Lake.
-                </p>
-
-                <div class="home-hero__actions">
-                    <a class="btn btn--primary btn--lg" routerLink="/tickets/lift-tickets">
-                        <i class="fas fa-ticket" aria-hidden="true"></i>
-                        <span>Buy Tickets</span>
-                    </a>
-
-                    <a class="btn btn--accent btn--lg btn--arrow" routerLink="/mountain">
-                        <span>Explore the Mountain</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <a class="home-hero__scroll" href="#mountain-status" aria-label="Scroll to mountain status">
-            <span>Explore</span>
-            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
-        </a>
-    </section>
+            <a class="btn btn--accent btn--lg btn--arrow" routerLink="/mountain">
+                <span>Explore the Mountain</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
 
     <!-- MOUNTAIN STATUS -->
     <section id="mountain-status" class="mountain-status">

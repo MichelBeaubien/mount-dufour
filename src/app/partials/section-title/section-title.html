@@ -1,0 +1,19 @@
+<div class="main-section-title">
+    <div class="inner-main-section-title">
+        @if (kicker()) {
+            <span class="section-kicker">{{ kicker() }}</span>
+        }
+        <h2 class="section-title">
+            {{ title() }}
+            @if (titleSpan()) {
+                <span>{{ titleSpan() }}</span>
+            }
+        </h2>
+
+        @if (description()) {
+            <p class="section-description">{{ description() }}</p>
+        }
+    </div>
+
+    <ng-content select="[section-side-info]"></ng-content>
+</div>

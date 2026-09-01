@@ -4,13 +4,15 @@ import { getStatusLabel } from '../../../config/utils';
 import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
 import { StatusMessage } from '../../../partials/season/status-message/status-message';
+import { SectionTitle } from '../../../partials/section-title/section-title';
 import { MountainService } from '../../../services/mountain';
 
 @Component({
     imports: [
         RouterLink,
         StatusMessage,
-        SecondaryHero
+        SecondaryHero,
+        SectionTitle
     ],
     selector: 'app-conditions',
     styleUrl: './conditions.scss',
