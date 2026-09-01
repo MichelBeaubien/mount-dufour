@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FOOTER_NAV_ITEMS } from '../../config/tokens/nav-items.tokens';
+import { SITE_PAGES } from '../../config/site-map';
 
 @Component({
     imports: [
@@ -16,4 +17,6 @@ export class Footer {
     public readonly year: number = new Date().getFullYear();
 
     public readonly navItems = inject(FOOTER_NAV_ITEMS);
+
+    public readonly pages = SITE_PAGES;
 }

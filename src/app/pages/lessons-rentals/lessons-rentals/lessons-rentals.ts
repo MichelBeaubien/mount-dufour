@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { PageShell } from '../../../partials/page-shell/page-shell';
 
 @Component({
-    imports: [],
+    imports: [PageShell],
     selector: 'app-lessons-rentals',
     styleUrl: './lessons-rentals.scss',
     templateUrl: './lessons-rentals.html',

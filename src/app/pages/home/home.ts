@@ -1,6 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MOUNTAIN_EXPERIENCES, MOUNTAIN_QUICK_LINKS } from '../../config/tokens/mountain.tokens';
+import { SITE_PAGES } from '../../config/site-map';
 import { getStatusLabel } from '../../config/utils';
 import { HeroOptions } from '../../interfaces/hero';
 import { PrimaryHero } from '../../partials/hero/primary-hero/primary-hero';
@@ -19,6 +20,8 @@ import { MountainService } from '../../services/mountain';
     standalone: true
 })
 export class Home {
+    public readonly pages = SITE_PAGES;
+
     public readonly getStatusLabel = getStatusLabel;
 
     public readonly hero = computed<HeroOptions>(() => ({

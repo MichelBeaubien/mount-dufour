@@ -1,7 +1,6 @@
 import { computed, Service, signal } from '@angular/core';
 import { BEGINNER_LIFT, KIDS_SPECIAL, LIFT_TICKET_INFO, LIFT_TICKETS } from '../data/lift-ticket.data';
 import { LiftTicketsPrice } from '../interfaces/mountain';
-import { LiftTickets } from '../pages/tickets/lift-tickets/lift-tickets';
 
 @Service()
 export class LiftTicketsService {

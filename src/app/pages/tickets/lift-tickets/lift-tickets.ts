@@ -3,6 +3,7 @@ import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
 import { SectionTitle } from '../../../partials/section-title/section-title';
 import { LiftTicketsService } from '../../../services/lift-tickets';
+import { breadcrumbsFor } from '../../../config/site-map';
 
 @Component({
     imports: [
@@ -22,19 +23,7 @@ export class LiftTickets {
         kicker: 'Tickets & Passes',
         title: 'Lift Tickets',
         description: 'Affordable skiing and snowboarding for the whole family, right here in Elliot Lake.',
-        breadcrumbs: [
-            {
-                label: 'Home',
-                route: '/'
-            },
-            {
-                label: 'Tickets',
-                route: '/tickets'
-            },
-            {
-                label: 'Lift Tickets'
-            }
-        ]
+        breadcrumbs: breadcrumbsFor('liftTickets')
     }));
 
     public readonly liftTicketsService = inject(LiftTicketsService);

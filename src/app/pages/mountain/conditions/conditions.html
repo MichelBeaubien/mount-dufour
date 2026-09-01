@@ -31,7 +31,7 @@
                 ></app-status-message>
             </div>
 
-            <a class="report-meta__map btn btn--outline btn--sm btn--arrow" routerLink="/mountain/trail-map">
+            <a class="report-meta__map btn btn--outline btn--sm btn--arrow" [routerLink]="pages.trailMap.url">
                 <i class="fas fa-map" aria-hidden="true"></i>
                 <span>View Trail Map</span>
                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
@@ -71,7 +71,7 @@
                 <app-section-title kicker="Trail Report"
                                    title="Trails"
                 >
-                    <p section-side-info class="section-side-info">
+                    <p section-side-info class="app-section-header__side-info">
                         {{ mountainService.openTrailsCount() + ' of ' + mountainService.totalTrails() + ' open' }}
                     </p>
                 </app-section-title>
@@ -140,7 +140,7 @@
                 <app-section-title kicker="Lift Report"
                                    title="Lifts"
                 >
-                    <p section-side-info class="section-side-info">
+                    <p section-side-info class="app-section-header__side-info">
                         {{ mountainService.openLiftsCount() + ' of ' + mountainService.totalLifts() + ' open' }}
                     </p>
                 </app-section-title>
@@ -179,7 +179,7 @@
                 </div>
 
                 <div class="terrain-park__content">
-                    <span class="section-kicker section-kicker--accent">
+                    <span class="app-eyebrow app-eyebrow--accent">
                         Terrain Park
                     </span>
 

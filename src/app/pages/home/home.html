@@ -1,12 +1,12 @@
 <main class="home">
     <app-primary-hero [hero]="hero()">
         <ng-container hero-actions>
-            <a class="btn btn--primary btn--lg" routerLink="/tickets/lift-tickets">
+            <a class="btn btn--primary btn--lg" [routerLink]="pages.liftTickets.url">
                 <i class="fas fa-ticket" aria-hidden="true"></i>
                 <span>Buy Tickets</span>
             </a>
 
-            <a class="btn btn--accent btn--lg btn--arrow" routerLink="/mountain">
+            <a class="btn btn--accent btn--lg btn--arrow" [routerLink]="pages.mountain.url">
                 <span>Explore the Mountain</span>
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
@@ -25,7 +25,7 @@
                     ></app-status-message>
                 </div>
 
-                <a class="btn btn--outline btn--sm btn--arrow" routerLink="/mountain/conditions">
+                <a class="btn btn--outline btn--sm btn--arrow" [routerLink]="pages.conditions.url">
                     <span>Full Conditions</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -99,11 +99,11 @@
     <section class="mountain-intro">
         <div class="mountain-intro__container">
             <div class="mountain-intro__content">
-                <span class="section-kicker">
+                <span class="app-eyebrow">
                     Your Local Mountain
                 </span>
 
-                <h2 class="section-title">
+                <h2 class="app-heading">
                     Big winter fun,
                     <span>right here at home.</span>
                 </h2>
@@ -118,7 +118,7 @@
                     chalet, everything you need for a great day on snow is right here.
                 </p>
 
-                <a class="btn btn--outline btn--sm btn--arrow" routerLink="/mountain/about">
+                <a class="btn btn--outline btn--sm btn--arrow" [routerLink]="pages.about.url">
                     <span>Discover Mount Dufour</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
@@ -156,11 +156,11 @@
         <div class="experiences__container">
             <header class="experiences__header">
                 <div>
-                    <span class="section-kicker">
+                    <span class="app-eyebrow">
                         Your Day at Dufour
                     </span>
 
-                    <h2 class="section-title">
+                    <h2 class="app-heading">
                         Everything you need
                         <span>to hit the slopes.</span>
                     </h2>
@@ -203,11 +203,11 @@
             <div class="community__feature community__feature--content">
                 <i class="fas fa-users" aria-hidden="true"></i>
 
-                <span class="section-kicker">
+                <span class="app-eyebrow">
                     More Than a Ski Hill
                 </span>
 
-                <h2 class="section-title">
+                <h2 class="app-heading">
                     Built for our community.
                 </h2>
 
@@ -217,17 +217,17 @@
                 </p>
 
                 <div class="community__actions">
-                    <a class="btn btn--primary" routerLink="/mountain/about">Our Story</a>
-                    <a class="btn btn--outline" routerLink="/sponsors">Our Sponsors</a>
+                    <a class="btn btn--primary" [routerLink]="pages.about.url">Our Story</a>
+                    <a class="btn btn--outline" [routerLink]="pages.sponsors.url">Our Sponsors</a>
                 </div>
             </div>
 
             <div class="community__feature">
                 <i class="fas fa-fire-flame-curved" aria-hidden="true"></i>
 
-                <span class="section-kicker section-kicker--accent">The Chalet</span>
+                <span class="app-eyebrow app-eyebrow--accent">The Chalet</span>
 
-                <h2 class="section-title section-title--accent-title">
+                <h2 class="app-heading app-heading--accent">
                     Warm up between runs.
                 </h2>
 
@@ -236,7 +236,7 @@
                 </p>
 
                 <div class="community__actions">
-                    <a class="btn btn--accent-outline btn--arrow" routerLink="/chalet">
+                    <a class="btn btn--accent-outline btn--arrow" [routerLink]="pages.chalet.url">
                         <span>Explore The Chalet</span>
                         <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>

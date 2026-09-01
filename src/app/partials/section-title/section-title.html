@@ -1,9 +1,9 @@
-<div class="main-section-title">
-    <div class="inner-main-section-title">
+<div class="app-section-header">
+    <div class="app-section-header__copy">
         @if (kicker()) {
-            <span class="section-kicker">{{ kicker() }}</span>
+            <span class="app-eyebrow">{{ kicker() }}</span>
         }
-        <h2 class="section-title">
+        <h2 class="app-heading">
             {{ title() }}
             @if (titleSpan()) {
                 <span>{{ titleSpan() }}</span>
@@ -11,7 +11,7 @@
         </h2>
 
         @if (description()) {
-            <p class="section-description">{{ description() }}</p>
+            <p class="app-copy">{{ description() }}</p>
         }
     </div>
 

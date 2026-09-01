@@ -5,11 +5,11 @@
     <section id="about-intro" class="about-intro">
         <div class="container about-intro__container">
             <div class="about-intro__content">
-                <span class="section-kicker">
+                <span class="app-eyebrow">
                     About Mount Dufour
                 </span>
 
-                <h2 class="section-title">
+                <h2 class="app-heading">
                     Big winter experiences,
                     <span>without the big-resort attitude.</span>
                 </h2>
@@ -26,12 +26,12 @@
                 </p>
 
                 <div class="about-intro__actions">
-                    <a class="btn btn--primary btn--arrow" routerLink="/mountain/trail-map">
+                    <a class="btn btn--primary btn--arrow" [routerLink]="pages.trailMap.url">
                         <span>Explore the Mountain</span>
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
 
-                    <a class="btn btn--outline" routerLink="/mountain/conditions">
+                    <a class="btn btn--outline" [routerLink]="pages.conditions.url">
                         View Conditions
                     </a>
                 </div>
@@ -107,11 +107,11 @@
             </div>
 
             <div class="about-community__content">
-                <span class="section-kicker">
+                <span class="app-eyebrow">
                     Community Powered
                 </span>
 
-                <h2 class="section-title">
+                <h2 class="app-heading">
                     More than 50 years
                     <span>of skiing together.</span>
                 </h2>
@@ -127,12 +127,12 @@
                 </p>
 
                 <div class="about-community__actions">
-                    <a class="btn btn--primary btn--arrow" routerLink="/sponsors">
+                    <a class="btn btn--primary btn--arrow" [routerLink]="pages.sponsors.url">
                         <span>Our Sponsors</span>
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
 
-                    <a class="btn btn--outline" routerLink="/contact">
+                    <a class="btn btn--outline" [routerLink]="pages.contact.url">
                         Get Involved
                     </a>
                 </div>
@@ -146,11 +146,11 @@
             <div class="about-chalet__content">
                 <i class="fas fa-house-chimney" aria-hidden="true"></i>
 
-                <span class="section-kicker section-kicker--accent">
+                <span class="app-eyebrow app-eyebrow--accent">
                     At the Base
                 </span>
 
-                <h2 class="section-title">
+                <h2 class="app-heading">
                     Everything you need, right at the hill.
                 </h2>
 
@@ -159,7 +159,7 @@
                     lockers, change areas and a large deck overlooking the mountain.
                 </p>
 
-                <a class="btn btn--light btn--arrow" routerLink="/chalet">
+                <a class="btn btn--light btn--arrow" [routerLink]="pages.chalet.url">
                     <span>Explore The Chalet</span>
                     <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>

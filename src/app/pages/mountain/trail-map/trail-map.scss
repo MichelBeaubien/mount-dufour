@@ -11,7 +11,7 @@
 
 .mountain-map {
     background: var(--color-background);
-    padding: 5rem 0;
+    padding: var(--space-section-compact) 0;
 
     &__container {
         @include m.page-container(false);
@@ -207,7 +207,7 @@
 
 .trail-directory {
     background: var(--color-background-alt);
-    padding: 6rem 0;
+    padding: var(--space-section) 0;
 
     &__container {
         @include m.page-container(false);

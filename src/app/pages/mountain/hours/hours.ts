@@ -6,6 +6,7 @@ import { StatusMessage } from '../../../partials/season/status-message/status-me
 import { SectionTitle } from '../../../partials/section-title/section-title';
 import { HoursService } from '../../../services/hours';
 import { MountainService } from '../../../services/mountain';
+import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
 
 @Component({
     imports: [
@@ -20,23 +21,13 @@ import { MountainService } from '../../../services/mountain';
     standalone: true
 })
 export class Hours {
+    public readonly pages = SITE_PAGES;
+
     public readonly hero = computed<HeroOptions>(() => ({
         kicker: 'Plan Your Day',
         title: 'Hours of Operation',
         description: 'Check Mount Dufour\'s operating schedule before heading to the hill.',
-        breadcrumbs: [
-            {
-                label: 'Home',
-                route: '/'
-            },
-            {
-                label: 'Mountain',
-                route: '/mountain'
-            },
-            {
-                label: 'Hours'
-            }
-        ]
+        breadcrumbs: breadcrumbsFor('hours')
     }));
 
     public readonly hoursService = inject(HoursService);

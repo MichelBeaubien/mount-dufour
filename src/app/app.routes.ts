@@ -1,166 +1,167 @@
 import { Routes } from '@angular/router';
+import { SITE_PAGES } from './config/site-map';
 
 export const routes: Routes = [
     {
-        path: '',
+        path: SITE_PAGES.home.path,
         loadComponent: () =>
             import('./pages/home/home')
                 .then((m) => m.Home),
-        title: 'Mount Dufour Ski Area'
+        title: SITE_PAGES.home.title
     },
     {
-        path: 'mountain',
+        path: SITE_PAGES.mountain.path,
         loadComponent: () =>
             import('./pages/mountain/mountain/mountain')
                 .then((m) => m.Mountain),
-        title: 'The Mountain | Mount Dufour'
+        title: SITE_PAGES.mountain.title
     },
     {
-        path: 'mountain/conditions',
+        path: SITE_PAGES.conditions.path,
         loadComponent: () =>
             import('./pages/mountain/conditions/conditions')
                 .then((m) => m.Conditions),
-        title: 'Mountain Conditions | Mount Dufour'
+        title: SITE_PAGES.conditions.title
     },
     {
-        path: 'mountain/trail-map',
+        path: SITE_PAGES.trailMap.path,
         loadComponent: () =>
             import('./pages/mountain/trail-map/trail-map')
                 .then((m) => m.TrailMap),
-        title: 'Trail Map | Mount Dufour'
+        title: SITE_PAGES.trailMap.title
     },
     {
-        path: 'mountain/hours',
+        path: SITE_PAGES.hours.path,
         loadComponent: () =>
             import('./pages/mountain/hours/hours')
                 .then((m) => m.Hours),
-        title: 'Hours | Mount Dufour'
+        title: SITE_PAGES.hours.title
     },
     {
-        path: 'mountain/about',
+        path: SITE_PAGES.about.path,
         loadComponent: () =>
             import('./pages/mountain/about/about')
                 .then((m) => m.About),
-        title: 'About Mount Dufour'
+        title: SITE_PAGES.about.title
     },
     {
-        path: 'tickets',
+        path: SITE_PAGES.tickets.path,
         loadComponent: () =>
             import('./pages/tickets/tickets/tickets')
                 .then((m) => m.Tickets),
-        title: 'Tickets & Passes | Mount Dufour'
+        title: SITE_PAGES.tickets.title
     },
     {
-        path: 'tickets/lift-tickets',
+        path: SITE_PAGES.liftTickets.path,
         loadComponent: () =>
             import('./pages/tickets/lift-tickets/lift-tickets')
                 .then((m) => m.LiftTickets),
-        title: 'Lift Tickets | Mount Dufour'
+        title: SITE_PAGES.liftTickets.title
     },
     {
-        path: 'tickets/season-passes',
+        path: SITE_PAGES.seasonPasses.path,
         loadComponent: () =>
             import('./pages/tickets/season-passes/season-passes')
                 .then((m) => m.SeasonPasses),
-        title: 'Season Passes | Mount Dufour'
+        title: SITE_PAGES.seasonPasses.title
     },
     {
-        path: 'tickets/deals',
+        path: SITE_PAGES.deals.path,
         loadComponent: () =>
             import('./pages/tickets/deals/deals')
                 .then((m) => m.Deals),
-        title: 'Deals | Mount Dufour'
+        title: SITE_PAGES.deals.title
     },
     {
-        path: 'lessons-rentals',
+        path: SITE_PAGES.lessonsRentals.path,
         loadComponent: () =>
             import('./pages/lessons-rentals/lessons-rentals/lessons-rentals')
                 .then((m) => m.LessonsRentals),
-        title: 'Lessons & Rentals | Mount Dufour'
+        title: SITE_PAGES.lessonsRentals.title
     },
     {
-        path: 'lessons-rentals/snow-school',
+        path: SITE_PAGES.snowSchool.path,
         loadComponent: () =>
             import('./pages/lessons-rentals/snow-school/snow-school')
                 .then((m) => m.SnowSchool),
-        title: 'Snow School | Mount Dufour'
+        title: SITE_PAGES.snowSchool.title
     },
     {
-        path: 'lessons-rentals/rentals',
+        path: SITE_PAGES.rentals.path,
         loadComponent: () =>
             import('./pages/lessons-rentals/rentals/rentals')
                 .then((m) => m.Rentals),
-        title: 'Equipment Rentals | Mount Dufour'
+        title: SITE_PAGES.rentals.title
     },
     {
-        path: 'chalet',
+        path: SITE_PAGES.chalet.path,
         loadComponent: () =>
             import('./pages/chalet/chalet/chalet')
                 .then((m) => m.Chalet),
-        title: 'The Chalet | Mount Dufour'
+        title: SITE_PAGES.chalet.title
     },
     {
-        path: 'chalet/food-drink',
+        path: SITE_PAGES.foodDrink.path,
         loadComponent: () =>
             import('./pages/chalet/food-drink/food-drink')
                 .then((m) => m.FoodDrink),
-        title: 'Food & Drink | Mount Dufour'
+        title: SITE_PAGES.foodDrink.title
     },
     {
-        path: 'chalet/lounge',
+        path: SITE_PAGES.lounge.path,
         loadComponent: () =>
             import('./pages/chalet/lounge/lounge')
                 .then((m) => m.Lounge),
-        title: 'Slopeside Lounge | Mount Dufour'
+        title: SITE_PAGES.lounge.title
     },
     {
-        path: 'chalet/lockers',
+        path: SITE_PAGES.lockers.path,
         loadComponent: () =>
             import('./pages/chalet/lockers/lockers')
                 .then((m) => m.Lockers),
-        title: 'Lockers | Mount Dufour'
+        title: SITE_PAGES.lockers.title
     },
     {
-        path: 'news-events',
+        path: SITE_PAGES.newsEvents.path,
         loadComponent: () =>
             import('./pages/news-events/news-events')
                 .then((m) => m.NewsEvents),
-        title: 'News & Events | Mount Dufour'
+        title: SITE_PAGES.newsEvents.title
     },
     {
-        path: 'plan-your-visit',
+        path: SITE_PAGES.planYourVisit.path,
         loadComponent: () =>
             import('./pages/plan-your-visit/plan-your-visit')
                 .then((m) => m.PlanYourVisit),
-        title: 'Plan Your Visit | Mount Dufour'
+        title: SITE_PAGES.planYourVisit.title
     },
     {
-        path: 'sponsors',
+        path: SITE_PAGES.sponsors.path,
         loadComponent: () =>
             import('./pages/sponsors/sponsors')
                 .then((m) => m.Sponsors),
-        title: 'Sponsors | Mount Dufour'
+        title: SITE_PAGES.sponsors.title
     },
     {
-        path: 'safety',
+        path: SITE_PAGES.safety.path,
         loadComponent: () =>
             import('./pages/safety/safety')
                 .then((m) => m.Safety),
-        title: 'Safety | Mount Dufour'
+        title: SITE_PAGES.safety.title
     },
     {
-        path: 'documents',
+        path: SITE_PAGES.documents.path,
         loadComponent: () =>
             import('./pages/documents/documents')
                 .then((m) => m.Documents),
-        title: 'Documents | Mount Dufour'
+        title: SITE_PAGES.documents.title
     },
     {
-        path: 'contact',
+        path: SITE_PAGES.contact.path,
         loadComponent: () =>
             import('./pages/contact/contact')
                 .then((m) => m.Contact),
-        title: 'Contact | Mount Dufour'
+        title: SITE_PAGES.contact.title
     },
     {
         path: '**',

@@ -1,7 +1,7 @@
 <main class="trail-map">
     <app-secondary-hero [hero]="hero()">
         <a hero-panel class="hero-panel hero-panel--on-hover has-arrow"
-           routerLink="/mountain/conditions"
+           [routerLink]="pages.conditions.url"
         >
             <app-status-message message="Mountain Conditions"
                                 [status]="mountainService.status()"
@@ -129,7 +129,7 @@
             </div>
 
             <div class="conditions-cta__content">
-                <span class="section-kicker section-kicker--accent">
+                <span class="app-eyebrow app-eyebrow--accent">
                     Heading to the Hill?
                 </span>
 
@@ -140,7 +140,7 @@
                 </p>
             </div>
 
-            <a class="btn btn--light btn--arrow" routerLink="/mountain/conditions">
+            <a class="btn btn--light btn--arrow" [routerLink]="pages.conditions.url">
                 <span>View Conditions</span>
                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>

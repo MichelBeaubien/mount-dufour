@@ -5,6 +5,7 @@ import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-h
 import { SectionTitle } from '../../../partials/section-title/section-title';
 import { AboutService } from '../../../services/about';
 import { MountainService } from '../../../services/mountain';
+import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
 
 @Component({
     imports: [
@@ -18,25 +19,15 @@ import { MountainService } from '../../../services/mountain';
     standalone: true
 })
 export class About {
+    public readonly pages = SITE_PAGES;
+
     public readonly aboutService = inject(AboutService);
 
     public readonly hero = computed<HeroOptions>(() => ({
         kicker: 'Our Mountain',
         title: 'Built for Winter.',
         description: 'A true Northern Ontario ski hill, right in the heart of Elliot Lake.',
-        breadcrumbs: [
-            {
-                label: 'Home',
-                route: '/'
-            },
-            {
-                label: 'Mountain',
-                route: '/mountain'
-            },
-            {
-                label: 'About'
-            }
-        ]
+        breadcrumbs: breadcrumbsFor('about')
     }))
 
     public readonly mountainService = inject(MountainService);

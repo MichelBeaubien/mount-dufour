@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { PageShell } from '../../../partials/page-shell/page-shell';
 
 @Component({
-    imports: [],
+    imports: [PageShell],
     selector: 'app-tickets',
     styleUrl: './tickets.scss',
     templateUrl: './tickets.html',

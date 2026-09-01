@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HEADER_NAV_ITEMS } from '../../config/tokens/nav-items.tokens';
+import { SITE_PAGES } from '../../config/site-map';
 import { StatusMessage } from '../../partials/season/status-message/status-message';
 import { MountainService } from '../../services/mountain';
 
@@ -23,6 +24,8 @@ export class Header {
     public readonly mountainService = inject(MountainService);
 
     public readonly navItems = inject(HEADER_NAV_ITEMS);
+
+    public readonly pages = SITE_PAGES;
 
     public closeDropdown(): void {
         this.activeDropdown.set(null);

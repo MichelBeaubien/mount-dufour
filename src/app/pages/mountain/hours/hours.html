@@ -71,7 +71,7 @@
                             {{ hoursService.weatherMessage() }}
                         </p>
 
-                        <a class="btn btn--outline btn--sm btn--arrow" routerLink="/mountain/conditions">
+                        <a class="btn btn--outline btn--sm btn--arrow" [routerLink]="pages.conditions.url">
                             Check Conditions
 
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="hours-cta__content">
-                <span class="section-kicker section-kicker--accent">
+                <span class="app-eyebrow app-eyebrow--accent">
                     Ready for the Mountain?
                 </span>
 
@@ -143,7 +143,7 @@
                 </p>
             </div>
 
-            <a class="btn btn--light btn--arrow" routerLink="/mountain/conditions">
+            <a class="btn btn--light btn--arrow" [routerLink]="pages.conditions.url">
                 <span>View Conditions</span>
                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </a>

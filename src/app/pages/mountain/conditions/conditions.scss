@@ -146,7 +146,7 @@
 
 .conditions-content {
     background: var(--color-background);
-    padding: 5rem 0 7rem;
+    padding: var(--space-section-compact) 0 var(--space-section);
 
     &__container {
         @include m.page-container(false);
