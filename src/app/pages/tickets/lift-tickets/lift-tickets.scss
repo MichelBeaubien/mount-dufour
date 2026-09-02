@@ -1,8 +1,10 @@
 @use 'breakpoints' as bp;
 
-section.lift-tickets {
-    padding: 6rem 0;
+.section {
+    padding: var(--space-section-compact) 0;
+}
 
+.lift-tickets {
     .lift-tickets__grid {
         display: grid;
         gap: 1.5rem;
@@ -100,6 +102,7 @@ section.lift-tickets {
 
 .beginner-lift {
     background: var(--color-background-alt);
+    padding: var(--space-section-compact) 0;
 
     &__inner {
         align-items: center;

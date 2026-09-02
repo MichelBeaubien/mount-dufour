@@ -61,7 +61,7 @@ export const SITE_PAGES: Record<SitePageId, SitePage> = {
     trailMap: page('trailMap', 'mountain/trail-map', 'Trail Map', 'Trail Map | Mount Dufour', 'Find your way around the mountain.', 'mountain'),
     hours: page('hours', 'mountain/hours', 'Hours', 'Hours | Mount Dufour', 'Plan your day on the mountain.', 'mountain'),
     about: page('about', 'mountain/about', 'About', 'About Mount Dufour', 'Meet Mount Dufour and the people behind it.', 'mountain'),
-    tickets: page('tickets', 'tickets', 'Tickets', 'Tickets & Passes | Mount Dufour', 'Choose the right ticket or pass for your day.',),
+    tickets: page('tickets', 'tickets', 'Tickets', 'Tickets & Passes | Mount Dufour', 'Choose the right ticket or pass for your day.'),
     liftTickets: page('liftTickets', 'tickets/lift-tickets', 'Lift Tickets', 'Lift Tickets | Mount Dufour', 'Lift ticket options for skiing and snowboarding.', 'tickets'),
     seasonPasses: page('seasonPasses', 'tickets/season-passes', 'Season Passes', 'Season Passes | Mount Dufour', 'Season pass options and membership information.', 'tickets'),
     deals: page('deals', 'tickets/deals', 'Deals', 'Deals | Mount Dufour', 'Current offers and special deals.', 'tickets'),
