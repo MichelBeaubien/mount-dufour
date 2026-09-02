@@ -270,7 +270,6 @@
 
 .mountain-intro {
     background: var(--color-background);
-    padding: var(--space-section) 0;
 
     &__container {
         @include m.page-container(false);
@@ -461,7 +460,6 @@
 
 .experiences {
     background: var(--color-background-alt);
-    padding: var(--space-section) 0;
 
     &__container {
         @include m.page-container(false);
@@ -557,7 +555,6 @@
 
 .community {
     background: var(--color-surface);
-    padding: var(--space-section) 0;
 
     &__container {
         @include m.page-container(false);

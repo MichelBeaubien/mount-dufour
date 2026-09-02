@@ -1,1 +1,116 @@
-<app-page-shell pageId="foodDrink"></app-page-shell>
+<main class="food-drink">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="canteen-intro app-section--compact">
+        <div class="container">
+            <div class="canteen-intro__inner">
+                <div class="canteen-intro__content">
+                    <span class="app-eyebrow">
+                        {{ foodDrinkService.feature().kicker }}
+                    </span>
+
+                    <h2 class="app-heading">
+                        {{ foodDrinkService.feature().title }}
+                    </h2>
+
+                    <p class="app-copy">
+                        {{ foodDrinkService.feature().description }}
+                    </p>
+                </div>
+
+                <div class="canteen-intro__visual">
+                    <div class="canteen-intro__icon">
+                        <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                    </div>
+
+                    <span>Breakfast</span>
+                    <span>Lunch</span>
+                    <span>Snacks</span>
+                    <span>Drinks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="canteen-menu app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Canteen Favourites"
+                title="What’s on the Menu"
+                description="A selection of warm meals, quick bites, snacks and drinks to keep you going throughout your day."
+            ></app-section-title>
+
+            <div class="canteen-menu__grid">
+                @for (group of foodDrinkService.menuGroups(); track group.title) {
+                    <article class="menu-group app-panel">
+                        <div class="menu-group__icon">
+                            <i [class]="group.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>{{ group.title }}</h3>
+
+                        <ul>
+                            @for (item of group.items; track item) {
+                                <li>
+                                    <i class="fas fa-check" aria-hidden="true"></i>
+                                    <span>{{ item }}</span>
+                                </li>
+                            }
+                        </ul>
+                    </article>
+                }
+            </div>
+
+            <p class="canteen-menu__note">
+                Menu selection and availability may vary.
+            </p>
+        </div>
+    </section>
+
+    <section class="support-hill app-section--compact">
+        <div class="container">
+            <div class="support-hill__inner">
+                <div class="support-hill__icon">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                </div>
+
+                <div class="support-hill__content">
+                    <span class="app-eyebrow">Support Mount Dufour</span>
+
+                    <h2>Every Bite Helps the Hill</h2>
+
+                    <p>
+                        The canteen is operated by Mount Dufour, and purchases
+                        help contribute to the ski area's operating costs.
+                        Grab your breakfast, lunch or snacks right here at the
+                        hill and support your local mountain at the same time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="food-drink-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Good to Know"
+                title="Canteen Information"
+            ></app-section-title>
+
+            <div class="food-drink-info__grid app-card-grid">
+                @for (info of foodDrinkService.info(); track info.label) {
+                    <article class="food-drink-info__item app-panel">
+                        <div class="food-drink-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+</main>

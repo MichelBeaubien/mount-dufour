@@ -13,6 +13,10 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
         SecondaryHero,
         SectionTitle
     ],
+    providers: [
+        AboutService,
+        MountainService
+    ],
     selector: 'app-about',
     styleUrl: './about.scss',
     templateUrl: './about.html',

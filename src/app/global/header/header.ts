@@ -11,6 +11,9 @@ import { MountainService } from '../../services/mountain';
         RouterLinkActive,
         StatusMessage
     ],
+    providers: [
+        MountainService
+    ],
     selector: 'app-header',
     styleUrl: './header.scss',
     templateUrl: './header.html',

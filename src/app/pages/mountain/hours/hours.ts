@@ -15,6 +15,10 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
         SecondaryHero,
         SectionTitle
     ],
+    providers: [
+        HoursService,
+        MountainService
+    ],
     selector: 'app-hours',
     styleUrl: './hours.scss',
     templateUrl: './hours.html',

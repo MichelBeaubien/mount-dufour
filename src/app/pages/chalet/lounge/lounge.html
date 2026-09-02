@@ -1,1 +1,125 @@
-<app-page-shell pageId="lounge"></app-page-shell>
+<main class="lounge">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="lounge-intro app-section--compact">
+        <div class="container">
+            <div class="lounge-intro__inner">
+                <div class="lounge-intro__content">
+                    <span class="app-eyebrow">
+                        {{ loungeService.intro().kicker }}
+                    </span>
+
+                    <h2 class="app-heading">
+                        {{ loungeService.intro().title }}
+                    </h2>
+
+                    <p class="app-copy">
+                        {{ loungeService.intro().description }}
+                    </p>
+                </div>
+
+                <div class="lounge-intro__visual">
+                    <div class="lounge-intro__fire">
+                        <i class="fas fa-fire-flame-curved" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <span>Fireside</span>
+                        <strong>Slopeside Comfort</strong>
+                        <small>Inside the Mount Dufour chalet</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lounge-features app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Take a Break"
+                title="More Than a Place to Warm Up"
+                description="The slopeside lounge gives skiers and riders a comfortable place to slow down and enjoy the chalet."
+            ></app-section-title>
+
+            <div class="lounge-features__grid">
+                @for (feature of loungeService.features(); track feature.title) {
+                    <article class="lounge-feature app-panel">
+                        <div class="lounge-feature__icon">
+                            <i [class]="feature.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>{{ feature.title }}</h3>
+
+                        <p>{{ feature.description }}</p>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="fireside-feature app-section--compact">
+        <div class="container">
+            <div class="fireside-feature__inner">
+                <div class="fireside-feature__icon">
+                    <i class="fas fa-fire" aria-hidden="true"></i>
+                </div>
+
+                <div class="fireside-feature__content">
+                    <span class="app-eyebrow">After the Runs</span>
+
+                    <h2>Leave the Cold Outside</h2>
+
+                    <p>
+                        Located inside the chalet, the fireside lounge offers
+                        a warm place to take a break while staying right at the
+                        base of the mountain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lounge-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Good to Know"
+                title="About the Lounge"
+            ></app-section-title>
+
+            <div class="lounge-info__grid app-card-grid">
+                @for (info of loungeService.info(); track info.label) {
+                    <article class="lounge-info__item app-panel">
+                        <div class="lounge-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="lounge-location app-section--compact">
+        <div class="container">
+            <div class="lounge-location__inner">
+                <div>
+                    <span class="app-eyebrow">Right at the Base</span>
+
+                    <h2>Everything Within Reach</h2>
+
+                    <p>
+                        The chalet sits directly at the base of Main and close
+                        to the quad lift, with the lounge, canteen, rentals,
+                        ticket booth and other chalet services all nearby.
+                    </p>
+                </div>
+
+                <i class="fas fa-mountain" aria-hidden="true"></i>
+            </div>
+        </div>
+    </section>
+</main>

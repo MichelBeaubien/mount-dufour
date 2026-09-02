@@ -10,13 +10,13 @@ import { breadcrumbsFor } from '../../../config/site-map';
         SecondaryHero,
         SectionTitle
     ],
+    providers: [
+        LiftTicketsService
+    ],
     selector: 'app-lift-tickets',
     styleUrl: './lift-tickets.scss',
     templateUrl: './lift-tickets.html',
-    standalone: true,
-    providers: [
-        LiftTicketsService,
-    ]
+    standalone: true
 })
 export class LiftTickets {
     public readonly hero = computed<HeroOptions>(() => ({

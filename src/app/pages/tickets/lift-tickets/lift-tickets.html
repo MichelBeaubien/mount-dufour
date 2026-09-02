@@ -59,17 +59,21 @@
                     Just Getting Started?
                 </span>
 
-                    <h2>Beginner Lift</h2>
+                    <h2>{{ liftTicketsService.beginnerLift().label }}</h2>
 
                     <p>
-                        Stay on beginner terrain while you learn the basics
-                        and build your confidence.
+                        {{ liftTicketsService.beginnerLift().description }}
                     </p>
                 </div>
 
                 <div class="beginner-lift__price">
-                    <strong>$15</strong>
-                    <span>Full or Half Day</span>
+                    <strong>
+                        ${{ liftTicketsService.beginnerLift().price }}
+                    </strong>
+
+                    <span>
+                    {{ liftTicketsService.beginnerLift().priceLabel }}
+                </span>
                 </div>
             </div>
         </div>
@@ -83,17 +87,20 @@
                 </div>
 
                 <div class="kids-special__content">
-                    <span>Family Special</span>
+                <span>
+                    {{ liftTicketsService.kidsSpecial().kicker }}
+                </span>
 
-                    <h2>Kids 10 & Under Ski for $35</h2>
+                    <h2>
+                        {{ liftTicketsService.kidsSpecial().title }}
+                    </h2>
 
                     <p>
-                        Children ages 10 and under can ski for $35 when
-                        accompanied by an adult purchasing a full-day lift ticket.
+                        {{ liftTicketsService.kidsSpecial().description }}
                     </p>
 
                     <small>
-                        Limit one $35 child pass per paying adult full-day ticket.
+                        {{ liftTicketsService.kidsSpecial().disclaimer }}
                     </small>
                 </div>
             </div>
@@ -102,37 +109,22 @@
 
     <section class="ticket-info section">
         <div class="container">
-            <app-section-title kicker="Plan Your Day"
-                               title="Ticket Information"
+            <app-section-title
+                kicker="Plan Your Day"
+                title="Ticket Information"
             ></app-section-title>
 
             <div class="ticket-info__grid">
-                <div class="ticket-info__item">
-                    <i class="fas fa-clock" aria-hidden="true"></i>
+                @for (info of liftTicketsService.ticketInfo(); track info.label) {
+                    <div class="ticket-info__item">
+                        <i [class]="info.icon" aria-hidden="true"></i>
 
-                    <div>
-                        <strong>Lift Hours</strong>
-                        <span>9:00 AM – 4:00 PM</span>
+                        <div>
+                            <strong>{{ info.label }}</strong>
+                            <span>{{ info.value }}</span>
+                        </div>
                     </div>
-                </div>
-
-                <div class="ticket-info__item">
-                    <i class="fas fa-sun" aria-hidden="true"></i>
-
-                    <div>
-                        <strong>Half Day</strong>
-                        <span>Begins at 12:30 PM</span>
-                    </div>
-                </div>
-
-                <div class="ticket-info__item">
-                    <i class="fas fa-receipt" aria-hidden="true"></i>
-
-                    <div>
-                        <strong>Taxes</strong>
-                        <span>All pricing is subject to HST</span>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </section>

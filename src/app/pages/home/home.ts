@@ -14,6 +14,9 @@ import { MountainService } from '../../services/mountain';
         StatusMessage,
         PrimaryHero
     ],
+    providers: [
+        MountainService
+    ],
     selector: 'app-home',
     styleUrl: './home.scss',
     templateUrl: './home.html',

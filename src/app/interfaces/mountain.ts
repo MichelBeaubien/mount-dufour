@@ -1,14 +1,14 @@
+import { Feature, Info } from './common';
+
+export type AboutFeature = Feature;
+
+export type MountainStat = Info;
+
 export type MountainStatus = 'open' | 'closed' | 'hold' | 'opening-soon';
 
 export type StatusMessageTheme = 'light' | 'dark';
 
 export type TrailDifficulty = 'beginner' | 'intermediate' | 'advanced';
-
-export interface AboutFeature {
-    description: string;
-    icon: string;
-    title: string;
-}
 
 export interface Experience {
     description: string;
@@ -24,13 +24,6 @@ export interface Lift {
     type: string;
 }
 
-export interface LiftTicketsPrice {
-    ageRange?: string;
-    fullDay: number;
-    halfDay: number;
-    label: string;
-}
-
 export interface MountainData {
     lifts: Lift[];
     season: MountainSeason;
@@ -44,12 +37,6 @@ export interface MountainData {
 export interface MountainSeason {
     message: string;
     status: MountainStatus;
-}
-
-export interface MountainStat {
-    icon: string;
-    label: string;
-    value: string;
 }
 
 export interface MountainSummary {

@@ -1,1 +1,165 @@
-<app-page-shell pageId="snowSchool"></app-page-shell>
+<main class="snow-school">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="lesson-packages app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Learn to Ski & Ride"
+                title="Lesson Packages"
+                description="Private, one-on-one instruction tailored to your skill level."
+            >
+                <p section-side-info>
+                    Participants must be <strong>5 years of age or older</strong>
+                </p>
+            </app-section-title>
+
+            <div class="lesson-packages__grid">
+                @for (item of snowSchoolService.packages(); track item.label) {
+                    <article class="lesson-package">
+                        <div class="lesson-package__top">
+                            <div class="lesson-package__icon">
+                                <i [class]="item.icon" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="lesson-package__price">
+                                <strong>${{ item.price }}</strong>
+                                <span>+ HST</span>
+                            </div>
+                        </div>
+
+                        <h3>{{ item.label }}</h3>
+
+                        <p>{{ item.description }}</p>
+
+                        <ul>
+                            @for (feature of item.features; track feature) {
+                                <li>
+                                    <i class="fas fa-check" aria-hidden="true"></i>
+                                    <span>{{ feature }}</span>
+                                </li>
+                            }
+                        </ul>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="instructor-feature app-section--compact">
+        <div class="container">
+            <div class="instructor-feature__inner">
+                <div class="instructor-feature__icon">
+                    <i class="fas fa-medal" aria-hidden="true"></i>
+                </div>
+
+                <div>
+                    <span class="app-eyebrow">
+                        {{ snowSchoolService.instructors().kicker }}
+                    </span>
+
+                    <h2>
+                        {{ snowSchoolService.instructors().title }}
+                    </h2>
+
+                    <p>
+                        {{ snowSchoolService.instructors().description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lesson-times app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Weekend Lessons"
+                title="Available Lesson Times"
+                description="Lessons are one hour long and are offered in designated weekend time slots."
+            ></app-section-title>
+
+            <div class="lesson-times__grid">
+                @for (time of snowSchoolService.lessonTimes(); track time.start) {
+                    <article class="lesson-time app-panel">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+
+                        <span>{{ time.start }}</span>
+
+                        <small>to</small>
+
+                        <strong>{{ time.end }}</strong>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="snow-school-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Good to Know"
+                title="Before Your Lesson"
+            ></app-section-title>
+
+            <div class="snow-school-info__grid app-card-grid">
+                @for (info of snowSchoolService.info(); track info.label) {
+                    <article class="snow-school-info__item app-panel">
+                        <div class="snow-school-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+
+            <div class="snow-school-info__rental">
+                <i class="fas fa-person-skiing" aria-hidden="true"></i>
+
+                <div>
+                    <strong>Need Rental Equipment?</strong>
+
+                    <p>
+                        Arrive at least 30 minutes before your scheduled lesson
+                        so equipment can be properly sized. A valid credit card
+                        is required for the rental damage deposit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lesson-booking app-section--compact">
+        <div class="container">
+            <div class="lesson-booking__inner">
+                <div>
+                    <span class="app-eyebrow">
+                        {{ snowSchoolService.booking().kicker }}
+                    </span>
+
+                    <h2>{{ snowSchoolService.booking().title }}</h2>
+
+                    <p>
+                        {{ snowSchoolService.booking().description }}
+                    </p>
+
+                    <p class="lesson-booking__note">
+                        Payment is required in advance. Mount Dufour will
+                        provide payment instructions after confirming your
+                        lesson.
+                    </p>
+                </div>
+
+                <a
+                    class="btn btn--primary"
+                    [href]="'mailto:' + snowSchoolService.booking().email"
+                >
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    Request a Lesson
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,1 +1,147 @@
-<app-page-shell pageId="deals"></app-page-shell>
+<main class="deals">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="current-deals app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Current Offers"
+                title="Deals & Specials"
+                description="Take advantage of seasonal promotions and special pricing at Mount Dufour."
+            ></app-section-title>
+
+            @if (ticketDealsService.hasActiveDeals()) {
+                <div class="current-deals__grid">
+                    @for (deal of ticketDealsService.activeDeals(); track deal.title) {
+                        <article class="deal-card">
+                            <div class="deal-card__icon">
+                                <i [class]="deal.icon" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="deal-card__content">
+                                <span>{{ deal.kicker }}</span>
+
+                                <h3>{{ deal.title }}</h3>
+
+                                <p>{{ deal.description }}</p>
+
+                                @if (deal.validUntil) {
+                                    <div class="deal-card__deadline">
+                                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                                        <span>{{ deal.validUntil }}</span>
+                                    </div>
+                                }
+                            </div>
+                        </article>
+                    }
+                </div>
+            } @else {
+                <div class="current-deals__empty">
+                    <div class="current-deals__empty-icon">
+                        <i class="fas fa-tag" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <span>Nothing Right Now</span>
+                        <h3>New Deals Are Coming</h3>
+
+                        <p>
+                            There are currently no active promotions.
+                            Check back as the season approaches for new offers
+                            and special pricing.
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @if (ticketDealsService.upcomingDeals().length) {
+        <section class="upcoming-deals app-section--compact">
+            <div class="container">
+                <app-section-title
+                    kicker="Coming Up"
+                    title="Watch for These Offers"
+                    description="Some Mount Dufour promotions return season after season."
+                ></app-section-title>
+
+                <div class="upcoming-deals__grid">
+                    @for (deal of ticketDealsService.upcomingDeals(); track deal.title) {
+                        <article class="upcoming-deal">
+                            <div class="upcoming-deal__icon">
+                                <i [class]="deal.icon" aria-hidden="true"></i>
+                            </div>
+
+                            <div class="upcoming-deal__content">
+                                <span>{{ deal.kicker }}</span>
+
+                                <h3>{{ deal.title }}</h3>
+
+                                <p>{{ deal.description }}</p>
+                            </div>
+
+                            <div class="upcoming-deal__status">
+                                <i class="fas fa-clock" aria-hidden="true"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+
+    <section class="deal-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Good to Know"
+                title="About Our Promotions"
+            ></app-section-title>
+
+            <div class="deal-info__grid">
+                @for (info of ticketDealsService.info(); track info.label) {
+                    <article class="deal-info__item">
+                        <div class="deal-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="deal-cta app-section--compact">
+        <div class="container">
+            <div class="deal-cta__inner">
+                <div>
+                    <span>Plan Your Winter</span>
+
+                    <h2>Looking for Regular Pricing?</h2>
+
+                    <p>
+                        Explore day tickets and season passes to find the
+                        option that works best for you.
+                    </p>
+                </div>
+
+                <div class="deal-cta__actions">
+                    <a class="btn btn--light"
+                       href="/tickets/lift-tickets"
+                    >
+                        Lift Tickets
+                    </a>
+
+                    <a class="btn btn--accent"
+                       href="/tickets/season-passes"
+                    >
+                        Season Passes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,310 @@
+@use 'breakpoints' as bp;
+
+.current-deals {
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 2.5rem;
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__empty {
+        align-items: center;
+        background: var(--color-background-alt);
+        border: 1px solid var(--color-primary-soft);
+        border-radius: var(--radius-lg);
+        display: flex;
+        gap: 2rem;
+        margin-top: 2.5rem;
+        padding: 2.5rem 3rem;
+
+        @include bp.down(sm) {
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        > div:last-child {
+            > span {
+                color: var(--color-primary);
+                display: block;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+        }
+
+        h3 {
+            color: var(--color-text);
+            font-size: 1.5rem;
+            margin: 0.4rem 0 0.75rem;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin: 0;
+            max-width: 650px;
+        }
+    }
+
+    &__empty-icon {
+        align-items: center;
+        background: var(--color-primary);
+        border-radius: 50%;
+        color: var(--color-surface);
+        display: flex;
+        flex: 0 0 72px;
+        font-size: 1.5rem;
+        height: 72px;
+        justify-content: center;
+        width: 72px;
+    }
+}
+
+.deal-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-background-alt);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    transition: var(--transition-base);
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+    }
+
+    &__icon {
+        align-items: center;
+        background: var(--color-accent-soft);
+        border-radius: var(--radius-md);
+        color: var(--color-accent-hover);
+        display: flex;
+        flex: 0 0 56px;
+        font-size: 1.25rem;
+        height: 56px;
+        justify-content: center;
+        width: 56px;
+    }
+
+    &__content {
+        > span {
+            color: var(--color-accent-hover);
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: var(--color-text);
+            margin: 0.35rem 0 0.75rem;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            line-height: 1.65;
+            margin: 0;
+        }
+    }
+
+    &__deadline {
+        align-items: center;
+        color: var(--color-text-muted);
+        display: flex;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+        margin-top: 1rem;
+
+        i {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.upcoming-deals {
+    background: var(--color-background-alt);
+
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+}
+
+.upcoming-deal {
+    align-items: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-background-alt);
+    border-radius: var(--radius-lg);
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 2rem;
+
+    @include bp.down(md) {
+        align-items: flex-start;
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    @include bp.down(sm) {
+        grid-template-columns: 1fr;
+    }
+
+    &__icon {
+        align-items: center;
+        background: var(--color-primary-soft);
+        border-radius: 50%;
+        color: var(--color-primary);
+        display: flex;
+        font-size: 1.4rem;
+        height: 64px;
+        justify-content: center;
+        width: 64px;
+    }
+
+    &__content {
+        span {
+            color: var(--color-primary);
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: var(--color-text);
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            line-height: 1.65;
+            margin: 0;
+        }
+    }
+
+    &__status {
+        align-items: center;
+        background: var(--color-primary-soft);
+        border-radius: var(--radius-pill);
+        color: var(--color-primary);
+        display: flex;
+        font-size: 0.8rem;
+        font-weight: 700;
+        gap: 0.5rem;
+        padding: 0.65rem 1rem;
+
+        @include bp.down(md) {
+            grid-column: 2;
+            justify-self: start;
+        }
+
+        @include bp.down(sm) {
+            grid-column: 1;
+        }
+    }
+}
+
+.deal-info {
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 2.5rem;
+
+        @include bp.down(lg) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        align-items: flex-start;
+        display: flex;
+        gap: 1.25rem;
+
+        h3 {
+            color: var(--color-text);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            line-height: 1.65;
+            margin: 0.4rem 0 0;
+        }
+    }
+
+    &__icon {
+        align-items: center;
+        background: var(--color-primary-soft);
+        border-radius: var(--radius-md);
+        color: var(--color-primary);
+        display: flex;
+        flex: 0 0 48px;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+    }
+}
+
+.deal-cta {
+    background: var(--color-primary);
+
+    &__inner {
+        align-items: center;
+        display: flex;
+        gap: 3rem;
+        justify-content: space-between;
+
+        @include bp.down(md) {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        > div:first-child {
+            > span {
+                color: var(--color-primary-soft);
+                display: block;
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+        }
+
+        h2 {
+            color: var(--color-surface);
+            margin: 0.4rem 0 0.75rem;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            max-width: 600px;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-shrink: 0;
+        gap: 0.75rem;
+
+        @include bp.down(sm) {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+}

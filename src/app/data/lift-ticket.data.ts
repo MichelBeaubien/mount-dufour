@@ -1,4 +1,4 @@
-import { LiftTicketsPrice } from '../interfaces/mountain';
+import { BeginnerLift, KidsSpecial, LiftTicketInfo, LiftTicketsPrice } from '../interfaces/tickets';
 
 export const LIFT_TICKETS: LiftTicketsPrice[] = [
     {
@@ -27,14 +27,14 @@ export const LIFT_TICKETS: LiftTicketsPrice[] = [
     }
 ];
 
-export const BEGINNER_LIFT = {
+export const BEGINNER_LIFT: BeginnerLift = {
     description: 'Stay on beginner terrain while you learn the basics and build your confidence.',
     label: 'Beginner Lift',
     price: 15,
     priceLabel: 'Full or Half Day'
 };
 
-export const KIDS_SPECIAL = {
+export const KIDS_SPECIAL: KidsSpecial = {
     description: 'Children ages 10 and under can ski for $35 when accompanied by an adult purchasing a full-day lift ticket.',
     disclaimer: 'Limit one $35 child pass per paying adult full-day ticket.',
     kicker: 'Family Special',
@@ -42,7 +42,7 @@ export const KIDS_SPECIAL = {
     title: 'Kids 10 & Under Ski for $35'
 };
 
-export const LIFT_TICKET_INFO = [
+export const LIFT_TICKET_INFO: LiftTicketInfo[] = [
     {
         icon: 'fas fa-clock',
         label: 'Lift Hours',

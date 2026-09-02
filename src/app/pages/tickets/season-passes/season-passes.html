@@ -1,1 +1,119 @@
-<app-page-shell pageId="seasonPasses"></app-page-shell>
+<main class="season-passes">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="season-pass-pricing app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="2025 / 2026 Season"
+                title="Season Pass Pricing"
+                description="Choose the pass option that best fits you or your household."
+            ></app-section-title>
+
+            <div class="season-pass-pricing__groups">
+                @for (group of seasonPassesService.groups(); track group.title) {
+                    <article class="pass-group">
+                        <div class="pass-group__header">
+                            <div>
+                                <span>Season Pass</span>
+                                <h3>{{ group.title }}</h3>
+
+                                @if (group.description) {
+                                    <p>{{ group.description }}</p>
+                                }
+                            </div>
+
+                            <i class="fas fa-mountain-sun" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="pass-group__options">
+                            @for (option of group.options; track option.label + option.ageRange) {
+                                <div class="pass-option">
+                                    <div class="pass-option__label">
+                                        <strong>{{ option.label }}</strong>
+
+                                        @if (option.ageRange) {
+                                            <span>{{ option.ageRange }}</span>
+                                        }
+                                    </div>
+
+                                    <div class="pass-option__price">
+                                        @if (option.price === 0) {
+                                            <strong>Free</strong>
+                                        } @else {
+                                            <strong>${{ option.price }}</strong>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </article>
+                }
+            </div>
+
+            <p class="season-pass-pricing__tax">
+                All prices are subject to HST.
+            </p>
+        </div>
+    </section>
+
+    <section class="pass-feature app-section--compact">
+        <div class="container">
+            <div class="pass-feature__inner">
+                <div class="pass-feature__icon">
+                    <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                </div>
+
+                <div class="pass-feature__content">
+                    <span>{{ seasonPassesService.policy().kicker }}</span>
+
+                    <h2>{{ seasonPassesService.policy().title }}</h2>
+
+                    <p>
+                        {{ seasonPassesService.policy().description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="season-pass-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Before You Buy"
+                title="Pass Information"
+                description="A few important details to know before registering."
+            ></app-section-title>
+
+            <div class="season-pass-info__grid">
+                @for (info of seasonPassesService.info(); track info.label) {
+                    <article class="season-pass-info__item">
+                        <div class="season-pass-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="pass-policy app-section--compact">
+        <div class="container">
+            <div class="pass-policy__inner">
+                <i class="fas fa-circle-info" aria-hidden="true"></i>
+
+                <div>
+                    <strong>Season Pass Policy</strong>
+
+                    <p>
+                        {{ seasonPassesService.policy().disclaimer }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

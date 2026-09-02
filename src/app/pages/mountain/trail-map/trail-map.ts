@@ -17,6 +17,9 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
         SectionTitle,
         TitleCasePipe
     ],
+    providers: [
+        MountainService
+    ],
     selector: 'app-trail-map',
     styleUrl: './trail-map.scss',
     templateUrl: './trail-map.html',
@@ -33,5 +36,6 @@ export class TrailMap {
     }));
 
     public readonly mountainService = inject(MountainService);
-    protected readonly numberToWord = numberToWord;
+
+    public readonly numberToWord = numberToWord;
 }

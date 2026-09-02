@@ -15,6 +15,9 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
         SecondaryHero,
         SectionTitle
     ],
+    providers: [
+        MountainService
+    ],
     selector: 'app-conditions',
     styleUrl: './conditions.scss',
     templateUrl: './conditions.html',

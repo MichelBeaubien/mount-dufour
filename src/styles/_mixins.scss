@@ -174,7 +174,7 @@
     $icon-resize-at: sm
 ) {
     background: var(--color-surface);
-    padding: 5rem var(--container-padding);
+    padding: var(--space-section-compact) var(--container-padding);
 
     &__container {
         align-items: center;

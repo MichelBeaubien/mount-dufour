@@ -1,1 +1,110 @@
-<app-page-shell pageId="rentals"></app-page-shell>
+<main class="rentals">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="rental-pricing app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Gear Up"
+                title="Rental Pricing"
+                description="Choose a complete package or rent individual equipment for the day."
+            >
+                <p section-side-info>
+                    Half-day rentals begin at <strong>12:30 PM</strong>
+                </p>
+            </app-section-title>
+
+            <div class="rental-pricing__groups">
+                @for (group of rentalsService.rentalGroups(); track group.title) {
+                    <article class="rental-group">
+                        <div class="rental-group__header">
+                            <div>
+                                <span class="app-eyebrow">Equipment Rental</span>
+                                <h3>{{ group.title }}</h3>
+
+                                @if (group.description) {
+                                    <p>{{ group.description }}</p>
+                                }
+                            </div>
+
+                            <i
+                                class="fas"
+                                [class.fa-person-skiing]="group.title === 'Ski Rentals'"
+                                [class.fa-person-snowboarding]="group.title === 'Snowboard Rentals'"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+
+                        <div class="rental-group__table">
+                            <div class="rental-group__row rental-group__row--header">
+                                <span>Equipment</span>
+                                <span>Full Day</span>
+                                <span>Half Day</span>
+                            </div>
+
+                            @for (item of group.items; track item.label) {
+                                <div class="rental-group__row">
+                                    <strong>{{ item.label }}</strong>
+                                    <span>${{ item.fullDay }}</span>
+                                    <span>${{ item.halfDay }}</span>
+                                </div>
+                            }
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="helmet-rental app-section--compact">
+        <div class="container">
+            <div class="helmet-rental__inner">
+                <div class="helmet-rental__icon">
+                    <i
+                        [class]="rentalsService.helmetRental().icon"
+                        aria-hidden="true"
+                    ></i>
+                </div>
+
+                <div class="helmet-rental__content">
+                    <span class="app-eyebrow">Add-On Rental</span>
+
+                    <h2>{{ rentalsService.helmetRental().label }}</h2>
+
+                    <p>
+                        {{ rentalsService.helmetRental().description }}
+                    </p>
+                </div>
+
+                <div class="helmet-rental__price">
+                    <strong>${{ rentalsService.helmetRental().price }}</strong>
+                    <span>{{ rentalsService.helmetRental().priceLabel }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rental-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Before You Rent"
+                title="Rental Information"
+                description="A few things to know before picking up your equipment."
+            ></app-section-title>
+
+            <div class="rental-info__grid app-card-grid">
+                @for (info of rentalsService.info(); track info.label) {
+                    <article class="rental-info__item app-panel">
+                        <div class="rental-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <h3>{{ info.label }}</h3>
+                            <p>{{ info.value }}</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+</main>
