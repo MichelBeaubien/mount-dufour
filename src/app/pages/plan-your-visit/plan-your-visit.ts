@@ -27,6 +27,7 @@ export class PlanYourVisit {
         scrollTo: {
             href: 'before-you-go-intro',
             label: 'Explore before you go'
+            
         }
     }));
 
