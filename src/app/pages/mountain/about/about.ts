@@ -2,6 +2,7 @@ import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
+import { MountainStatsRow } from '../../../partials/mountain-stats-row/mountain-stats-row';
 import { SectionTitle } from '../../../partials/section-title/section-title';
 import { AboutService } from '../../../services/about';
 import { MountainService } from '../../../services/mountain';
@@ -11,7 +12,8 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
     imports: [
         RouterLink,
         SecondaryHero,
-        SectionTitle
+        SectionTitle,
+        MountainStatsRow
     ],
     providers: [
         AboutService,

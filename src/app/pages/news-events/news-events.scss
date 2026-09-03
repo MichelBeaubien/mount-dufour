@@ -1,0 +1,213 @@
+@use 'breakpoints' as bp;
+
+.events {
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 3rem;
+
+        @include bp.down(lg) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.event-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+
+    &__image {
+        aspect-ratio: 16 / 10;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__content {
+        padding: 2rem;
+
+        time {
+            color: var(--color-accent);
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin: 1rem 0 0;
+        }
+
+        a {
+            align-items: center;
+            color: var(--color-primary);
+            display: inline-flex;
+            font-size: 0.85rem;
+            font-weight: 700;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            text-decoration: none;
+        }
+    }
+}
+
+.mountain-news {
+    background: var(--color-background-alt);
+
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 3rem;
+
+        @include bp.down(lg) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.news-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+
+    &__image {
+        aspect-ratio: 16 / 10;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__content {
+        padding: 2rem;
+
+        time {
+            color: var(--color-text-muted);
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        p {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            margin: 1rem 0 0;
+        }
+
+        a {
+            align-items: center;
+            color: var(--color-primary);
+            display: inline-flex;
+            font-size: 0.85rem;
+            font-weight: 700;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            text-decoration: none;
+        }
+    }
+}
+
+.empty-state {
+    align-items: center;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 2.5rem;
+
+    &__icon {
+        align-items: center;
+        background: var(--color-primary-soft);
+        border-radius: var(--radius-lg);
+        color: var(--color-primary);
+        display: flex;
+        flex: 0 0 auto;
+        font-size: 1.35rem;
+        height: 58px;
+        justify-content: center;
+        width: 58px;
+    }
+
+    h3 {
+        margin: 0;
+    }
+
+    p {
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        margin: 0.4rem 0 0;
+    }
+}
+
+.stay-connected {
+    background: var(--color-secondary);
+    color: var(--color-surface);
+    padding: 5rem 0;
+
+    &__inner {
+        align-items: center;
+        display: flex;
+        gap: 3rem;
+        justify-content: space-between;
+
+        @include bp.down(md) {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        > div {
+            max-width: 680px;
+        }
+
+        h2 {
+            color: var(--color-surface);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin: 0.5rem 0 0;
+
+            span {
+                color: var(--color-accent);
+                display: block;
+            }
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.7;
+            margin: 1rem 0 0;
+            max-width: 560px;
+        }
+
+        .btn {
+            flex: 0 0 auto;
+        }
+    }
+}

@@ -35,7 +35,7 @@
     }
 
     &__image {
-        background-image: url('/assets/images/heros/about.jpg');
+        background-image: url('/assets/images/shared/heroes/about.jpg');
         background-position: center;
         background-size: cover;
         border-radius: var(--radius-xl);
@@ -250,18 +250,18 @@
     }
 
     &--conditions .mountain-link__background {
-        background-image: url('/assets/images/heros/conditions.jpg');
+        background-image: url('/assets/images/mountain/explore/conditions.jpg');
     }
 
     &--trail-map .mountain-link__background {
-        background-image: url('/assets/images/heros/mountain.jpg');
+        background-image: url('/assets/images/shared/heroes/mountain.jpg');
     }
 
     &--hours .mountain-link__background {
-        background-image: url('/assets/images/heros/kid-skiing-1.jpg');
+        background-image: url('/assets/images/shared/heroes/kid-skiing-1.jpg');
     }
 
     &--about .mountain-link__background {
-        background-image: url('/assets/images/heros/kid-skiing-2.jpg');
+        background-image: url('/assets/images/shared/content/kid-skiing-2.jpg');
     }
 }

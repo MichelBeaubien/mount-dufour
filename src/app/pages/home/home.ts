@@ -35,9 +35,9 @@ export class Home {
         title: 'More mountain.',
         titleSpan: 'More skiing.',
         description: 'Ski, ride, learn and explore right in the heart of Elliot Lake.',
-        image: '/assets/images/heros/home.jpg',
+        image: '/assets/images/home/hero/home.jpg',
         scrollTo: {
-            label: 'Scroll to mountain status',
+            label: 'Explore the mountain status',
             href: 'mountain-status'
         }
     }));

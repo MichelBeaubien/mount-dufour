@@ -14,12 +14,12 @@
                     <span>without the big-resort attitude.</span>
                 </h2>
 
-                <p class="about-intro__lead">
+                <p class="app-copy app-copy--lead">
                     Mount Dufour gives skiers and snowboarders a challenging Northern Ontario mountain experience while
                     staying approachable, affordable and local.
                 </p>
 
-                <p>
+                <p class="app-copy">
                     From beginner terrain and lessons to steeper runs, a terrain park, rentals and a full-service
                     chalet, Mount Dufour gives Elliot Lake a complete ski-area experience without having to leave the
                     city.
@@ -38,7 +38,7 @@
             </div>
 
             <div class="about-intro__media">
-                <img src="/assets/images/about/happy-family.jpg" alt="Mount Dufour ski hill and chalet">
+                <img src="/assets/images/shared/content/happy-family.jpg" alt="Mount Dufour ski hill and chalet">
 
                 <div class="about-intro__badge">
                     <i class="fas fa-location-dot" aria-hidden="true"></i>
@@ -53,23 +53,7 @@
     </section>
 
     <!-- STATS -->
-    <section class="about-stats">
-        <div class="container about-stats__container">
-            @for (stat of mountainService.stats(); track stat.label) {
-                <article class="about-stats__item">
-                    <i [class]="stat.icon" aria-hidden="true"></i>
-
-                    <strong>
-                        {{ stat.value }}
-                    </strong>
-
-                    <span>
-                        {{ stat.label }}
-                    </span>
-                </article>
-            }
-        </div>
-    </section>
+    <app-mountain-stats-row [stats]="mountainService.stats()"/>
 
     <!-- FEATURES -->
     <section class="about-features app-section--spaced">
@@ -103,7 +87,7 @@
     <section class="about-community app-section--spaced">
         <div class="container about-community__container">
             <div class="about-community__media">
-                <img src="/assets/images/about/community.jpg" alt="Mount Dufour skiers and community members">
+                <img src="/assets/images/about/content/community.jpg" alt="Mount Dufour skiers and community members">
             </div>
 
             <div class="about-community__content">
@@ -116,12 +100,12 @@
                     <span>of skiing together.</span>
                 </h2>
 
-                <p>
+                <p class="app-copy app-copy--lead">
                     Mount Dufour is a professionally operated non-profit ski area that has served local residents and
                     visitors for more than five decades.
                 </p>
 
-                <p>
+                <p class="app-copy">
                     The hill has grown through the support of volunteers, members, guests, staff and local businesses
                     who continue to help keep skiing accessible in Elliot Lake.
                 </p>
@@ -154,7 +138,7 @@
                     Everything you need, right at the hill.
                 </h2>
 
-                <p>
+                <p class="app-copy">
                     The Mount Dufour chalet includes the ticket booth, rental shop, canteen, licensed fireside lounge,
                     lockers, change areas and a large deck overlooking the mountain.
                 </p>

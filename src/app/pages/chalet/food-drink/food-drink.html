@@ -4,19 +4,10 @@
     <section class="canteen-intro app-section--compact">
         <div class="container">
             <div class="canteen-intro__inner">
-                <div class="canteen-intro__content">
-                    <span class="app-eyebrow">
-                        {{ foodDrinkService.feature().kicker }}
-                    </span>
-
-                    <h2 class="app-heading">
-                        {{ foodDrinkService.feature().title }}
-                    </h2>
-
-                    <p class="app-copy">
-                        {{ foodDrinkService.feature().description }}
-                    </p>
-                </div>
+                <app-section-title [kicker]="foodDrinkService.feature().kicker"
+                                   [title]="foodDrinkService.feature().title"
+                                   [description]="foodDrinkService.feature().description"
+                />
 
                 <div class="canteen-intro__visual">
                     <div class="canteen-intro__icon">
@@ -80,10 +71,9 @@
                     <h2>Every Bite Helps the Hill</h2>
 
                     <p>
-                        The canteen is operated by Mount Dufour, and purchases
-                        help contribute to the ski area's operating costs.
-                        Grab your breakfast, lunch or snacks right here at the
-                        hill and support your local mountain at the same time.
+                        The canteen is operated by Mount Dufour, and purchases help contribute to the ski area's
+                        operating costs. Grab your breakfast, lunch or snacks right here at the hill and support your
+                        local mountain at the same time.
                     </p>
                 </div>
             </div>

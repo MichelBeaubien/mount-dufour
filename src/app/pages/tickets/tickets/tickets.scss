@@ -122,15 +122,15 @@
     }
 
     &--lift .ticket-option__background {
-        background-image: url('/assets/images/heros/kid-skiing-2.jpg');
+        background-image: url('/assets/images/shared/content/kid-skiing-2.jpg');
     }
 
     &--season .ticket-option__background {
-        background-image: url('/assets/images/about/happy-family.jpg');
+        background-image: url('/assets/images/shared/content/happy-family.jpg');
     }
 
     &--deals .ticket-option__background {
-        background-image: url('/assets/images/heros/snow-board-lesson.jpg');
+        background-image: url('/assets/images/tickets/options/snow-board-lesson.jpg');
     }
 }
 
@@ -201,7 +201,7 @@
     }
 
     &__image {
-        background-image: url('/assets/images/heros/group-shot-red-coat.jpg');
+        background-image: url('/assets/images/tickets/value/group-shot-red-coat.jpg');
         background-position: center;
         background-size: cover;
         border-radius: var(--radius-xl);

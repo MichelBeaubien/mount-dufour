@@ -1,1 +1,247 @@
-<app-page-shell pageId="chalet"></app-page-shell>
+<main class="chalet">
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg"
+               [routerLink]="pages.foodDrink.url"
+            >
+                <i class="fas fa-utensils" aria-hidden="true"></i>
+                <span>Food & Drink</span>
+            </a>
+
+            <a class="btn btn--accent btn--lg btn--arrow"
+               [routerLink]="pages.lounge.url"
+            >
+                <span>Explore the Lounge</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+
+    <!-- CHALET INTRO -->
+    <section id="chalet-intro"
+             class="chalet-intro app-section--spaced"
+    >
+        <div class="container">
+            <div class="chalet-intro__inner">
+                <div class="chalet-intro__content">
+                    <span class="app-eyebrow">
+                        More Than the Mountain
+                    </span>
+
+                    <h2 class="app-heading">
+                        Take a break.
+                        <span>You’ve earned it.</span>
+                    </h2>
+
+                    <p class="app-copy app-copy--lead">
+                        A great ski day needs somewhere to warm up. The Mount Dufour chalet is your home base at the
+                        bottom of the mountain.
+                    </p>
+
+                    <p class="app-copy">
+                        Stop in between runs, grab something to eat, spend some time in the lounge or get yourself
+                        organized before heading back outside.
+                    </p>
+
+                    <div class="chalet-intro__features">
+                        <div>
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Refuel</strong>
+                                Food & drink
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-mug-hot" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Warm Up</strong>
+                                Relax inside
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Get Ready</strong>
+                                Lockers & changing
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chalet-intro__visual">
+                    <div class="chalet-intro__image"></div>
+
+                    <div class="chalet-intro__badge">
+                        <i class="fas fa-mountain" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Right at the Base</strong>
+                            <span>Your home between runs.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHALET EXPERIENCES -->
+    <section class="chalet-experiences app-section--spaced">
+        <div class="container">
+            <header class="chalet-experiences__header">
+                <span class="app-eyebrow">
+                    Inside the Chalet
+                </span>
+
+                <h2 class="app-heading">
+                    Everything you need
+                    <span>between runs.</span>
+                </h2>
+            </header>
+
+            <div class="chalet-experiences__grid">
+                <a class="chalet-experience chalet-experience--food"
+                   [routerLink]="pages.foodDrink.url"
+                >
+                    <div class="chalet-experience__background"></div>
+                    <div class="chalet-experience__overlay"></div>
+
+                    <div class="chalet-experience__content">
+                        <div class="chalet-experience__icon">
+                            <i class="fas fa-utensils" aria-hidden="true"></i>
+                        </div>
+
+                        <span>Fuel Your Day</span>
+
+                        <h3>Food & Drink</h3>
+
+                        <p>
+                            Grab something warm, recharge and get ready
+                            for another trip up the mountain.
+                        </p>
+
+                        <strong>
+                            Explore Food & Drink
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="chalet-experience chalet-experience--lounge"
+                   [routerLink]="pages.lounge.url"
+                >
+                    <div class="chalet-experience__background"></div>
+                    <div class="chalet-experience__overlay"></div>
+
+                    <div class="chalet-experience__content">
+                        <div class="chalet-experience__icon">
+                            <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                        </div>
+
+                        <span>Warm Up & Unwind</span>
+
+                        <h3>The Lounge</h3>
+
+                        <p>
+                            Step inside, warm up and enjoy some time
+                            off your skis before heading back out.
+                        </p>
+
+                        <strong>
+                            Explore the Lounge
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="chalet-experience chalet-experience--lockers"
+                   [routerLink]="pages.lockers.url"
+                >
+                    <div class="chalet-experience__background"></div>
+                    <div class="chalet-experience__overlay"></div>
+
+                    <div class="chalet-experience__content">
+                        <div class="chalet-experience__icon">
+                            <i class="fas fa-lock" aria-hidden="true"></i>
+                        </div>
+
+                        <span>Ready for the Mountain</span>
+
+                        <h3>Lockers</h3>
+
+                        <p>
+                            Store your belongings, get changed and keep
+                            what you need close by throughout your day.
+                        </p>
+
+                        <strong>
+                            Explore Lockers
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BETWEEN RUNS -->
+    <section class="between-runs app-section--spaced">
+        <div class="container">
+            <div class="between-runs__inner">
+                <div class="between-runs__visual">
+                    <div class="between-runs__image"></div>
+                </div>
+
+                <div class="between-runs__content">
+                    <span class="app-eyebrow">
+                        The Other Half of a Ski Day
+                    </span>
+
+                    <h2 class="app-heading">
+                        Ski days are better
+                        <span>with a place to gather.</span>
+                    </h2>
+
+                    <p class="app-copy app-copy--lead">
+                        Sometimes the best part of a day on the mountain happens when the skis come off for a while.
+                    </p>
+
+                    <p class="app-copy">
+                        The chalet gives families and friends a place to reconnect, warm up and take a break together
+                        before deciding which run comes next.
+                    </p>
+
+                    <a class="btn btn--primary btn--arrow"
+                       [routerLink]="pages.lounge.url"
+                    >
+                        <span>Visit the Lounge</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <app-primary-hero [hero]="footerHero()" [compact]="true">
+        <ng-container hero-actions>
+            <a class="btn btn--accent btn--lg"
+               [routerLink]="pages.foodDrink.url"
+            >
+                <i class="fas fa-utensils" aria-hidden="true"></i>
+                <span>Food & Drink</span>
+            </a>
+
+            <a class="btn btn--light btn--lg btn--arrow"
+               [routerLink]="pages.lounge.url"
+            >
+                <span>Explore the Lounge</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+</main>

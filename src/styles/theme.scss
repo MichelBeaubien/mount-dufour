@@ -520,6 +520,11 @@
     color: var(--color-text-muted);
     line-height: 1.8;
     margin: 1rem 0 0;
+
+    &--lead {
+        color: var(--color-text);
+        font-weight: bold;
+    }
 }
 
 .app-panel {

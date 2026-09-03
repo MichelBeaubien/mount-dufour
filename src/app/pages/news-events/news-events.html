@@ -1,1 +1,153 @@
-<app-page-shell pageId="newsEvents"></app-page-shell>
+<main class="news-events">
+    <app-primary-hero [hero]="hero()"/>
+
+    <!-- EVENTS -->
+    <section id="news-events-intro" class="events app-section--spaced">
+        <div class="container">
+            <app-section-title
+                kicker="Upcoming at Dufour"
+                title="There’s always something"
+                titleSpan="happening on the mountain."
+                description="From community events to special days on the slopes, see what’s coming up at Mount Dufour."
+            />
+
+            @if (events().length) {
+                <div class="events__grid">
+                    @for (event of events(); track event.title) {
+                        <article class="event-card">
+                            <div class="event-card__image"
+                                 [style.background-image]="'url(' + event.image + ')'"
+                            ></div>
+
+                            <div class="event-card__content">
+                                <time [attr.datetime]="event.date">
+                                    {{ event.date }}
+                                </time>
+
+                                <h3>{{ event.title }}</h3>
+
+                                <p>{{ event.description }}</p>
+
+                                @if (event.url) {
+                                    <a [href]="event.url"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                    >
+                                        Event Details
+                                        <i class="fas fa-arrow-up-right-from-square"
+                                           aria-hidden="true"
+                                        ></i>
+                                    </a>
+                                }
+                            </div>
+                        </article>
+                    }
+                </div>
+            } @else {
+                <div class="empty-state">
+                    <div class="empty-state__icon">
+                        <i class="fas fa-calendar-days" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <h3>More events are on the way.</h3>
+
+                        <p>
+                            Check back soon for upcoming events and activities
+                            at Mount Dufour.
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="mountain-news app-section--spaced">
+        <div class="container">
+            <app-section-title
+                kicker="From the Mountain"
+                title="Latest News"
+                description="Updates, announcements and stories from Mount Dufour."
+            />
+
+            @if (news().length) {
+                <div class="mountain-news__grid">
+                    @for (article of news(); track article.title) {
+                        <article class="news-card">
+                            <div class="news-card__image"
+                                 [style.background-image]="'url(' + article.image + ')'"
+                            ></div>
+
+                            <div class="news-card__content">
+                                <time [attr.datetime]="article.date">
+                                    {{ article.date }}
+                                </time>
+
+                                <h3>{{ article.title }}</h3>
+
+                                <p>{{ article.description }}</p>
+
+                                @if (article.url) {
+                                    <a [href]="article.url"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                    >
+                                        Read More
+                                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
+                                }
+                            </div>
+                        </article>
+                    }
+                </div>
+            } @else {
+                <div class="empty-state">
+                    <div class="empty-state__icon">
+                        <i class="fas fa-newspaper" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <h3>Nothing new to report.</h3>
+
+                        <p>
+                            Mountain updates and announcements will appear
+                            here when they’re available.
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="stay-connected">
+        <div class="container">
+            <div class="stay-connected__inner">
+                <div>
+                    <span class="app-eyebrow app-eyebrow--accent">Stay Connected</span>
+
+                    <h2>
+                        Don’t miss what’s
+                        <span>happening at Dufour.</span>
+                    </h2>
+
+                    <p>
+                        Follow Mount Dufour for mountain updates,
+                        events, photos and announcements throughout
+                        the season.
+                    </p>
+                </div>
+
+                <a class="btn btn--light btn--lg"
+                   href="#"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                >
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    <span>Follow Mount Dufour</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

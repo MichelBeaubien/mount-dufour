@@ -4,19 +4,10 @@
     <section class="lockers-intro app-section--compact">
         <div class="container">
             <div class="lockers-intro__inner">
-                <div class="lockers-intro__content">
-                    <span class="app-eyebrow">
-                        {{ lockersService.intro().kicker }}
-                    </span>
-
-                    <h2>
-                        {{ lockersService.intro().title }}
-                    </h2>
-
-                    <p>
-                        {{ lockersService.intro().description }}
-                    </p>
-                </div>
+                <app-section-title [kicker]="lockersService.intro().kicker"
+                                   [title]="lockersService.intro().title"
+                                   [description]="lockersService.intro().description"
+                />
 
                 <div class="lockers-intro__icon">
                     <i class="fas fa-person-skiing" aria-hidden="true"></i>

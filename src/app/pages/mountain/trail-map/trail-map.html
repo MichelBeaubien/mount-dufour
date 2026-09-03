@@ -42,10 +42,10 @@
             </app-section-title>
 
             <div class="mountain-map__image">
-                <img src="/assets/images/mountain/find-your-run.jpg" alt="Mount Dufour ski area trail map">
+                <img src="/assets/images/mountain/trail-map/find-your-run.jpg" alt="Mount Dufour ski area trail map">
 
                 <a class="mountain-map__expand btn btn--light btn--sm"
-                   href="/assets/images/mountain/find-your-run.jpg"
+                   href="/assets/images/mountain/trail-map/find-your-run.jpg"
                    target="_blank"
                    rel="noopener noreferrer"
                 >
@@ -61,7 +61,7 @@
     </section>
 
     <!-- STATS -->
-    <app-mountain-stats-row [stats]="mountainService.stats()"></app-mountain-stats-row>
+    <app-mountain-stats-row [stats]="mountainService.stats()" />
 
     <!-- TRAILS -->
     <section class="trail-directory app-section--compact">

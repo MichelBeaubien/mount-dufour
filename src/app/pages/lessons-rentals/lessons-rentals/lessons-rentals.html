@@ -1,1 +1,257 @@
-<app-page-shell pageId="lessonsRentals"></app-page-shell>
+<main class="lessons-rentals">
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg"
+               [routerLink]="pages.snowSchool.url"
+            >
+                <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                <span>Snow School</span>
+            </a>
+
+            <a class="btn btn--accent btn--lg btn--arrow"
+               [routerLink]="pages.rentals.url"
+            >
+                <span>Equipment Rentals</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+
+    <!-- MAIN OPTIONS -->
+    <section id="lessons-rentals-options" class="mountain-start app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="Start Your Day"
+                               title="New to the mountain?"
+                               titleSpan="Start right here."
+                               description="Whether you need equipment, instruction or both, Mount Dufour can help get you ready for your day on the slopes."
+            />
+
+            <div class="mountain-start__grid">
+                <a class="start-card start-card--lessons"
+                   [routerLink]="pages.snowSchool.url"
+                >
+                    <div class="start-card__background"></div>
+                    <div class="start-card__overlay"></div>
+
+                    <div class="start-card__content">
+                        <div class="start-card__icon">
+                            <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                        </div>
+
+                        <span>Learn on the Mountain</span>
+
+                        <h3>Snow School</h3>
+
+                        <p>
+                            Build confidence and develop your skills with
+                            instruction right here at Mount Dufour.
+                        </p>
+
+                        <strong>
+                            Explore Snow School
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="start-card start-card--rentals"
+                   [routerLink]="pages.rentals.url"
+                >
+                    <div class="start-card__background"></div>
+                    <div class="start-card__overlay"></div>
+
+                    <div class="start-card__content">
+                        <div class="start-card__icon">
+                            <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                        </div>
+
+                        <span>Gear Up & Go</span>
+
+                        <h3>Equipment Rentals</h3>
+
+                        <p>
+                            Get the equipment you need for your day without
+                            having to own everything yourself.
+                        </p>
+
+                        <strong>
+                            Explore Rentals
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEGINNER EXPERIENCE -->
+    <section class="first-turns app-section--spaced">
+        <div class="container">
+            <div class="first-turns__inner">
+                <div class="first-turns__visual">
+                    <div class="first-turns__image"></div>
+
+                    <div class="first-turns__badge">
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Start Somewhere Great</strong>
+                            <span>Your first turns can happen right here.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="first-turns__content">
+                    <span class="app-eyebrow">
+                        Your First Day
+                    </span>
+
+                    <h2 class="app-heading">
+                        Everybody starts
+                        <span>somewhere.</span>
+                    </h2>
+
+                    <p class="app-copy app-copy--lead">
+                        Trying skiing or snowboarding doesn't have to mean
+                        buying a full set of equipment or figuring everything
+                        out on your own.
+                    </p>
+
+                    <p class="app-copy">
+                        With equipment rentals and instruction available at
+                        Mount Dufour, you can focus on getting comfortable,
+                        building confidence and enjoying your time on snow.
+                    </p>
+
+                    <div class="first-turns__actions">
+                        <a class="btn btn--primary btn--arrow"
+                           [routerLink]="pages.snowSchool.url"
+                        >
+                            <span>Explore Lessons</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="btn btn--outline btn--arrow"
+                           [routerLink]="pages.rentals.url"
+                        >
+                            <span>View Rentals</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT FITS TOGETHER -->
+    <section class="ready-to-ride app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="From Arrival to First Run"
+                               title="Get ready."
+                               titleSpan="Then get skiing."
+                               description="Everything you need to turn a winter day into a day on the mountain."
+            />
+
+            <div class="ready-to-ride__grid">
+                <article class="ride-step">
+                    <span class="ride-step__number">01</span>
+
+                    <div class="ride-step__icon">
+                        <i class="fas fa-ticket" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Get Your Ticket</h3>
+
+                    <p>
+                        Choose the lift ticket that works for your day
+                        at Mount Dufour.
+                    </p>
+
+                    <a [routerLink]="pages.liftTickets.url">
+                        Lift Tickets
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="ride-step">
+                    <span class="ride-step__number">02</span>
+
+                    <div class="ride-step__icon">
+                        <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Gear Up</h3>
+
+                    <p>
+                        Pick up the equipment you need and get ready
+                        for the slopes.
+                    </p>
+
+                    <a [routerLink]="pages.rentals.url">
+                        Equipment Rentals
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="ride-step">
+                    <span class="ride-step__number">03</span>
+
+                    <div class="ride-step__icon">
+                        <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Learn the Basics</h3>
+
+                    <p>
+                        Build skills and confidence with instruction
+                        from Mount Dufour's Snow School.
+                    </p>
+
+                    <a [routerLink]="pages.snowSchool.url">
+                        Snow School
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="ride-step">
+                    <span class="ride-step__number">04</span>
+
+                    <div class="ride-step__icon">
+                        <i class="fas fa-mountain-sun" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Explore the Mountain</h3>
+
+                    <p>
+                        Put it all together and enjoy your day
+                        on the slopes.
+                    </p>
+
+                    <a [routerLink]="pages.trailMap.url">
+                        View Trail Map
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <app-primary-hero [hero]="footerHero()" [compact]="true">
+        <ng-container hero-actions>
+            <a class="btn btn--accent btn--lg"
+               [routerLink]="pages.snowSchool.url"
+            >
+                <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                <span>Snow School</span>
+            </a>
+
+            <a class="btn btn--light btn--lg btn--arrow"
+               [routerLink]="pages.rentals.url"
+            >
+                <span>Equipment Rentals</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+</main>

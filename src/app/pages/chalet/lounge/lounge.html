@@ -4,19 +4,10 @@
     <section class="lounge-intro app-section--compact">
         <div class="container">
             <div class="lounge-intro__inner">
-                <div class="lounge-intro__content">
-                    <span class="app-eyebrow">
-                        {{ loungeService.intro().kicker }}
-                    </span>
-
-                    <h2 class="app-heading">
-                        {{ loungeService.intro().title }}
-                    </h2>
-
-                    <p class="app-copy">
-                        {{ loungeService.intro().description }}
-                    </p>
-                </div>
+                <app-section-title [kicker]="loungeService.intro().kicker"
+                                   [title]="loungeService.intro().title"
+                                   [description]="loungeService.intro().description"
+                />
 
                 <div class="lounge-intro__visual">
                     <div class="lounge-intro__fire">
@@ -66,9 +57,7 @@
 
                 <div class="fireside-feature__content">
                     <span class="app-eyebrow">After the Runs</span>
-
                     <h2>Leave the Cold Outside</h2>
-
                     <p>
                         Located inside the chalet, the fireside lounge offers
                         a warm place to take a break while staying right at the
@@ -108,13 +97,10 @@
             <div class="lounge-location__inner">
                 <div>
                     <span class="app-eyebrow">Right at the Base</span>
-
                     <h2>Everything Within Reach</h2>
-
                     <p>
-                        The chalet sits directly at the base of Main and close
-                        to the quad lift, with the lounge, canteen, rentals,
-                        ticket booth and other chalet services all nearby.
+                        The chalet sits directly at the base of Main and close to the quad lift, with the lounge,
+                        canteen, rentals, ticket booth and other chalet services all nearby.
                     </p>
                 </div>
 

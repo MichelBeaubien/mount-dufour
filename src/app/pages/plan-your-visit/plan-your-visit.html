@@ -1,1 +1,330 @@
-<app-page-shell pageId="planYourVisit"></app-page-shell>
+<main class="plan-your-visit">
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg"
+               [routerLink]="pages.conditions.url"
+            >
+                <i class="fas fa-snowflake" aria-hidden="true"></i>
+                <span>Check Conditions</span>
+            </a>
+
+            <a class="btn btn--accent btn--lg btn--arrow"
+               [routerLink]="pages.hours.url"
+            >
+                <span>View Hours</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+
+    <!-- BEFORE YOU GO -->
+    <section id="before-you-go-intro" class="before-you-go app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="Before You Leave"
+                               title="A little planning."
+                               titleSpan="A much better ski day."
+                               description="Mountain operations can change with weather and snow conditions. Check the latest information before making the trip."
+            />
+
+            <div class="before-you-go__grid">
+                <a class="visit-check"
+                   [routerLink]="pages.conditions.url"
+                >
+                    <span class="visit-check__number">01</span>
+
+                    <div class="visit-check__icon">
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <span>First Things First</span>
+                        <h3>Check Conditions</h3>
+
+                        <p>
+                            See the latest mountain status, trail conditions
+                            and lift information before heading out.
+                        </p>
+
+                        <strong>
+                            Mountain Conditions
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="visit-check"
+                   [routerLink]="pages.hours.url"
+                >
+                    <span class="visit-check__number">02</span>
+
+                    <div class="visit-check__icon">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <span>Know Before You Go</span>
+                        <h3>Confirm the Hours</h3>
+
+                        <p>
+                            Check current operating hours before planning
+                            when to arrive at the mountain.
+                        </p>
+
+                        <strong>
+                            Hours of Operation
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="visit-check"
+                   [routerLink]="pages.liftTickets.url"
+                >
+                    <span class="visit-check__number">03</span>
+
+                    <div class="visit-check__icon">
+                        <i class="fas fa-ticket" aria-hidden="true"></i>
+                    </div>
+
+                    <div>
+                        <span>Choose Your Day</span>
+                        <h3>Plan Your Ticket</h3>
+
+                        <p>
+                            Review lift-ticket options so you know what works
+                            best for your day on the mountain.
+                        </p>
+
+                        <strong>
+                            Lift Tickets
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUILD YOUR DAY -->
+    <section class="your-day app-section--spaced">
+        <div class="container">
+            <div class="your-day__inner">
+                <div class="your-day__content">
+                    <span class="app-eyebrow">
+                        Build Your Day
+                    </span>
+
+                    <h2 class="app-heading">
+                        Everything starts
+                        <span>at the base.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Once you arrive, the chalet puts the essentials close together so you can spend less time
+                        getting organized and more time enjoying the mountain.
+                    </p>
+
+                    <div class="your-day__steps">
+                        <a [routerLink]="pages.liftTickets.url">
+                            <span>
+                                <i class="fas fa-ticket" aria-hidden="true"></i>
+                            </span>
+
+                            <div>
+                                <strong>Get Your Ticket</strong>
+                                <small>Choose the lift access for your day.</small>
+                            </div>
+
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a [routerLink]="pages.rentals.url">
+                            <span>
+                                <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                            </span>
+
+                            <div>
+                                <strong>Pick Up Your Gear</strong>
+                                <small>Need equipment? Rentals are available.</small>
+                            </div>
+
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a [routerLink]="pages.trailMap.url">
+                            <span>
+                                <i class="fas fa-map" aria-hidden="true"></i>
+                            </span>
+
+                            <div>
+                                <strong>Know the Mountain</strong>
+                                <small>Take a look at the trail map before your first run.</small>
+                            </div>
+
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+
+                        <a [routerLink]="pages.foodDrink.url">
+                            <span>
+                                <i class="fas fa-utensils" aria-hidden="true"></i>
+                            </span>
+
+                            <div>
+                                <strong>Take a Break</strong>
+                                <small>Warm up and refuel inside the chalet.</small>
+                            </div>
+
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="your-day__visual">
+                    <div class="your-day__image"></div>
+
+                    <div class="your-day__badge">
+                        <i class="fas fa-house" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Your Home Base</strong>
+                            <span>Right at the bottom of the mountain.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT TO BRING -->
+    <section class="what-to-bring app-section--spaced">
+        <div class="container">
+            <div class="what-to-bring__inner">
+                <app-section-title kicker="Pack for the Mountain"
+                                   title="Bring the essentials."
+                                   titleSpan="We can help with the rest."
+                                   description="Winter conditions can change quickly. Dress for the weather and make sure you're ready to spend time outdoors."
+                />
+
+                <div class="what-to-bring__grid">
+                    <article>
+                        <i class="fas fa-mitten" aria-hidden="true"></i>
+                        <h3>Dress in Layers</h3>
+                        <p>
+                            Warm layers make it easier to adjust as conditions
+                            change throughout the day.
+                        </p>
+                    </article>
+
+                    <article>
+                        <i class="fas fa-glasses" aria-hidden="true"></i>
+                        <h3>Protect Your Eyes</h3>
+                        <p>
+                            Goggles or suitable winter eyewear help with wind,
+                            snow and changing light.
+                        </p>
+                    </article>
+
+                    <article>
+                        <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                        <h3>Bring Your Gear</h3>
+                        <p>
+                            Have your own equipment? Bring it along. Otherwise,
+                            check out Mount Dufour's rental options.
+                        </p>
+
+                        <a [routerLink]="pages.rentals.url">
+                            View Rentals
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </article>
+
+                    <article>
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                        <h3>Know the Safety Rules</h3>
+                        <p>
+                            Review mountain safety information before hitting
+                            the slopes.
+                        </p>
+
+                        <a [routerLink]="pages.safety.url">
+                            Mountain Safety
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIND US -->
+    <section class="find-us app-section--spaced">
+        <div class="container">
+            <div class="find-us__inner">
+                <div class="find-us__map">
+                    <div class="find-us__map-placeholder">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        <span>Mount Dufour Ski Area</span>
+                    </div>
+                </div>
+
+                <div class="find-us__content">
+                    <span class="app-eyebrow">
+                        Getting Here
+                    </span>
+
+                    <h2 class="app-heading">
+                        Right here in
+                        <span>Elliot Lake.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Mount Dufour Ski Area is located just minutes from
+                        the heart of Elliot Lake.
+                    </p>
+
+                    <address>
+                        <div>
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Mount Dufour Ski Area</strong>
+                                10 Ski Hill Road<br>
+                                Elliot Lake, Ontario
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Call the Mountain</strong>
+                                <a href="tel:+17058486655">
+                                    705-848-6655
+                                </a>
+                            </span>
+                        </div>
+                    </address>
+
+                    <div class="find-us__actions">
+                        <a class="btn btn--primary btn--arrow"
+                           href="https://www.google.com/maps/search/?api=1&query=Mount+Dufour+Ski+Area+10+Ski+Hill+Road+Elliot+Lake+Ontario"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                        >
+                            <span>Get Directions</span>
+                            <i class="fas fa-arrow-up-right-from-square"
+                               aria-hidden="true"
+                            ></i>
+                        </a>
+
+                        <a class="btn btn--outline"
+                           [routerLink]="pages.contact.url"
+                        >
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

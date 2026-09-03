@@ -17,20 +17,6 @@
         }
     }
 
-    &__content {
-        max-width: 720px;
-
-        h2 {
-            margin: 0.5rem 0 1rem;
-        }
-
-        p {
-            color: var(--color-text-muted);
-            line-height: 1.7;
-            margin: 0;
-        }
-    }
-
     &__icon {
         align-items: center;
         background: var(--color-primary-soft);

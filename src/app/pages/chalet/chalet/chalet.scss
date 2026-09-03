@@ -1,0 +1,290 @@
+@use 'breakpoints' as bp;
+
+.chalet-intro {
+    &__inner {
+        align-items: center;
+        display: grid;
+        gap: 5rem;
+        grid-template-columns: minmax(0, 0.9fr) minmax(400px, 1fr);
+
+        @include bp.down(lg) {
+            gap: 3rem;
+        }
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__lead {
+        color: var(--color-text);
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.7;
+        margin: 1.5rem 0 0;
+    }
+
+    &__features {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 2.5rem;
+
+        @include bp.down(sm) {
+            grid-template-columns: 1fr;
+        }
+
+        > div {
+            align-items: center;
+            display: flex;
+            gap: 0.75rem;
+
+            > i {
+                color: var(--color-accent);
+                font-size: 1.2rem;
+            }
+
+            span,
+            strong {
+                display: block;
+            }
+
+            span {
+                color: var(--color-text-muted);
+                font-size: 0.75rem;
+            }
+
+            strong {
+                color: var(--color-text);
+                font-size: 0.85rem;
+                margin-bottom: 0.15rem;
+            }
+        }
+    }
+
+    &__visual {
+        min-height: 600px;
+        position: relative;
+
+        @include bp.down(md) {
+            min-height: 440px;
+        }
+    }
+
+    &__image {
+        background-image: url('/assets/images/chalet/content/skiing-splits.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: var(--radius-xl);
+        inset: 0;
+        position: absolute;
+    }
+
+    &__badge {
+        align-items: center;
+        background: var(--color-surface);
+        border-radius: var(--radius-lg);
+        bottom: 2rem;
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        gap: 1rem;
+        left: -2rem;
+        padding: 1.25rem 1.5rem;
+        position: absolute;
+
+        @include bp.down(md) {
+            bottom: 1.5rem;
+            left: 1.5rem;
+        }
+
+        > i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        strong,
+        span {
+            display: block;
+        }
+
+        strong {
+            color: var(--color-text);
+        }
+
+        span {
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.15rem;
+        }
+    }
+}
+
+.chalet-experiences {
+    background: var(--color-background-alt);
+
+    &__header {
+        margin-bottom: 3rem;
+        max-width: 720px;
+    }
+
+    &__grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1.2fr 1fr 0.8fr;
+
+        @include bp.down(lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.chalet-experience {
+    border-radius: var(--radius-xl);
+    color: var(--color-surface);
+    min-height: 560px;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+
+    @include bp.down(md) {
+        min-height: 440px;
+    }
+
+    &:hover {
+        .chalet-experience__background {
+            transform: scale(1.05);
+        }
+
+        .chalet-experience__content > strong i {
+            transform: translateX(0.3rem);
+        }
+    }
+
+    &__background,
+    &__overlay {
+        inset: 0;
+        position: absolute;
+    }
+
+    &__background {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform var(--transition-slow);
+    }
+
+    &__overlay {
+        background: linear-gradient(
+                        to top,
+                        rgba(7, 25, 34, 0.96) 0%,
+                        rgba(7, 25, 34, 0.55) 52%,
+                        rgba(7, 25, 34, 0.08) 100%
+        );
+    }
+
+    &__content {
+        bottom: 0;
+        left: 0;
+        padding: 2rem;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+
+        > span {
+            color: var(--color-accent);
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: var(--color-surface);
+            font-size: clamp(1.75rem, 3vw, 2.75rem);
+            margin: 0.4rem 0 0.75rem;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.65;
+            margin: 0 0 1.25rem;
+        }
+
+        > strong {
+            align-items: center;
+            display: inline-flex;
+            gap: 0.65rem;
+
+            i {
+                transition: transform var(--transition-fast);
+            }
+        }
+    }
+
+    &__icon {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-md);
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        margin-bottom: 1.25rem;
+        width: 50px;
+    }
+
+    &--food .chalet-experience__background {
+        background-image: url('/assets/images/chalet/value/food-drink.jpg');
+    }
+
+    &--lounge .chalet-experience__background {
+        background-image: url('/assets/images/chalet/value/the-lounge.jpg');
+    }
+
+    &--lockers .chalet-experience__background {
+        background-image: url('/assets/images/chalet/value/lockers.jpg');
+    }
+}
+
+.between-runs {
+    &__inner {
+        align-items: center;
+        display: grid;
+        gap: 5rem;
+        grid-template-columns: minmax(400px, 1fr) minmax(0, 0.9fr);
+
+        @include bp.down(lg) {
+            gap: 3rem;
+        }
+
+        @include bp.down(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__visual {
+        min-height: 520px;
+    }
+
+    &__image {
+        background-image: url('/assets/images/shared/content/happy-family.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: var(--radius-xl);
+        height: 100%;
+        min-height: 520px;
+    }
+
+    &__content {
+        a.btn {
+            margin-top: 2rem;
+        }
+    }
+}

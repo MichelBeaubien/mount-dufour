@@ -100,7 +100,6 @@
             h1 {
                 font-size: clamp(2.5rem, 4.5vw, 4rem);
                 line-height: 0.95;
-                max-width: unset;
             }
 
             p {
@@ -111,17 +110,17 @@
             }
         }
 
-        .primary-hero__breadcrumb,
-        .primary-hero__scroll {
-            display: none;
-        }
-
         .primary-hero__kicker {
             margin-bottom: 0.75rem;
         }
 
         .primary-hero__actions {
             margin-top: 1.5rem;
+        }
+
+        .primary-hero__scroll {
+            bottom: calc(var(--space-section-compact) / 2);
+            transform: translate(-50%, 50%);
         }
     }
 
@@ -132,7 +131,6 @@
         letter-spacing: -0.055em;
         line-height: 0.92;
         margin: 0;
-        max-width: 11ch;
 
         span {
             color: var(--color-accent);
