@@ -7,7 +7,7 @@
                 kicker="Current Offers"
                 title="Deals & Specials"
                 description="Take advantage of seasonal promotions and special pricing at Mount Dufour."
-            ></app-section-title>
+            />
 
             @if (ticketDealsService.hasActiveDeals()) {
                 <div class="current-deals__grid">
@@ -62,7 +62,7 @@
                     kicker="Coming Up"
                     title="Watch for These Offers"
                     description="Some Mount Dufour promotions return season after season."
-                ></app-section-title>
+                />
 
                 <div class="upcoming-deals__grid">
                     @for (deal of ticketDealsService.upcomingDeals(); track deal.title) {
@@ -95,7 +95,7 @@
             <app-section-title
                 kicker="Good to Know"
                 title="About Our Promotions"
-            ></app-section-title>
+            />
 
             <div class="deal-info__grid">
                 @for (info of ticketDealsService.info(); track info.label) {

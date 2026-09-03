@@ -24,16 +24,19 @@
                     <div>
                         <i class="fas fa-circle trail-symbol trail-symbol--beginner" aria-hidden="true"></i>
                         <span>Beginner</span>
+                        <strong>{{ mountainService.totalBeginnerTrails() }}</strong>
                     </div>
 
                     <div>
                         <i class="fas fa-square trail-symbol trail-symbol--intermediate" aria-hidden="true"></i>
                         <span>Intermediate</span>
+                        <strong>{{ mountainService.totalIntermediateTrails() }}</strong>
                     </div>
 
                     <div>
                         <i class="fas fa-diamond trail-symbol trail-symbol--advanced" aria-hidden="true"></i>
                         <span>Advanced</span>
+                        <strong>{{ mountainService.totalAdvancedTrails() }}</strong>
                     </div>
                 </div>
             </app-section-title>
@@ -58,17 +61,7 @@
     </section>
 
     <!-- STATS -->
-    <section class="mountain-stats">
-        <div class="mountain-stats__container">
-            @for (stat of mountainService.stats(); track stat.label) {
-                <article class="mountain-stats__item">
-                    <i [class]="stat.icon" aria-hidden="true"></i>
-                    <strong>{{ stat.value }}</strong>
-                    <span>{{ stat.label }}</span>
-                </article>
-            }
-        </div>
-    </section>
+    <app-mountain-stats-row [stats]="mountainService.stats()"></app-mountain-stats-row>
 
     <!-- TRAILS -->
     <section class="trail-directory app-section--compact">
@@ -76,7 +69,7 @@
             <app-section-title kicker="The Mountain"
                                [title]="(numberToWord(mountainService.totalTrails()) | titlecase) + ' trails to explore.'"
                                description="From gentle beginner terrain to steeper runs, Mount Dufour offers a variety of terrain right in the heart of Elliot Lake."
-            ></app-section-title>
+            />
 
             <div class="trail-directory__grid">
                 @for (trail of mountainService.trails(); track trail.name) {

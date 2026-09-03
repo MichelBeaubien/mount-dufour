@@ -7,7 +7,7 @@
                 kicker="2025 / 2026 Season"
                 title="Lift Ticket Pricing"
                 description="Choose a full-day ticket or hit the hill for an afternoon session."
-            ></app-section-title>
+            />
 
             <div class="lift-tickets__grid">
                 @for (ticket of liftTicketsService.liftTickets(); track ticket.label) {
@@ -112,7 +112,7 @@
             <app-section-title
                 kicker="Plan Your Day"
                 title="Ticket Information"
-            ></app-section-title>
+            />
 
             <div class="ticket-info__grid">
                 @for (info of liftTicketsService.ticketInfo(); track info.label) {

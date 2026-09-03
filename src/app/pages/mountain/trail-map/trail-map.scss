@@ -30,6 +30,19 @@
             font-size: 0.75rem;
             font-weight: 700;
             gap: 0.625rem;
+
+            strong {
+                align-items: center;
+                background: var(--color-surface-alt);
+                border-radius: var(--radius-pill);
+                color: var(--color-text);
+                display: inline-flex;
+                font-size: 0.7rem;
+                height: 1.5rem;
+                justify-content: center;
+                min-width: 1.5rem;
+                padding: 0 0.45rem;
+            }
         }
     }
 
@@ -118,87 +131,6 @@
         color: var(--color-trail-advanced);
     }
 }
-
-
-// ============================================
-// STATS
-// ============================================
-
-.mountain-stats {
-    background: var(--color-primary);
-
-    &__container {
-        @include m.page-container(false);
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        padding: 0 var(--container-padding);
-    }
-
-    &__item {
-        align-items: center;
-        border-right: 1px solid rgba(255, 255, 255, 0.18);
-        color: var(--color-text-inverse);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 11rem;
-        text-align: center;
-
-        &:first-child {
-            border-left: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        i {
-            font-size: 1.25rem;
-            margin-bottom: 0.625rem;
-            opacity: 0.75;
-        }
-
-        strong {
-            font-size: clamp(1.75rem, 3vw, 2.75rem);
-            letter-spacing: -0.035em;
-            line-height: 1;
-        }
-
-        span {
-            font-size: 0.625rem;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            margin-top: 0.5rem;
-            opacity: 0.7;
-            text-transform: uppercase;
-        }
-    }
-
-    @include bp.down(md) {
-        &__container {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        &__item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-
-            &:nth-child(even) {
-                border-right: 0;
-            }
-
-            &:nth-last-child(-n + 2) {
-                border-bottom: 0;
-            }
-        }
-    }
-
-    @include bp.down(sm) {
-        &__container {
-            padding: 0;
-        }
-
-        &__item {
-            min-height: 9rem;
-        }
-    }
-}
-
 
 // ============================================
 // TRAIL DIRECTORY

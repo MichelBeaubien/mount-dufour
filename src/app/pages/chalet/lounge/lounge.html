@@ -39,7 +39,7 @@
                 kicker="Take a Break"
                 title="More Than a Place to Warm Up"
                 description="The slopeside lounge gives skiers and riders a comfortable place to slow down and enjoy the chalet."
-            ></app-section-title>
+            />
 
             <div class="lounge-features__grid">
                 @for (feature of loungeService.features(); track feature.title) {
@@ -84,7 +84,7 @@
             <app-section-title
                 kicker="Good to Know"
                 title="About the Lounge"
-            ></app-section-title>
+            />
 
             <div class="lounge-info__grid app-card-grid">
                 @for (info of loungeService.info(); track info.label) {

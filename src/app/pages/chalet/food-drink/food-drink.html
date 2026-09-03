@@ -38,7 +38,7 @@
                 kicker="Canteen Favourites"
                 title="What’s on the Menu"
                 description="A selection of warm meals, quick bites, snacks and drinks to keep you going throughout your day."
-            ></app-section-title>
+            />
 
             <div class="canteen-menu__grid">
                 @for (group of foodDrinkService.menuGroups(); track group.title) {
@@ -95,7 +95,7 @@
             <app-section-title
                 kicker="Good to Know"
                 title="Canteen Information"
-            ></app-section-title>
+            />
 
             <div class="food-drink-info__grid app-card-grid">
                 @for (info of foodDrinkService.info(); track info.label) {

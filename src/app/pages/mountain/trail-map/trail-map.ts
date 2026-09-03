@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { numberToWord } from '../../../config/utils';
 import { HeroOptions } from '../../../interfaces/hero';
 import { SecondaryHero } from '../../../partials/hero/secondary-hero/secondary-hero';
+import { MountainStatsRow } from '../../../partials/mountain-stats-row/mountain-stats-row';
 import { StatusMessage } from '../../../partials/season/status-message/status-message';
 import { SectionTitle } from '../../../partials/section-title/section-title';
 import { MountainService } from '../../../services/mountain';
@@ -15,7 +16,8 @@ import { breadcrumbsFor, SITE_PAGES } from '../../../config/site-map';
         StatusMessage,
         SecondaryHero,
         SectionTitle,
-        TitleCasePipe
+        TitleCasePipe,
+        MountainStatsRow
     ],
     providers: [
         MountainService

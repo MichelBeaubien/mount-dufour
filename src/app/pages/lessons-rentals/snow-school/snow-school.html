@@ -75,7 +75,7 @@
                 kicker="Weekend Lessons"
                 title="Available Lesson Times"
                 description="Lessons are one hour long and are offered in designated weekend time slots."
-            ></app-section-title>
+            />
 
             <div class="lesson-times__grid">
                 @for (time of snowSchoolService.lessonTimes(); track time.start) {
@@ -98,7 +98,7 @@
             <app-section-title
                 kicker="Good to Know"
                 title="Before Your Lesson"
-            ></app-section-title>
+            />
 
             <div class="snow-school-info__grid app-card-grid">
                 @for (info of snowSchoolService.info(); track info.label) {

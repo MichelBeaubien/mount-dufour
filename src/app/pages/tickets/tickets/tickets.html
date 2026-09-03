@@ -1,1 +1,275 @@
-<app-page-shell pageId="tickets"></app-page-shell>
+<main class="tickets">
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg"
+               [routerLink]="pages.liftTickets.url"
+            >
+                <i class="fas fa-ticket" aria-hidden="true"></i>
+                <span>Lift Tickets</span>
+            </a>
+
+            <a class="btn btn--accent btn--lg btn--arrow"
+               [routerLink]="pages.seasonPasses.url"
+            >
+                <span>Season Passes</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+
+    <!-- TICKET OPTIONS -->
+    <section id="ticket-options"
+             class="ticket-options app-section--spaced"
+    >
+        <div class="container">
+            <app-section-title kicker="Choose Your Winter"
+                               title="One mountain."
+                               titleSpan="More ways to ski."
+                               description="Coming for the day, planning a winter full of turns or looking for a great deal? Start with the option that fits your season."
+            />
+
+            <div class="ticket-options__grid">
+                <!-- LIFT TICKETS -->
+                <a class="ticket-option ticket-option--lift"
+                   [routerLink]="pages.liftTickets.url"
+                >
+                    <div class="ticket-option__background"></div>
+                    <div class="ticket-option__overlay"></div>
+
+                    <div class="ticket-option__content">
+                        <div class="ticket-option__icon">
+                            <i class="fas fa-ticket" aria-hidden="true"></i>
+                        </div>
+
+                        <span class="ticket-option__eyebrow">
+                            Ski for the Day
+                        </span>
+
+                        <h3>Lift Tickets</h3>
+
+                        <p>
+                            Full-day and half-day options for adults,
+                            seniors, teens, juniors and beginners.
+                        </p>
+
+                        <strong>
+                            View Lift Tickets
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <!-- SEASON PASSES -->
+                <a class="ticket-option ticket-option--season"
+                   [routerLink]="pages.seasonPasses.url"
+                >
+                    <div class="ticket-option__background"></div>
+                    <div class="ticket-option__overlay"></div>
+
+                    <div class="ticket-option__content">
+                        <div class="ticket-option__icon">
+                            <i class="fas fa-id-card" aria-hidden="true"></i>
+                        </div>
+
+                        <span class="ticket-option__eyebrow">
+                            Make It Your Mountain
+                        </span>
+
+                        <h3>Season Passes</h3>
+
+                        <p>
+                            Spend more of your winter at Mount Dufour
+                            with individual and family season-pass options.
+                        </p>
+
+                        <strong>
+                            Explore Season Passes
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <!-- DEALS -->
+                <a class="ticket-option ticket-option--deals"
+                   [routerLink]="pages.deals.url"
+                >
+                    <div class="ticket-option__background"></div>
+                    <div class="ticket-option__overlay"></div>
+
+                    <div class="ticket-option__content">
+                        <div class="ticket-option__icon">
+                            <i class="fas fa-tags" aria-hidden="true"></i>
+                        </div>
+
+                        <span class="ticket-option__eyebrow">
+                            Save on the Slopes
+                        </span>
+
+                        <h3>Deals & Specials</h3>
+
+                        <p>
+                            Check out current specials and seasonal
+                            opportunities to save on your time at the hill.
+                        </p>
+
+                        <strong>
+                            See Current Deals
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY DUFOUR -->
+    <section class="ticket-value app-section--spaced">
+        <div class="container">
+            <div class="ticket-value__inner">
+                <div class="ticket-value__content">
+                    <span class="app-eyebrow">
+                        Ski Local
+                    </span>
+
+                    <h2 class="app-heading">
+                        Winter doesn't have
+                        <span>to be complicated.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Mount Dufour puts skiing and snowboarding right
+                        here in Elliot Lake. Spend less time getting to
+                        the mountain and more time enjoying it.
+                    </p>
+
+                    <div class="ticket-value__features">
+                        <div class="ticket-value__feature">
+                            <i class="fas fa-location-dot" aria-hidden="true"></i>
+
+                            <div>
+                                <strong>Right Here in Elliot Lake</strong>
+                                <span>Your local ski hill is close to home.</span>
+                            </div>
+                        </div>
+
+                        <div class="ticket-value__feature">
+                            <i class="fas fa-people-group" aria-hidden="true"></i>
+
+                            <div>
+                                <strong>Options for the Whole Family</strong>
+                                <span>Ticket and pass choices for skiers of different ages.</span>
+                            </div>
+                        </div>
+
+                        <div class="ticket-value__feature">
+                            <i class="fas fa-person-skiing" aria-hidden="true"></i>
+
+                            <div>
+                                <strong>From First Turns to Full Seasons</strong>
+                                <span>Choose the access that matches how you want to ski.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-value__visual">
+                    <div class="ticket-value__image"></div>
+
+                    <div class="ticket-value__badge">
+                        <i class="fas fa-mountain-sun" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Your Local Mountain</strong>
+                            <span>Winter starts close to home.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMPLE JOURNEY -->
+    <section class="ticket-journey app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="Start Your Day"
+                               title="From ticket"
+                               titleSpan="to first run."
+                               description="A great day at Mount Dufour starts with a few simple choices."
+            />
+
+            <div class="ticket-journey__grid">
+                <div class="ticket-step">
+                    <span class="ticket-step__number">01</span>
+
+                    <div class="ticket-step__icon">
+                        <i class="fas fa-ticket" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Choose Your Ticket</h3>
+
+                    <p>
+                        Pick a lift ticket, season pass or current
+                        special that fits your plans.
+                    </p>
+                </div>
+
+                <div class="ticket-step">
+                    <span class="ticket-step__number">02</span>
+
+                    <div class="ticket-step__icon">
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Check the Mountain</h3>
+
+                    <p>
+                        Take a look at current conditions and operating
+                        information before heading out.
+                    </p>
+
+                    <a [routerLink]="pages.conditions.url">
+                        Conditions
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="ticket-step">
+                    <span class="ticket-step__number">03</span>
+
+                    <div class="ticket-step__icon">
+                        <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Hit the Slopes</h3>
+
+                    <p>
+                        Gear up, get on the lift and enjoy your day
+                        on your local mountain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER HERO -->
+    <app-primary-hero
+        [hero]="footerHero()"
+        [compact]="true"
+    >
+        <ng-container hero-actions>
+            <a class="btn btn--accent btn--lg"
+               [routerLink]="pages.liftTickets.url"
+            >
+                <i class="fas fa-ticket" aria-hidden="true"></i>
+                <span>View Lift Tickets</span>
+            </a>
+
+            <a class="btn btn--light btn--lg btn--arrow"
+               [routerLink]="pages.seasonPasses.url"
+            >
+                <span>Season Passes</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+</main>
