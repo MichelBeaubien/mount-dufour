@@ -1,1 +1,99 @@
-<app-page-shell pageId="documents"></app-page-shell>
+<main class="documents">
+    <app-secondary-hero [hero]="hero()" />
+
+    <!-- INTRO -->
+    <section class="documents-intro app-section--compact">
+        <div class="container">
+            <app-section-title kicker="Forms & Download"
+                               title="Everything you need."
+                               titleSpan="All in one place."
+                               description="Looking for a form, registration document or other Mount Dufour information? Browse the available documents below and download what you need."
+            />
+
+            @for (group of documentService.documents(); track group.title) {
+                <section class="document-group">
+                    <header class="document-group__header">
+                        <div class="document-group__icon">
+                            <i class="fas {{ group.icon }}" aria-hidden="true"></i>
+                        </div>
+
+                        <div>
+                            <span>Documents</span>
+                            <h2>{{ group.title }}</h2>
+                        </div>
+                    </header>
+
+                    <div class="document-group__grid">
+                        @for (document of group.documents; track document.title) {
+                            <article class="document-card">
+                                <div class="document-card__file">
+                                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
+
+                                    <span>PDF</span>
+                                </div>
+
+                                <div class="document-card__content">
+                                    <h3>{{ document.title }}</h3>
+
+                                    <p>{{ document.description }}</p>
+                                </div>
+
+                                <div class="document-card__actions">
+                                    <a class="document-card__view"
+                                       [href]="document.file"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                    >
+                                        <i class="fas fa-arrow-up-right-from-square"
+                                           aria-hidden="true"
+                                        ></i>
+                                        <span>View</span>
+                                    </a>
+
+                                    <a class="document-card__download"
+                                       [href]="document.file"
+                                       download
+                                       [attr.aria-label]="'Download ' + document.title"
+                                    >
+                                        <i class="fas fa-download" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    </div>
+                </section>
+            }
+        </div>
+    </section>
+
+    <!-- HELP -->
+    <section class="documents-help">
+        <div class="container">
+            <div class="documents-help__inner">
+                <div class="documents-help__icon">
+                    <i class="fas fa-circle-question" aria-hidden="true"></i>
+                </div>
+
+                <div class="documents-help__content">
+                    <span class="app-eyebrow">
+                        Need Something Else?
+                    </span>
+
+                    <h2>Can’t find what you’re looking for?</h2>
+
+                    <p>
+                        Contact Mount Dufour if you need a form, document
+                        or additional information that isn’t available here.
+                    </p>
+                </div>
+
+                <a class="btn btn--light btn--arrow"
+                   [routerLink]="pages.contact.url"
+                >
+                    <span>Contact Us</span>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

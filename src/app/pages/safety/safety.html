@@ -1,1 +1,288 @@
-<app-page-shell pageId="safety"></app-page-shell>
+<main class="safety">
+    <app-secondary-hero [hero]="hero()" />
+
+    <!-- INTRO -->
+    <section class="safety-intro app-section--compact">
+        <div class="container">
+            <div class="safety-intro__inner">
+                <div class="safety-intro__content">
+                    <span class="app-eyebrow">
+                        Share the Mountain
+                    </span>
+
+                    <h2 class="app-heading">
+                        Safety starts
+                        <span>with every one of us.</span>
+                    </h2>
+
+                    <p class="app-copy app-copy--lead">
+                        Skiing and snowboarding involve risks. Being aware of
+                        your surroundings, staying in control and respecting
+                        others helps everyone enjoy the mountain safely.
+                    </p>
+
+                    <p class="app-copy">
+                        Before heading out, take a moment to understand the
+                        Alpine Responsibility Code and choose terrain that
+                        matches your ability.
+                    </p>
+                </div>
+
+                <div class="safety-intro__visual">
+                    <div class="safety-intro__image"></div>
+
+                    <div class="safety-intro__badge">
+                        <i class="fas fa-shield-halved" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Stay Aware</strong>
+                            <span>Stay in control. Respect the mountain.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESPONSIBILITY CODE -->
+    <section class="responsibility-code app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="Ski & Ride Responsibly"
+                               title="Alpine Responsibility"
+                               titleSpan="Code"
+                               description="There are elements of risk that common sense and personal awareness can help reduce. Regardless of how you use the slopes, always show courtesy to others."
+            />
+
+            <div class="responsibility-code__grid">
+                <article class="responsibility-rule">
+                    <span>01</span>
+
+                    <div>
+                        <h3>Stay in Control</h3>
+                        <p>
+                            Always stay in control. You must be able to stop
+                            or avoid other people or objects.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>02</span>
+
+                    <div>
+                        <h3>People Ahead Have the Right of Way</h3>
+                        <p>
+                            People ahead of you have the right of way. It is
+                            your responsibility to avoid them.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>03</span>
+
+                    <div>
+                        <h3>Keep the Trail Clear</h3>
+                        <p>
+                            Do not stop where you obstruct a trail or are not
+                            visible from above.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>04</span>
+
+                    <div>
+                        <h3>Look Uphill</h3>
+                        <p>
+                            Before starting downhill or entering a trail,
+                            look uphill and yield to others.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>05</span>
+
+                    <div>
+                        <h3>Prevent Runaway Equipment</h3>
+                        <p>
+                            If you are involved in or witness a collision or
+                            accident, remain at the scene and identify yourself
+                            to ski patrol.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>06</span>
+
+                    <div>
+                        <h3>Observe Signs & Warnings</h3>
+                        <p>
+                            Obey all posted signs and warnings. Keep off closed
+                            trails and out of closed areas.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>07</span>
+
+                    <div>
+                        <h3>Use Lifts Safely</h3>
+                        <p>
+                            You must have sufficient physical dexterity,
+                            ability and knowledge to safely load, ride and
+                            unload lifts.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="responsibility-rule">
+                    <span>08</span>
+
+                    <div>
+                        <h3>Know Your Ability</h3>
+                        <p>
+                            Know how to use the lifts safely. If you are
+                            unfamiliar with a lift, ask an attendant for help.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="responsibility-code__notice">
+                <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+
+                <p>
+                    <strong>Know the Code.</strong>
+                    It is your responsibility to be familiar with and follow
+                    the Alpine Responsibility Code while using the mountain.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOUNTAIN BASICS -->
+    <section class="safety-basics app-section--spaced">
+        <div class="container">
+            <div class="safety-basics__inner">
+                <div class="safety-basics__intro">
+                    <span class="app-eyebrow">
+                        On the Mountain
+                    </span>
+
+                    <h2 class="app-heading">
+                        Make smart choices
+                        <span>before every run.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Conditions, visibility and terrain can change
+                        throughout the day. Pay attention to what’s happening
+                        around you and ski or ride within your ability.
+                    </p>
+
+                    <a class="btn btn--primary btn--arrow"
+                       [routerLink]="pages.conditions.url"
+                    >
+                        <span>Check Conditions</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="safety-basics__grid">
+                    <article>
+                        <div>
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>Know the Terrain</h3>
+
+                        <p>
+                            Review the trail map and understand trail
+                            difficulty before choosing your route.
+                        </p>
+
+                        <a [routerLink]="pages.trailMap.url">
+                            View Trail Map
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </article>
+
+                    <article>
+                        <div>
+                            <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>Ski Within Your Ability</h3>
+
+                        <p>
+                            Choose terrain that matches your experience and
+                            adjust your speed for the conditions around you.
+                        </p>
+                    </article>
+
+                    <article>
+                        <div>
+                            <i class="fas fa-signs-post" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>Respect Closures</h3>
+
+                        <p>
+                            Trail closures, ropes and signs are there for a
+                            reason. Never enter a closed area.
+                        </p>
+                    </article>
+
+                    <article>
+                        <div>
+                            <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>Protect Yourself</h3>
+
+                        <p>
+                            Appropriate winter equipment and protective gear
+                            can help you stay comfortable and prepared.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEED HELP -->
+    <section class="safety-help">
+        <div class="container">
+            <div class="safety-help__inner">
+                <div class="safety-help__icon">
+                    <i class="fas fa-cross" aria-hidden="true"></i>
+                </div>
+
+                <div class="safety-help__content">
+                    <span class="app-eyebrow">
+                        Need Assistance?
+                    </span>
+
+                    <h2>Report accidents and hazards.</h2>
+
+                    <p>
+                        If you are involved in an accident, witness an incident
+                        or notice a hazard on the mountain, notify Mount Dufour
+                        staff or ski patrol as soon as possible.
+                    </p>
+                </div>
+
+                <a class="btn btn--light"
+                   [routerLink]="pages.contact.url"
+                >
+                    Contact Mount Dufour
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

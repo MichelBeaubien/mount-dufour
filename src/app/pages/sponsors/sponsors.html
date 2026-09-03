@@ -1,1 +1,165 @@
-<app-page-shell pageId="sponsors"></app-page-shell>
+<main class="sponsors">
+    <app-secondary-hero [hero]="hero()" />
+
+    <!-- INTRO -->
+    <section class="sponsors-intro app-section--compact">
+        <div class="container">
+            <div class="sponsors-intro__inner">
+                <div class="sponsors-intro__content">
+                    <span class="app-eyebrow">
+                        Powered by Community
+                    </span>
+
+                    <h2 class="app-heading">
+                        It takes a community
+                        <span>to build a mountain.</span>
+                    </h2>
+
+                    <p class="app-copy app-copy--lead">
+                        Mount Dufour is a community-driven ski area, and the
+                        support of local businesses, organizations and
+                        individuals plays an important role in keeping the
+                        mountain moving forward.
+                    </p>
+
+                    <p class="app-copy">
+                        We’re proud to recognize the partners who support
+                        skiing, snowboarding and outdoor recreation right
+                        here in Elliot Lake.
+                    </p>
+                </div>
+
+                <div class="sponsors-intro__visual">
+                    <div class="sponsors-intro__image"></div>
+
+                    <div class="sponsors-intro__badge">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Local Support</strong>
+                            <span>Making winter better in Elliot Lake.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSORS -->
+    <section class="sponsor-list app-section--spaced">
+        <div class="container">
+            <header class="sponsor-list__header">
+                <span class="app-eyebrow">
+                    Our Partners
+                </span>
+
+                <h2 class="app-heading">
+                    Proudly supported
+                    <span>by our community.</span>
+                </h2>
+
+                <p class="app-copy">
+                    Thank you to the businesses and organizations whose
+                    continued support helps Mount Dufour serve Elliot Lake
+                    and the surrounding area.
+                </p>
+            </header>
+
+            <div class="sponsor-list__grid">
+                @for (sponsor of sponsorsService.sponsors(); track sponsor.name + sponsor.image) {
+                    @if (sponsor.url) {
+                        <a class="sponsor-card"
+                           [href]="sponsor.url"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           [attr.aria-label]="sponsor.name"
+                        >
+                            <img
+                                [src]="sponsor.image"
+                                [alt]="sponsor.name"
+                            >
+                        </a>
+                    } @else {
+                        <div class="sponsor-card">
+                            <img
+                                [src]="sponsor.image"
+                                [alt]="sponsor.name"
+                            >
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section class="photography-credit">
+        <div class="container">
+            <div class="photography-credit__inner">
+                <div class="photography-credit__icon">
+                    <i class="fas fa-camera" aria-hidden="true"></i>
+                </div>
+
+                <div class="photography-credit__content">
+                    <span class="app-eyebrow">
+                        Mountain Photography
+                    </span>
+
+                    <h2>
+                        Capturing Mount Dufour.
+                    </h2>
+
+                    <p>
+                        Photography featured throughout Mount Dufour’s
+                        website has been generously provided by local
+                        photographer Paul Kazulak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BECOME A SPONSOR -->
+    <section class="sponsor-cta app-section--spaced">
+        <div class="container">
+            <div class="sponsor-cta__inner">
+                <div class="sponsor-cta__content">
+                    <span class="app-eyebrow">
+                        Support the Mountain
+                    </span>
+
+                    <h2>
+                        Want to help keep
+                        <span>Mount Dufour moving?</span>
+                    </h2>
+
+                    <p>
+                        Supporting Mount Dufour is an opportunity to invest
+                        in local recreation, winter tourism and a mountain
+                        that brings our community together.
+                    </p>
+                </div>
+
+                <div class="sponsor-cta__action">
+                    <div class="sponsor-cta__icon">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                    </div>
+
+                    <h3>Become a Sponsor</h3>
+
+                    <p>
+                        Interested in supporting Mount Dufour or learning
+                        more about sponsorship opportunities?
+                    </p>
+
+                    <a class="btn btn--accent btn--arrow"
+                       [routerLink]="pages.contact.url"
+                    >
+                        <span>Contact Mount Dufour</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

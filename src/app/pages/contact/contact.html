@@ -1,1 +1,262 @@
-<app-page-shell pageId="contact"></app-page-shell>
+<main class="contact">
+    <app-secondary-hero [hero]="hero()" />
+
+    <!-- CONTACT OPTIONS -->
+    <section class="contact-options app-section--compact">
+        <div class="container">
+            <app-section-title kicker="Contact Mount Dufour"
+                               title="We're never far"
+                               titleSpan="from the mountain"
+                               description="Whether you’re planning a ski day, looking for current mountain information or have a general question, reach out and we’ll point you in the right direction."
+            />
+
+            <div class="contact-options__grid">
+                <a class="contact-card"
+                   href="tel:+17058486655"
+                >
+                    <div class="contact-card__icon">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="contact-card__kicker">
+                        Call the Mountain
+                    </span>
+
+                    <h3>705-848-6655</h3>
+
+                    <p>
+                        Have a question before heading out?
+                        Give Mount Dufour a call.
+                    </p>
+
+                    <strong>
+                        Call Now
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </strong>
+                </a>
+
+                <a class="contact-card"
+                   href="mailto:info@mountdufour.com"
+                >
+                    <div class="contact-card__icon">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="contact-card__kicker">
+                        Send a Message
+                    </span>
+
+                    <h3>Email Us</h3>
+
+                    <p>
+                        For general questions, information and inquiries,
+                        send the team a message.
+                    </p>
+
+                    <strong>
+                        Send Email
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </strong>
+                </a>
+
+                <a class="contact-card"
+                   href="https://www.google.com/maps/search/?api=1&query=Mount+Dufour+Ski+Area+10+Ski+Hill+Road+Elliot+Lake+Ontario"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                >
+                    <div class="contact-card__icon">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                    </div>
+
+                    <span class="contact-card__kicker">
+                        Visit the Mountain
+                    </span>
+
+                    <h3>10 Ski Hill Road</h3>
+
+                    <p>
+                        Located right here in Elliot Lake, Ontario,
+                        just minutes from the centre of town.
+                    </p>
+
+                    <strong>
+                        Get Directions
+                        <i class="fas fa-arrow-up-right-from-square"
+                           aria-hidden="true"
+                        ></i>
+                    </strong>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="contact-location app-section--spaced">
+        <div class="container">
+            <div class="contact-location__inner">
+                <div class="contact-location__visual">
+                    <div class="contact-location__image"></div>
+
+                    <div class="contact-location__marker">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+
+                        <div>
+                            <strong>Mount Dufour Ski Area</strong>
+                            <span>Elliot Lake, Ontario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-location__content">
+                    <span class="app-eyebrow">
+                        Find Us
+                    </span>
+
+                    <h2 class="app-heading">
+                        Your local mountain.
+                        <span>Right here in Elliot Lake.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Mount Dufour is conveniently located within Elliot Lake,
+                        making it easy to spend more time skiing and less time
+                        travelling.
+                    </p>
+
+                    <address>
+                        <div>
+                            <i class="fas fa-mountain" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Mount Dufour Ski Area</strong>
+                                10 Ski Hill Road<br>
+                                Elliot Lake, Ontario
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Phone</strong>
+
+                                <a href="tel:+17058486655">
+                                    705-848-6655
+                                </a>
+                            </span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+
+                            <span>
+                                <strong>Email</strong>
+
+                                <a href="mailto:info@mountdufour.com">
+                                    info&#64;mountdufour.com
+                                </a>
+                            </span>
+                        </div>
+                    </address>
+
+                    <div class="contact-location__actions">
+                        <a class="btn btn--primary btn--arrow"
+                           href="https://www.google.com/maps/search/?api=1&query=Mount+Dufour+Ski+Area+10+Ski+Hill+Road+Elliot+Lake+Ontario"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                        >
+                            <span>Open in Google Maps</span>
+
+                            <i class="fas fa-arrow-up-right-from-square"
+                               aria-hidden="true"
+                            ></i>
+                        </a>
+
+                        <a class="btn btn--outline"
+                           [routerLink]="pages.planYourVisit.url"
+                        >
+                            Plan Your Visit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE YOU CALL -->
+    <section class="contact-help app-section--spaced">
+        <div class="container">
+            <div class="contact-help__inner">
+                <div class="contact-help__intro">
+                    <span class="app-eyebrow">
+                        Looking for Something?
+                    </span>
+
+                    <h2 class="app-heading">
+                        You might find it
+                        <span>before you call.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        Some of the most common mountain information is
+                        available right here on the website.
+                    </p>
+                </div>
+
+                <div class="contact-help__links">
+                    <a [routerLink]="pages.conditions.url">
+                        <div>
+                            <i class="fas fa-snowflake" aria-hidden="true"></i>
+                        </div>
+
+                        <span>
+                            <strong>Mountain Conditions</strong>
+                            <small>Check trail, lift and mountain status.</small>
+                        </span>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a [routerLink]="pages.hours.url">
+                        <div>
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                        </div>
+
+                        <span>
+                            <strong>Hours of Operation</strong>
+                            <small>See when the mountain is open.</small>
+                        </span>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a [routerLink]="pages.liftTickets.url">
+                        <div>
+                            <i class="fas fa-ticket" aria-hidden="true"></i>
+                        </div>
+
+                        <span>
+                            <strong>Lift Tickets</strong>
+                            <small>Review ticket options and pricing.</small>
+                        </span>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+
+                    <a [routerLink]="pages.rentals.url">
+                        <div>
+                            <i class="fas fa-helmet-safety" aria-hidden="true"></i>
+                        </div>
+
+                        <span>
+                            <strong>Equipment Rentals</strong>
+                            <small>See available ski and snowboard gear.</small>
+                        </span>
+
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

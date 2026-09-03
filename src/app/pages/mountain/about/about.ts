@@ -30,11 +30,11 @@ export class About {
     public readonly aboutService = inject(AboutService);
 
     public readonly hero = computed<HeroOptions>(() => ({
+        breadcrumbs: breadcrumbsFor('about'),
         kicker: 'Our Mountain',
         title: 'Built for Winter.',
-        description: 'A true Northern Ontario ski hill, right in the heart of Elliot Lake.',
-        breadcrumbs: breadcrumbsFor('about')
-    }))
+        description: 'A true Northern Ontario ski hill, right in the heart of Elliot Lake.'
+    }));
 
     public readonly mountainService = inject(MountainService);
 }

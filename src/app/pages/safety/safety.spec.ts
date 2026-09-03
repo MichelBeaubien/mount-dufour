@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Safety } from './safety';
 
 describe('Safety', () => {
-  let component: Safety;
-  let fixture: ComponentFixture<Safety>;
+    let component: Safety;
+    let fixture: ComponentFixture<Safety>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Safety],
-    }).compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [Safety]
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(Safety);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+        fixture = TestBed.createComponent(Safety);
+        component = fixture.componentInstance;
+        await fixture.whenStable();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
