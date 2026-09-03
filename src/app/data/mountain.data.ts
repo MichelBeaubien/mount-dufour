@@ -30,7 +30,7 @@ export const MOUNTAIN_DATA: MountainData = {
             status: 'closed'
         },
         {
-            difficulty: 'intermediate',
+            difficulty: 'advanced',
             groomed: false,
             name: 'Bruno\'s Edge',
             status: 'closed'
@@ -60,7 +60,7 @@ export const MOUNTAIN_DATA: MountainData = {
             status: 'closed'
         },
         {
-            difficulty: 'intermediate',
+            difficulty: 'beginner',
             groomed: false,
             name: 'Valley Trail',
             status: 'hold'

@@ -98,7 +98,7 @@
     <!-- MOUNTAIN INTRO -->
     <section class="mountain-intro app-section--spaced">
         <div class="mountain-intro__container">
-            <div class="mountain-intro__content">
+            <div class="mountain-intro__content flex-direction-container">
                 <span class="app-eyebrow">
                     Your Local Mountain
                 </span>
@@ -108,12 +108,12 @@
                     <span>right here at home.</span>
                 </h2>
 
-                <p>
+                <p class="app-copy">
                     Mount Dufour brings skiing and snowboarding directly to the heart of Elliot Lake, with terrain for
                     beginners, experienced riders and everyone in between.
                 </p>
 
-                <p>
+                <p class="app-copy">
                     With affordable access, virtually no lift lines, equipment rentals, lessons and a full-service
                     chalet, everything you need for a great day on snow is right here.
                 </p>
@@ -139,38 +139,16 @@
     </section>
 
     <!-- MOUNTAIN STATS -->
-    <section class="mountain-stats">
-        <div class="mountain-stats__container">
-            @for (stat of mountainService.stats(); track stat.label) {
-                <div class="mountain-stats__item">
-                    <i [class]="stat.icon" aria-hidden="true"></i>
-                    <strong>{{ stat.value }}</strong>
-                    <span>{{ stat.label }}</span>
-                </div>
-            }
-        </div>
-    </section>
+    <app-mountain-stats-row [stats]="mountainService.stats()" />
 
     <!-- EXPERIENCES -->
     <section class="experiences app-section--spaced">
         <div class="experiences__container">
-            <header class="experiences__header">
-                <div>
-                    <span class="app-eyebrow">
-                        Your Day at Dufour
-                    </span>
-
-                    <h2 class="app-heading">
-                        Everything you need
-                        <span>to hit the slopes.</span>
-                    </h2>
-                </div>
-
-                <p>
-                    Whether it's your first day on snow or another weekend on your favourite run, we'll help you get out
-                    there.
-                </p>
-            </header>
+            <app-section-title kicker="Your Day at Dufour"
+                               title="Everything you need"
+                               titleSpan="to hit the slopes."
+                               description="Whether it's your first day on snow or another weekend on your favourite run, we'll help you get out there."
+            ></app-section-title>
 
             <div class="experiences__grid">
                 @for (experience of mountainExperiences; track experience.path) {

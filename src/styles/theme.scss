@@ -1,3 +1,4 @@
+@use 'breakpoints' as bp;
 @use 'mixins' as m;
 
 :root {
@@ -553,4 +554,10 @@
     gap: 0.5rem;
     margin-top: 1.5rem;
     text-transform: uppercase;
+}
+
+.flex-direction-container {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
 }

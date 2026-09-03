@@ -12,5 +12,14 @@ import { HeroOptions } from '../../../interfaces/hero';
     standalone: true
 })
 export class PrimaryHero {
+    public readonly compact = input<boolean>(false);
+
     public readonly hero = input.required<HeroOptions>();
+
+    public scrollToSection(sectionId: string): void {
+        document.getElementById(sectionId)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }

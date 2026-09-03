@@ -1,1 +1,262 @@
-<app-page-shell pageId="mountain"></app-page-shell>
+<main class="mountain">
+    <app-primary-hero [hero]="hero()">
+        <ng-container hero-actions>
+            <a class="btn btn--primary btn--lg"
+               [routerLink]="pages.conditions.url"
+            >
+                <i class="fas fa-snowflake" aria-hidden="true"></i>
+                <span>Mountain Conditions</span>
+            </a>
+
+            <a class="btn btn--accent btn--lg btn--arrow"
+               [routerLink]="pages.trailMap.url"
+            >
+                <span>View Trail Map</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+
+    <!-- MOUNTAIN OVERVIEW -->
+    <section id="mountain-overview"
+             class="mountain-overview app-section--spaced"
+    >
+        <div class="container">
+            <div class="mountain-overview__inner">
+                <div class="mountain-overview__content">
+                    <span class="app-eyebrow">
+                        Ski Mount Dufour
+                    </span>
+
+                    <h2 class="app-heading">
+                        {{ numberToWord(mountainService.totalTrails()) | titlecase }} trails.
+                        <span>Plenty of ways down.</span>
+                    </h2>
+
+                    <p class="app-copy">
+                        From approachable beginner terrain to more challenging
+                        runs, Mount Dufour offers a compact mountain with something
+                        for every level of skier and rider.
+                    </p>
+
+                    <p class="app-copy">
+                        Add a terrain park, {{ numberToWord(mountainService.totalLifts()) }} lifts
+                        and {{ mountainService.verticalFeet() }} vertical feet, and you have everything you need for a
+                        full day on snow without leaving Elliot Lake.
+                    </p>
+
+                    <a class="btn btn--outline btn--arrow"
+                       [routerLink]="pages.trailMap.url"
+                    >
+                        <span>Explore the Trail Map</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="mountain-overview__visual">
+                    <div class="mountain-overview__image"></div>
+
+                    <div class="mountain-overview__stat">
+                        <strong>{{ mountainService.verticalFeet() }}</strong>
+                        <span>Vertical Feet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERRAIN BREAKDOWN -->
+    <section class="terrain app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="The Terrain"
+                               title="Find the terrain"
+                               titleSpan="that fits your day."
+                               [description]="'Mount Dufour\'s ' + numberToWord(mountainService.totalTrails()) + ' trails range from beginner-friendly runs to more advanced terrain.'"
+            ></app-section-title>
+
+            <div class="terrain__grid">
+                <article class="terrain-card">
+                    <span class="terrain-card__marker terrain-card__marker--beginner"></span>
+
+                    <div class="terrain-card__count">{{ mountainService.totalBeginnerTrails() }}</div>
+
+                    <div>
+                        <span>Beginner</span>
+                        <h3>Build Confidence</h3>
+
+                        <p>
+                            Three beginner trails offer room to learn,
+                            practice and get comfortable on snow.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="terrain-card">
+                    <span class="terrain-card__marker terrain-card__marker--intermediate"></span>
+
+                    <div class="terrain-card__count">{{ mountainService.totalIntermediateTrails() }}</div>
+
+                    <div>
+                        <span>Intermediate</span>
+                        <h3>Keep Progressing</h3>
+
+                        <p>
+                            Step things up with intermediate terrain as your
+                            confidence and technique grow.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="terrain-card">
+                    <span class="terrain-card__marker terrain-card__marker--advanced"></span>
+
+                    <div class="terrain-card__count">{{ mountainService.totalAdvancedTrails() }}</div>
+
+                    <div>
+                        <span>Advanced</span>
+                        <h3>Take On More</h3>
+
+                        <p>
+                            Three advanced runs give experienced skiers and
+                            riders more challenging options.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOUNTAIN STATS -->
+    <app-mountain-stats-row [stats]="mountainService.stats()" />
+
+    <!-- CHILD PAGE GATEWAY -->
+    <section class="mountain-explore app-section--spaced">
+        <div class="container">
+            <app-section-title kicker="Know Before You Go"
+                               title="Everything about"
+                               titleSpan="the mountain."
+                               description="Check today's mountain, get familiar with the terrain, plan around operating hours or learn more about Mount Dufour."
+            ></app-section-title>
+
+            <div class="mountain-explore__grid">
+                <a class="mountain-link mountain-link--conditions"
+                   [routerLink]="pages.conditions.url"
+                >
+                    <div class="mountain-link__background"></div>
+                    <div class="mountain-link__overlay"></div>
+
+                    <div class="mountain-link__content">
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
+
+                        <span>Mountain Report</span>
+
+                        <h3>Conditions</h3>
+
+                        <p>
+                            See trail, lift and terrain park status before
+                            heading to the hill.
+                        </p>
+
+                        <strong>
+                            View Conditions
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="mountain-link mountain-link--trail-map"
+                   [routerLink]="pages.trailMap.url"
+                >
+                    <div class="mountain-link__background"></div>
+                    <div class="mountain-link__overlay"></div>
+
+                    <div class="mountain-link__content">
+                        <i class="fas fa-map" aria-hidden="true"></i>
+
+                        <span>Explore the Mountain</span>
+
+                        <h3>Trail Map</h3>
+
+                        <p>
+                            Get familiar with the runs, lifts and layout of
+                            Mount Dufour.
+                        </p>
+
+                        <strong>
+                            View Trail Map
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="mountain-link mountain-link--hours"
+                   [routerLink]="pages.hours.url"
+                >
+                    <div class="mountain-link__background"></div>
+                    <div class="mountain-link__overlay"></div>
+
+                    <div class="mountain-link__content">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+
+                        <span>Plan Your Day</span>
+
+                        <h3>Hours</h3>
+
+                        <p>
+                            See regular operating days, lift hours and
+                            weather-related information.
+                        </p>
+
+                        <strong>
+                            View Hours
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+
+                <a class="mountain-link mountain-link--about"
+                   [routerLink]="pages.about.url"
+                >
+                    <div class="mountain-link__background"></div>
+                    <div class="mountain-link__overlay"></div>
+
+                    <div class="mountain-link__content">
+                        <i class="fas fa-mountain-sun" aria-hidden="true"></i>
+
+                        <span>Our Mountain</span>
+
+                        <h3>About Mount Dufour</h3>
+
+                        <p>
+                            Discover the local ski area at the heart of
+                            Elliot Lake's winter community.
+                        </p>
+
+                        <strong>
+                            Our Mountain
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </strong>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL FEATURE -->
+    <app-primary-hero [hero]="footerHero()" [compact]="true">
+        <ng-container hero-actions>
+            <a class="btn btn--accent btn--lg"
+               [routerLink]="pages.conditions.url"
+            >
+                Check Conditions
+            </a>
+
+            <a class="btn btn--light btn--lg btn--arrow"
+               [routerLink]="pages.liftTickets.url"
+            >
+                <span>Lift Tickets</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </ng-container>
+    </app-primary-hero>
+</main>

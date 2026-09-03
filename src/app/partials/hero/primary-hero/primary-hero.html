@@ -1,4 +1,4 @@
-<section class="primary-hero">
+<section class="primary-hero" [class.primary-hero--compact]="compact()">
     <div class="primary-hero__background" [style.background-image]="'url(' + hero().image + ')'"></div>
     <div class="primary-hero__overlay"></div>
 
@@ -49,12 +49,13 @@
     </div>
 
     @if (hero().scrollTo?.href && hero().scrollTo?.label) {
-        <a class="primary-hero__scroll"
-           [href]="'#' + hero().scrollTo!.href"
-           [attr.aria-label]="hero().scrollTo!.label"
+        <button class="primary-hero__scroll "
+                type="button"
+                [attr.aria-label]="hero().scrollTo!.label"
+                (click)="scrollToSection(hero().scrollTo!.href)"
         >
             <span>Explore</span>
             <i class="fas fa-arrow-down" aria-hidden="true"></i>
-        </a>
+        </button>
     }
 </section>

@@ -23,60 +23,62 @@ export class MountainService {
 
     public readonly snowmakingPercent = computed<number>(() => this.data().snowmakingPercent);
 
-    public readonly stats = computed<MountainStat[]>(
-        () => [
-            {
-                icon: 'fas fa-mountain',
-                label: 'Trails',
-                value: this.totalTrails().toString()
-            },
-            {
-                icon: 'fas fa-cable-car',
-                label: 'Lifts',
-                value: this.totalLifts().toString()
-            },
-            {
-                icon: 'fas fa-arrow-up',
-                label: 'Vertical Feet',
-                value: this.verticalFeet().toString()
-            },
-            {
-                icon: 'fas fa-snowflake',
-                label: 'Snowmaking',
-                value: `${this.snowmakingPercent()}%`
-            }
-        ]
-    );
+    public readonly stats = computed<MountainStat[]>(() => [
+        {
+            icon: 'fas fa-mountain',
+            label: 'Trails',
+            value: this.totalTrails().toString()
+        },
+        {
+            icon: 'fas fa-cable-car',
+            label: 'Lifts',
+            value: this.totalLifts().toString()
+        },
+        {
+            icon: 'fas fa-arrow-up',
+            label: 'Vertical Feet',
+            value: this.verticalFeet().toString()
+        },
+        {
+            icon: 'fas fa-snowflake',
+            label: 'Snowmaking',
+            value: `${this.snowmakingPercent()}%`
+        }
+    ]);
 
     public readonly status = computed<MountainStatus>(() => this.data().status);
 
-    public readonly summary = computed<MountainSummary[]>(
-        () => [
-            {
-                icon: 'fas fa-mountain',
-                label: 'Trails Open',
-                value: `${this.openTrailsCount()} / ${this.totalTrails()}`
-            },
-            {
-                icon: 'fas fa-cable-car',
-                label: 'Lifts Open',
-                value: `${this.openLiftsCount()} / ${this.totalLifts()}`
-            },
-            {
-                icon: 'fas fa-person-snowboarding',
-                label: 'Terrain Park',
-                status: this.terrainPark().status,
-                value: getStatusLabel(this.terrainPark().status)
-            },
-            {
-                icon: 'fas fa-snowflake',
-                label: 'Snowmaking',
-                value: `${this.snowmakingPercent()}%`
-            }
-        ]
-    );
+    public readonly summary = computed<MountainSummary[]>(() => [
+        {
+            icon: 'fas fa-mountain',
+            label: 'Trails Open',
+            value: `${this.openTrailsCount()} / ${this.totalTrails()}`
+        },
+        {
+            icon: 'fas fa-cable-car',
+            label: 'Lifts Open',
+            value: `${this.openLiftsCount()} / ${this.totalLifts()}`
+        },
+        {
+            icon: 'fas fa-person-snowboarding',
+            label: 'Terrain Park',
+            status: this.terrainPark().status,
+            value: getStatusLabel(this.terrainPark().status)
+        },
+        {
+            icon: 'fas fa-snowflake',
+            label: 'Snowmaking',
+            value: `${this.snowmakingPercent()}%`
+        }
+    ]);
 
     public readonly terrainPark = computed<TerrainPark>(() => this.data().terrainPark);
+
+    public readonly totalBeginnerTrails = computed<number>(() => this.trails().filter((trail) => trail.difficulty === 'beginner').length);
+
+    public readonly totalIntermediateTrails = computed<number>(() => this.trails().filter((trail) => trail.difficulty === 'intermediate').length);
+
+    public readonly totalAdvancedTrails = computed<number>(() => this.trails().filter((trail) => trail.difficulty === 'advanced').length);
 
     public readonly totalLifts = computed<number>(() => this.lifts().length);
 
