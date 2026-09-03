@@ -20,7 +20,7 @@ import { SeasonPassesService } from '../../../services/season-passes';
 })
 export class SeasonPasses {
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'Tickets & Passes',
+        kicker: 'Make It Your Mountain',
         title: 'Season Passes',
         description: 'Enjoy the freedom to ski and ride Mount Dufour all season long.',
         breadcrumbs: breadcrumbsFor('seasonPasses')

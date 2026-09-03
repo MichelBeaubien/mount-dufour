@@ -1,1 +1,73 @@
-<app-page-shell pageId="lockers"></app-page-shell>
+<main class="lockers">
+    <app-secondary-hero [hero]="hero()"></app-secondary-hero>
+
+    <section class="lockers-intro app-section--compact">
+        <div class="container">
+            <div class="lockers-intro__inner">
+                <div class="lockers-intro__content">
+                    <span class="app-eyebrow">
+                        {{ lockersService.intro().kicker }}
+                    </span>
+
+                    <h2>
+                        {{ lockersService.intro().title }}
+                    </h2>
+
+                    <p>
+                        {{ lockersService.intro().description }}
+                    </p>
+                </div>
+
+                <div class="lockers-intro__icon">
+                    <i class="fas fa-person-skiing" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="locker-info app-section--compact">
+        <div class="container">
+            <app-section-title
+                kicker="Chalet Convenience"
+                title="Everything You Need to Get Ready"
+                description="Prepare for your day on the mountain without having to leave the chalet."
+            ></app-section-title>
+
+            <div class="locker-info__grid">
+                @for (info of lockersService.info(); track info.label) {
+                    <article class="locker-info__item">
+                        <div class="locker-info__icon">
+                            <i [class]="info.icon" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>{{ info.label }}</h3>
+
+                        <p>{{ info.value }}</p>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="base-location app-section--compact">
+        <div class="container">
+            <div class="base-location__inner">
+                <div class="base-location__icon">
+                    <i class="fas fa-mountain-sun" aria-hidden="true"></i>
+                </div>
+
+                <div class="base-location__content">
+                    <span class="app-eyebrow">From Chalet to Chairlift</span>
+
+                    <h2>Get Ready Right at the Base</h2>
+
+                    <p>
+                        Mount Dufour's chalet is located directly at the base
+                        of Main and close to the quad lift, keeping you close
+                        to the mountain when you're ready to head outside.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

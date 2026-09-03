@@ -20,7 +20,7 @@ import { RentalsService } from '../../../services/rentals';
 })
 export class Rentals {
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'Lessons & Rentals',
+        kicker: 'Gear Up & Go',
         title: 'Equipment Rentals',
         description: 'Everything you need to get on the mountain, with ski and snowboard rentals available right at the chalet.',
         breadcrumbs: breadcrumbsFor('rentals')

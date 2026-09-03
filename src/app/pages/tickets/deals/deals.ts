@@ -22,7 +22,7 @@ export class Deals {
     public readonly ticketDealsService = inject(TicketDealsService);
 
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'Tickets & Passes',
+        kicker: 'Save on the Slopes',
         title: 'Deals & Specials',
         description: 'Seasonal savings, special offers and more ways to enjoy winter at Mount Dufour.',
         breadcrumbs: breadcrumbsFor('deals')

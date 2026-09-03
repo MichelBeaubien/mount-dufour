@@ -20,7 +20,7 @@ import { breadcrumbsFor } from '../../../config/site-map';
 })
 export class LiftTickets {
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'Tickets & Passes',
+        kicker: 'Hit the Slopes',
         title: 'Lift Tickets',
         description: 'Affordable skiing and snowboarding for the whole family, right here in Elliot Lake.',
         breadcrumbs: breadcrumbsFor('liftTickets')

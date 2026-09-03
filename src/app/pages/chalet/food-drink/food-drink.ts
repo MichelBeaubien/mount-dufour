@@ -22,7 +22,7 @@ export class FoodDrink {
     public readonly foodDrinkService = inject(FoodDrinkService);
 
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'The Chalet',
+        kicker: 'Fuel Your Day',
         title: 'Food & Drink',
         description: 'Warm up, refuel and enjoy familiar favourites from the Mount Dufour canteen.',
         breadcrumbs: breadcrumbsFor('foodDrink')

@@ -1,9 +1,5 @@
 @use 'breakpoints' as bp;
 
-.section {
-    padding: var(--space-section-compact) 0;
-}
-
 .lift-tickets {
     .lift-tickets__grid {
         display: grid;

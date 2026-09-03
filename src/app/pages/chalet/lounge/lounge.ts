@@ -20,7 +20,7 @@ import { LoungeService } from '../../../services/lounge';
 })
 export class Lounge {
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'The Chalet',
+        kicker: 'Warmup & Unwind',
         title: 'Slopeside Lounge',
         description: 'Warm up and unwind in Mount Dufour’s fully licensed fireside lounge.',
         breadcrumbs: breadcrumbsFor('lounge')

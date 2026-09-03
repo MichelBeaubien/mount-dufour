@@ -20,7 +20,7 @@ import { SnowSchoolService } from '../../../services/snow-school';
 })
 export class SnowSchool {
     public readonly hero = computed<HeroOptions>(() => ({
-        kicker: 'Lessons & Rentals',
+        kicker: 'Learn on the Mountain',
         title: 'Snow School',
         description: 'Build confidence, learn new skills and enjoy more of the mountain with personalized ski and snowboard instruction.',
         breadcrumbs: breadcrumbsFor('snowSchool')
